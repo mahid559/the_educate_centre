@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #4F67FF;
+  --color-primary-dark: #3850EB;
+  --color-primary-light: #EFF1FB;
+  --color-pink: #F73775;
+  --color-pink-hover: #E02663;
+  --color-pink-light: #FDEBF1;
+  --color-teal: #00CDC4;
+  --color-teal-hover: #04B9B1;
+  --color-teal-light: #E6FAF9;
+  --color-yellow: #FFC73B;
+  --color-yellow-hover: #EAA816;
+  --color-yellow-light: #FFF9EB;
+  --color-heading: #3B3B3D;
+  --color-body: #54595F;
+  --color-surface-soft: #EFF1FB;
+  --color-border-light: #E2E9EB;
+
+  --font-heading: var(--font-ubuntu), var(--font-nunito), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: var(--font-nunito), var(--font-ubuntu), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: var(--font-open-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-bengali: var(--font-hind-siliguri), "Noto Sans Bengali", sans-serif;
+
+  --radius-blob-1: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  --radius-blob-2: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  --radius-blob-hero: 44% 56% 62% 38% / 46% 40% 60% 54%;
+}
+
+:root {
+  --font-heading-val: var(--font-ubuntu), 'Nunito', sans-serif;
+  --font-body-val: var(--font-open-sans), sans-serif;
+}
+
+body {
+  font-family: var(--font-body-val);
+  color: #54595F;
+  background-color: #FFFFFF;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading-val);
+  color: #3B3B3D;
+}
+
+/* Padora Specific Shapes & Hero Decorations */
+.padora-blob-hero {
+  border-radius: 46% 54% 68% 32% / 38% 44% 56% 62%;
+  transition: all 0.5s ease-in-out;
+}
+
+.padora-blob-about {
+  border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+}
+
+.padora-card-shadow {
+  box-shadow: 0 10px 30px -10px rgba(79, 103, 255, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
+}
+
+.padora-card-hover {
+  transition: transform 0.25s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.25s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.padora-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -12px rgba(79, 103, 255, 0.16);
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
+}
