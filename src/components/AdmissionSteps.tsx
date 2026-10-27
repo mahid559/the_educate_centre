@@ -8,15 +8,35 @@ import { siteContent } from "@/data/content";
 export function AdmissionSteps() {
   const { admissionSteps } = siteContent;
 
-  const stepColors = [
-    { bg: "bg-[#4F67FF]", text: "text-white" },
-    { bg: "bg-[#00CDC4]", text: "text-white" },
-    { bg: "bg-[#FFC73B]", text: "text-[#3B3B3D]" },
-    { bg: "bg-[#F73775]", text: "text-white" },
+  const stepStyles = [
+    {
+      cardBg: "bg-[#4F67FF] text-white",
+      badgeBg: "bg-white text-[#4F67FF]",
+      titleColor: "text-white",
+      descColor: "text-white/90",
+    },
+    {
+      cardBg: "bg-[#00CDC4] text-white",
+      badgeBg: "bg-white text-[#008982]",
+      titleColor: "text-white",
+      descColor: "text-white/90",
+    },
+    {
+      cardBg: "bg-[#FFC73B] text-[#3B3B3D]",
+      badgeBg: "bg-white text-[#B87C00]",
+      titleColor: "text-[#3B3B3D]",
+      descColor: "text-[#3B3B3D]/90",
+    },
+    {
+      cardBg: "bg-[#F73775] text-white",
+      badgeBg: "bg-white text-[#F73775]",
+      titleColor: "text-white",
+      descColor: "text-white/90",
+    },
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-[#F8FAFC] relative">
+    <section className="py-20 md:py-28 bg-white relative">
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -35,7 +55,7 @@ export function AdmissionSteps() {
         {/* Steps Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
           {admissionSteps.map((step, idx) => {
-            const color = stepColors[idx % stepColors.length];
+            const style = stepStyles[idx % stepStyles.length];
 
             return (
               <motion.div
@@ -44,22 +64,28 @@ export function AdmissionSteps() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: idx * 0.1 }}
-                className="bg-white rounded-3xl p-7 sm:p-8 padora-card-shadow padora-card-hover border border-[#E2E9EB] flex flex-col items-start relative z-10"
+                className={`rounded-[28px] p-7 sm:p-8 ${style.cardBg} shadow-xl hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between`}
               >
-                {/* Step Number Badge */}
-                <div
-                  className={`w-14 h-14 rounded-2xl ${color.bg} ${color.text} font-black text-xl flex items-center justify-center mb-6 shadow-md font-[var(--font-nunito)]`}
-                >
-                  {step.number}
+                <div>
+                  {/* Step Number Badge */}
+                  <div
+                    className={`w-14 h-14 rounded-2xl ${style.badgeBg} font-black text-2xl flex items-center justify-center mb-6 shadow-md font-[var(--font-ubuntu)]`}
+                  >
+                    {step.number}
+                  </div>
+
+                  <h3 className={`text-xl sm:text-2xl font-extrabold mb-3 font-[var(--font-ubuntu)] leading-tight ${style.titleColor}`}>
+                    {step.title}
+                  </h3>
+
+                  <p className={`text-sm ${style.descColor} leading-relaxed`}>
+                    {step.description}
+                  </p>
                 </div>
 
-                <h3 className="text-xl font-bold text-[#3B3B3D] mb-3 font-[var(--font-nunito)]">
-                  {step.title}
-                </h3>
-
-                <p className="text-sm text-[#54595F] leading-relaxed">
-                  {step.description}
-                </p>
+                <div className="mt-6 pt-4 border-t border-white/20 text-xs font-bold uppercase tracking-wider opacity-90">
+                  Step 0{idx + 1}
+                </div>
               </motion.div>
             );
           })}
@@ -68,8 +94,8 @@ export function AdmissionSteps() {
         {/* Bottom CTA Box */}
         <div className="mt-14 text-center">
           <Link
-            href="#free-demo"
-            className="inline-flex items-center justify-center bg-[#4F67FF] hover:bg-[#3850EB] text-white font-extrabold text-sm sm:text-base px-8 py-3.5 rounded-full transition-all duration-200 shadow-md hover:scale-[1.02]"
+            href="/admissions#free-demo"
+            className="inline-flex items-center justify-center bg-[#4F67FF] hover:bg-[#3850EB] text-white font-extrabold text-sm sm:text-base px-8 py-4 rounded-full transition-all duration-200 shadow-md hover:scale-[1.02]"
           >
             Start with Step 1: Book Free Demo Now →
           </Link>

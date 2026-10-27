@@ -4,54 +4,44 @@ import { siteContent } from "@/data/content";
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://theeducatee.com";
 
+  // Static routes (ONLY existing routes: Home, About, Programs, Admissions, Contact)
   const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
-      lastModified: "2026-10-26",
+      lastModified: new Date().toISOString().split("T")[0],
       changeFrequency: "weekly",
       priority: 1.0,
     },
     {
       url: `${baseUrl}/about`,
-      lastModified: "2026-10-26",
+      lastModified: new Date().toISOString().split("T")[0],
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${baseUrl}/programs`,
-      lastModified: "2026-10-26",
+      lastModified: new Date().toISOString().split("T")[0],
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/admissions`,
-      lastModified: "2026-10-26",
+      lastModified: new Date().toISOString().split("T")[0],
       changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/success`,
-      lastModified: "2026-10-26",
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/events`,
-      lastModified: "2026-10-26",
-      changeFrequency: "monthly",
-      priority: 0.7,
+      priority: 0.85,
     },
     {
       url: `${baseUrl}/contact`,
-      lastModified: "2026-10-26",
+      lastModified: new Date().toISOString().split("T")[0],
       changeFrequency: "monthly",
       priority: 0.8,
     },
   ];
 
+  // Course detail routes (one per course slug)
   const courseRoutes: MetadataRoute.Sitemap = siteContent.programs.map((p) => ({
     url: `${baseUrl}/programs/${p.slug}`,
-    lastModified: "2026-10-26",
+    lastModified: new Date().toISOString().split("T")[0],
     changeFrequency: "weekly",
     priority: 0.85,
   }));

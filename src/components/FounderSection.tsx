@@ -47,8 +47,11 @@ export function FounderSection() {
                 </div>
 
                 {/* Badge Tag */}
-                <div className="absolute -bottom-4 right-4 z-20 bg-white text-[#4F67FF] px-4 py-2 rounded-full font-black text-xs shadow-lg border border-[#E2E9EB]">
-                  ⭐ Founder &amp; CEO
+                <div className="absolute -bottom-4 right-4 z-20 bg-white text-[#4F67FF] px-4 py-2 rounded-full font-black text-xs shadow-lg border border-[#E2E9EB] inline-flex items-center gap-1.5">
+                  <svg className="w-3.5 h-3.5 fill-[#FFC73B]" viewBox="0 0 24 24">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                  </svg>
+                  <span>Founder &amp; CEO</span>
                 </div>
               </div>
             </motion.div>

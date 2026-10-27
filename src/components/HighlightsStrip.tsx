@@ -51,7 +51,7 @@ export function HighlightsStrip() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="bg-[#FFC73B] text-[#3B3B3D] rounded-3xl sm:rounded-[2.5rem] p-6 sm:p-8 md:p-10 shadow-xl"
+        className="bg-[#FFC73B] text-[#3B3B3D] rounded-[28px] p-6 sm:p-8 md:p-10 shadow-xl"
       >
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 items-center divide-y-2 md:divide-y-0 md:divide-x-2 divide-black/10">
           {highlights.map((item, index) => (
@@ -64,7 +64,7 @@ export function HighlightsStrip() {
               <div className="w-12 h-12 rounded-2xl bg-white/70 text-[#3B3B3D] flex items-center justify-center mb-3 shadow-sm">
                 {getIcon(item.iconName)}
               </div>
-              <h3 className="font-extrabold text-lg sm:text-xl lg:text-2xl text-[#1E2532] font-[var(--font-nunito)]">
+              <h3 className="font-extrabold text-lg sm:text-xl lg:text-2xl text-[#1E2532] font-[var(--font-ubuntu)]">
                 {item.title}
               </h3>
               <p className="text-xs sm:text-sm font-semibold text-black/75 mt-1">

@@ -44,7 +44,7 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left"
           >
             {/* Tag Badge */}
@@ -53,16 +53,18 @@ export function Hero() {
               <span>{hero.tag}</span>
             </div>
 
-            {/* Main Headline */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-extrabold leading-[1.12] tracking-tight text-white mb-6 font-[var(--font-nunito)]">
-              Overcome Your Fear of English.{" "}
-              <span className="text-[#FFC73B] underline decoration-wavy decoration-[#FFC73B]/50 underline-offset-8">
-                Build Your Global Future.
+            {/* Main Headline - High contrast white and yellow */}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-extrabold leading-[1.14] tracking-tight text-white mb-6 font-[var(--font-nunito)]">
+              <span className="text-white block sm:inline">
+                {hero.headlineLine1}{" "}
+              </span>
+              <span className="text-[#FFC73B] underline decoration-wavy decoration-[#FFC73B]/60 underline-offset-8">
+                {hero.headlineLine2}
               </span>
             </h1>
 
             {/* Subtext */}
-            <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed font-normal max-w-2xl mb-8">
+            <p className="text-base sm:text-lg md:text-xl text-white/95 leading-relaxed font-normal max-w-2xl mb-8">
               {hero.subtext}
             </p>
 
@@ -77,23 +79,29 @@ export function Hero() {
 
               <Link
                 href={hero.secondaryCtaLink}
-                className="w-full sm:w-auto inline-flex items-center justify-center bg-white/10 hover:bg-white/20 text-white border-2 border-white/30 font-bold text-base px-8 py-4 rounded-full transition-all duration-200 backdrop-blur-sm hover:scale-[1.02] active:scale-[0.98]"
+                className="w-full sm:w-auto inline-flex items-center justify-center bg-white/10 hover:bg-white/20 text-white border-2 border-white/40 font-bold text-base px-8 py-4 rounded-full transition-all duration-200 backdrop-blur-sm hover:scale-[1.02] active:scale-[0.98]"
               >
                 {hero.secondaryCtaText}
               </Link>
             </div>
 
             {/* Trust Pill */}
-            <div className="mt-8 flex items-center gap-3 text-xs sm:text-sm text-white/85">
+            <div className="mt-8 flex items-center gap-3 text-xs sm:text-sm text-white/90">
               <div className="flex -space-x-2">
-                <div className="w-8 h-8 rounded-full border-2 border-[#4F67FF] bg-[#FFC73B] flex items-center justify-center text-xs font-bold text-[#3B3B3D]">
-                  ✓
+                <div className="w-8 h-8 rounded-full border-2 border-[#4F67FF] bg-[#FFC73B] flex items-center justify-center text-[#3B3B3D]">
+                  <svg className="w-3.5 h-3.5 fill-none stroke-[#3B3B3D] stroke-[2.5]" viewBox="0 0 24 24">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
                 </div>
-                <div className="w-8 h-8 rounded-full border-2 border-[#4F67FF] bg-[#00CDC4] flex items-center justify-center text-xs font-bold text-white">
-                  ✓
+                <div className="w-8 h-8 rounded-full border-2 border-[#4F67FF] bg-[#00CDC4] flex items-center justify-center text-white">
+                  <svg className="w-3.5 h-3.5 fill-none stroke-white stroke-[2.5]" viewBox="0 0 24 24">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
                 </div>
-                <div className="w-8 h-8 rounded-full border-2 border-[#4F67FF] bg-[#F73775] flex items-center justify-center text-xs font-bold text-white">
-                  ✓
+                <div className="w-8 h-8 rounded-full border-2 border-[#4F67FF] bg-[#F73775] flex items-center justify-center text-white">
+                  <svg className="w-3.5 h-3.5 fill-none stroke-white stroke-[2.5]" viewBox="0 0 24 24">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
                 </div>
               </div>
               <p>
@@ -106,7 +114,7 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
+            transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
             className="lg:col-span-5 relative flex items-center justify-center"
           >
             {/* Padora Yellow Organic Backdrop Blob */}
@@ -115,7 +123,7 @@ export function Hero() {
               aria-hidden="true"
             />
 
-            {/* Decorative White Floating Rings (Matches Padora Live Site) */}
+            {/* Decorative White Floating Rings */}
             <div
               className="absolute -top-4 -left-4 w-16 h-16 rounded-full border-[6px] border-white/90 shadow-md pointer-events-none z-20 animate-bounce"
               style={{ animationDuration: "6s" }}

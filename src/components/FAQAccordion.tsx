@@ -37,8 +37,8 @@ export function FAQAccordion() {
             return (
               <div
                 key={faq.id}
-                className={`bg-[#EFF1FB]/60 rounded-2xl border transition-colors duration-200 overflow-hidden ${
-                  isOpen ? "border-[#4F67FF] bg-white padora-card-shadow" : "border-[#E2E9EB]"
+                className={`bg-[#EFF1FB]/60 rounded-[22px] border transition-all duration-200 overflow-hidden ${
+                  isOpen ? "border-2 border-[#4F67FF] bg-white shadow-xl" : "border-[#E2E9EB] hover:border-[#CBD5E1]"
                 }`}
               >
                 <button
@@ -47,7 +47,7 @@ export function FAQAccordion() {
                   aria-expanded={isOpen}
                   className="w-full text-left p-6 sm:p-7 flex items-center justify-between gap-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4F67FF]"
                 >
-                  <span className="text-base sm:text-lg font-bold text-[#3B3B3D] font-[var(--font-nunito)]">
+                  <span className="text-base sm:text-lg font-extrabold text-[#3B3B3D] font-[var(--font-ubuntu)]">
                     {faq.question}
                   </span>
                   <span

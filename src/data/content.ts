@@ -1,7 +1,18 @@
 // ============================================================================
 // The Educatee Centre - Central Content & Asset Registry
+// Location: Feni, Bangladesh
 // All text, contact details, course information, and image paths reside here.
 // ============================================================================
+
+export interface CourseTier {
+  id: string;
+  name: string;
+  badge?: string;
+  target: string;
+  description: string;
+  highlights: string[];
+  popular?: boolean;
+}
 
 export interface Course {
   id: string;
@@ -21,7 +32,10 @@ export interface Course {
   duration: string;
   schedule: string;
   fee: string;
+  batchType: string;
   features: string[];
+  tiers?: CourseTier[];
+  faqs?: { question: string; answer: string }[];
 }
 
 export interface HighlightItem {
@@ -53,16 +67,14 @@ export interface FacilityItem {
   features: string[];
 }
 
-export interface SuccessStory {
+export interface CultureGalleryItem {
   id: string;
-  studentName: string;
-  achievement: string;
-  program: string;
-  tag: string;
+  title: string;
+  category: 'Graduation' | 'Farewell' | 'Seminars' | 'Awards' | 'Workshops' | 'Speaking';
+  caption: string;
   image: string;
   imageAlt: string;
-  quote: string;
-  isPlaceholder?: boolean;
+  badge?: string;
 }
 
 export interface Testimonial {
@@ -76,28 +88,20 @@ export interface Testimonial {
   isPlaceholder?: boolean;
 }
 
-export interface EventItem {
-  id: string;
-  title: string;
-  category: 'Graduation' | 'Farewell' | 'Seminars' | 'Awards' | 'Classroom';
-  dateDisplay: string;
-  description: string;
-  image: string;
-  imageAlt: string;
-  badge?: string;
-}
-
 export interface FAQItem {
   id: string;
   question: string;
   answer: string;
-  category: 'admission' | 'demo' | 'batches' | 'location' | 'contact';
+  category: 'admission' | 'demo' | 'batches' | 'location' | 'contact' | 'courses';
 }
 
 export const siteContent = {
   brand: {
     name: "The Educatee Centre",
+    location: "Feni, Bangladesh",
+    // TODO: Confirm exact founding date in 2022 with Engr. Zahir Uddin Babar
     establishedYear: 2022,
+    foundingNote: "Established in 2022 in Feni as a welcoming learning sanctuary for English and IT mastery.",
     tagline: "Overcome Your Fear of English. Build Your Global Future.",
     subtext: "Feni's premier institute for conversational English fluency, targeted IELTS preparation, and practical IT skills in a warm, motivating environment.",
     logoPath: "/logo.svg",
@@ -113,24 +117,27 @@ export const siteContent = {
     whatsappLink: "https://wa.me/8801874232272",
     facebookUrl: "https://www.facebook.com/TheEducatee.edu",
     email: "theeducatee.feni@gmail.com",
-    openingHours: "Saturday - Thursday: 9:00 AM - 8:00 PM (Friday Closed / Special Batches Only)",
+    // TODO: Confirm exact opening hours for Friday and weekend timings
+    openingHours: "Saturday - Thursday: 9:00 AM - 8:00 PM (Friday: Closed / Special Batches Only)",
+    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3674.3218765415797!2d91.396825!3d23.013589!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x37536831d10206cb%3A0x8677c7ec52aa4cb5!2sCollege%20Rd%2C%20Feni!5e0!3m2!1sen!2sbd!4v1700000000000!5m2!1sen!2sbd",
   },
 
   announcement: {
     active: true,
-    text: "✨ Free Demo Classes starting this week! Special 50% discount on Girls' Batch and IELTS Foundation.",
+    text: "Free Demo Classes starting this week! Special 50% discount on Girls' Batch and IELTS Foundation.",
     actionText: "Book Free Demo",
-    actionLink: "#free-demo",
+    actionLink: "/admissions#free-demo",
   },
 
   hero: {
     tag: "FENI'S TRUSTED LANGUAGE & IT INSTITUTE",
-    headline: "Overcome Your Fear of English. Build Your Global Future.",
-    subtext: "Master spoken English with zero hesitation, prepare for your target IELTS band with free mock tests in small groups of 16, and gain hands-on computer skills.",
+    headlineLine1: "Overcome Your Fear of English.",
+    headlineLine2: "Build Your Global Future.",
+    subtext: "Master spoken English with zero hesitation, prepare for your target IELTS band with free mock tests in small groups of 16, and gain hands-on computer skills in a friendly, encouraging environment.",
     primaryCtaText: "Book a Free Demo Class",
-    primaryCtaLink: "#free-demo",
+    primaryCtaLink: "/admissions#free-demo",
     secondaryCtaText: "Explore Programs",
-    secondaryCtaLink: "#programs",
+    secondaryCtaLink: "/programs",
     image: "/images/hero/hero.jpg",
     imageAlt: "Enthusiastic students practicing English and IT skills at The Educatee Centre",
   },
@@ -162,6 +169,50 @@ export const siteContent = {
     },
   ] as HighlightItem[],
 
+  about: {
+    story: {
+      tag: "OUR STORY",
+      title: "A Friendly Sanctuary for English & Digital Mastery in Feni",
+      // TODO: Confirm exact founding month/date in 2022 with Engr. Zahir Uddin Babar
+      paragraph1: "Established in 2022 in the heart of Feni, The Educatee Centre was born out of a clear observation: countless bright students, job seekers, and professionals in our community felt held back — not by lack of intelligence, but by anxiety and hesitation when speaking English or working with modern digital tools.",
+      paragraph2: "We built The Educatee Centre to be the exact opposite of an intimidating coaching center. Located on the quiet 5th floor of Appayan Afroz Tower on College Road, our campus is an encouraging, judgment-free space where making mistakes is celebrated as the first natural step toward real mastery.",
+    },
+    mission: {
+      title: "Our Mission",
+      description: "To remove the paralyzing fear of speaking English among Feni's students, deliver practical hands-on computer training on individual workstations, and prepare every learner with the language fluency and digital agility needed for global opportunities.",
+    },
+    vision: {
+      title: "Our Vision",
+      description: "To become Feni's premier learning community where conversational confidence, modern IT competence, and ethical values empower young minds to lead in university admissions, overseas study, and fulfilling professional careers.",
+    },
+    whyLoveUs: [
+      {
+        id: "love-1",
+        title: "Friendly & Quiet Environment",
+        description: "Situated on the peaceful 5th floor, our bright classrooms offer a calm sanctuary completely removed from road traffic, where questions are warmly welcomed.",
+        accent: "blue",
+      },
+      {
+        id: "love-2",
+        title: "Practical, Application-Based Teaching",
+        description: "Zero dry memorization. You learn English by speaking in real-world conversation circles, and IT by practicing on your own dedicated computer.",
+        accent: "pink",
+      },
+      {
+        id: "love-3",
+        title: "Personal Mentorship & Care",
+        description: "Led by Engineer Zahir Uddin Babar, each student receives close personal attention, continuous encouragement, and moral guidance.",
+        accent: "teal",
+      },
+      {
+        id: "love-4",
+        title: "Celebrations & Community",
+        description: "From our proud Graduation Day and heartfelt Farewell Ceremonies to the prestigious CEO Award, we celebrate student growth like family.",
+        accent: "yellow",
+      },
+    ] as FeatureCard[],
+  },
+
   aboutPreview: {
     tag: "ABOUT THE EDUCATEE CENTRE",
     title: "Towards a Confident & Globally Skilled Generation",
@@ -177,217 +228,6 @@ export const siteContent = {
     image: "/images/facilities/spoken-room.jpg",
     imageAlt: "Inside The Educatee Centre interactive classroom",
   },
-
-  programs: [
-    {
-      id: "spoken-english-girls",
-      slug: "spoken-english-girls-batch",
-      title: "SSC / Dakhil Spoken English",
-      subtitle: "With dedicated separate Girls' Batch",
-      category: "English",
-      description: "Designed specifically for post-exam students to break the ice, overcome stage fright, and build spontaneous English speaking fluency in a supportive peer group.",
-      badge: "50% Off Girls Batch",
-      accentColor: "pink",
-      image: "/images/programs/spoken-english.jpg",
-      imageAlt: "Students practicing conversational English in a supportive group",
-      targetAudience: [
-        "SSC & Dakhil examination candidates awaiting results or starting college",
-        "Female students seeking an exclusively female, comfortable learning setting",
-        "Beginners with basic grammar knowledge who freeze when speaking English"
-      ],
-      keyHighlights: [
-        "Separate comfortable Girls' batch",
-        "Everyday situational roleplays & dialogues",
-        "Phonetics & accurate pronunciation guidance",
-        "Daily vocabulary builder in context"
-      ],
-      curriculumOutline: [
-        "Overcoming Speaking Hesitation & Confidence Building",
-        "Daily Routine & Conversational Sentence Structures",
-        "Correct Pronunciation, Rhythm & Common Bengali Accents",
-        "Public Speaking, Introductions & Group Discussions"
-      ],
-      // TODO: Update fee, duration, and schedule once confirmed for the upcoming semester
-      duration: "To be announced",
-      schedule: "To be announced",
-      fee: "To be announced",
-      features: ["Small batches", "Separate Girls batch", "Free speaking handouts", "Certificate on completion"]
-    },
-    {
-      id: "spoken-english-professionals",
-      slug: "spoken-english-working-professionals",
-      title: "Spoken English for Professionals",
-      subtitle: "Flexible evening batch for career growth",
-      category: "English",
-      description: "Polished workplace English, email etiquette, client communication, and interview mastery designed to fit the busy schedules of jobholders and entrepreneurs.",
-      badge: "Evening Batch",
-      accentColor: "blue",
-      image: "/images/programs/spoken-english.jpg",
-      imageAlt: "Working professionals in English communication training",
-      targetAudience: [
-        "Working professionals, corporate executives, and business owners",
-        "University graduates preparing for corporate job interviews & BCS viva",
-        "Anyone needing fluent corporate English for meetings and emails"
-      ],
-      keyHighlights: [
-        "Convenient evening time slots",
-        "Professional email, presentation & meeting skills",
-        "Mock job interviews & resume screening",
-        "Networking with fellow professionals in Feni"
-      ],
-      curriculumOutline: [
-        "Corporate Communication & Meeting Etiquette",
-        "Professional Email Writing & Formal Vocabulary",
-        "Presentation Skills & Handling Q&A Confidently",
-        "Job Interview Techniques & Body Language"
-      ],
-      // TODO: Update fee, duration, and schedule once confirmed for the upcoming semester
-      duration: "To be announced",
-      schedule: "To be announced",
-      fee: "To be announced",
-      features: ["Evening classes", "Interview simulation", "One-on-one feedback", "Certificate"]
-    },
-    {
-      id: "ielts-preparation",
-      slug: "ielts-preparation-mastery",
-      title: "IELTS Preparation Masterclass",
-      subtitle: "Foundation, Target-Based Complete & Crash Course",
-      category: "IELTS",
-      description: "Structured preparation across Listening, Reading, Writing, and Speaking with free authentic Cambridge mock tests. Classes strictly capped at 16 students.",
-      badge: "Max 16 Students",
-      accentColor: "yellow",
-      image: "/images/programs/ielts.jpg",
-      imageAlt: "IELTS study materials and small group preparation",
-      targetAudience: [
-        "Post-HSC students planning for higher study abroad (UK, USA, Canada, Australia)",
-        "Job seekers applying for international visas or immigration",
-        "Students aiming for Band 6.5 to 8.0+"
-      ],
-      keyHighlights: [
-        "Post-HSC Foundation + Target-Based Complete + Crash Course options",
-        "Strictly small groups: maximum 16 students per class",
-        "Free authentic full-length mock tests with band evaluation",
-        "Individual Task 1 & Task 2 writing assessments with detailed corrections"
-      ],
-      curriculumOutline: [
-        "Diagnostic Band Assessment & Strategy Session",
-        "Listening Module: Audio accents, note completion, multiple choice",
-        "Reading Module: Skimming, scanning, True/False/Not Given mastery",
-        "Writing Module: Task 1 academic report/letter & Task 2 band 7+ essays",
-        "Speaking Module: 1-on-1 interview simulations with video feedback"
-      ],
-      // TODO: Update fee, duration, and schedule once confirmed for the upcoming semester
-      duration: "To be announced",
-      schedule: "To be announced",
-      fee: "To be announced",
-      features: ["Max 16 students/class", "Free mock tests", "Writing corrections", "Speaking 1-on-1s"]
-    },
-    {
-      id: "computer-ms-office",
-      slug: "basic-computer-and-ms-office",
-      title: "Basic Computer & MS Office",
-      subtitle: "100% practical in dedicated computer room",
-      category: "IT & Digital Skills",
-      description: "Hands-on mastery of Word, Excel, PowerPoint, Google Workspace, and internet navigation. Practice on your own individual machine in a quiet training lab.",
-      badge: "Dedicated PC Lab",
-      accentColor: "teal",
-      image: "/images/programs/computer.jpg",
-      imageAlt: "Students training on individual computer workstations in IT lab",
-      targetAudience: [
-        "School, college, and madrasah students needing essential computer literacy",
-        "Office job applicants requiring Word typing and Excel formula skills",
-        "Beginners with zero prior computer experience"
-      ],
-      keyHighlights: [
-        "1 student per dedicated computer throughout the course",
-        "Bangla (Bijoy & Avro) and English high-speed touch typing",
-        "Microsoft Word (document formatting, official letters, tables)",
-        "Microsoft Excel (formulas, sheets, basic accounting, payroll)",
-        "PowerPoint presentations & cloud file management"
-      ],
-      curriculumOutline: [
-        "Computer Fundamentals, Windows OS & File Management",
-        "Touch Typing in English & Bangla",
-        "MS Word: Professional Layouts, Formatting & Printing",
-        "MS Excel: Mathematical Calculations, Formulas & Charts",
-        "MS PowerPoint: Slide Design & Presentations",
-        "Internet, Email, Cloud Storage & Cyber Safety"
-      ],
-      // TODO: Update fee, duration, and schedule once confirmed for the upcoming semester
-      duration: "To be announced",
-      schedule: "To be announced",
-      fee: "To be announced",
-      features: ["Individual PC for every student", "Quiet lab environment", "Practical assignments", "Certificate"]
-    },
-    {
-      id: "social-media-marketing",
-      slug: "social-media-marketing-freelancing",
-      title: "Social Media Marketing",
-      subtitle: "Practical digital campaigns & content skills",
-      category: "IT & Digital Skills",
-      description: "Learn how to build brands on Facebook, Instagram, and LinkedIn. Create high-converting ads, design graphics with Canva, and manage business pages.",
-      badge: "High Demand",
-      accentColor: "blue",
-      image: "/images/programs/social-media-marketing.jpg",
-      imageAlt: "Digital marketing campaign planning and social media strategy",
-      targetAudience: [
-        "Aspiring digital marketers, freelancers, and content creators",
-        "Feni business owners looking to grow sales through Facebook marketing",
-        "Youth eager to earn remotely through digital freelancing"
-      ],
-      keyHighlights: [
-        "Meta (Facebook & Instagram) business page optimization",
-        "Meta Ads Manager: Audience targeting, budgets & analytics",
-        "Content writing for social media in English & Bangla",
-        "Canva design fundamentals for eye-catching social posts"
-      ],
-      curriculumOutline: [
-        "Social Media Fundamentals & Brand Strategy",
-        "Page Setup, Verification & Organic Reach Tactics",
-        "Meta Ads Manager: Campaign Creation, Pixel & Retargeting",
-        "Content Marketing, Copywriting & Visual Design Tools"
-      ],
-      // TODO: Update fee, duration, and schedule once confirmed for the upcoming semester
-      duration: "To be announced",
-      schedule: "To be announced",
-      fee: "To be announced",
-      features: ["Live ad campaigns", "Canva design guide", "Business case studies", "Certificate"]
-    },
-    {
-      id: "smart-handwriting",
-      slug: "smart-handwriting-course",
-      title: "Smart Handwriting Course",
-      subtitle: "English & Bangla neat writing transformation",
-      category: "English",
-      description: "Transform illegible or slow handwriting into neat, beautiful, exam-ready script in both English and Bengali with scientific stroke and grip techniques.",
-      badge: "Visible Results",
-      accentColor: "yellow",
-      image: "/images/programs/handwriting.jpg",
-      imageAlt: "Neat handwriting transformation on practice notebook",
-      targetAudience: [
-        "School and college students losing exam marks due to untidy handwriting",
-        "Candidates preparing for board exams, university admissions, and job exams",
-        "Anyone who wants proud, clean handwriting"
-      ],
-      keyHighlights: [
-        "Scientific pen grip and posture correction",
-        "Letter formation, spacing, and stroke consistency",
-        "Techniques for maintaining neatness under exam time pressure",
-        "Both English (print & cursive) and Bangla handwriting modules"
-      ],
-      curriculumOutline: [
-        "Finger Grip, Posture & Pressure Control",
-        "English Alphabet Proportions & Baseline Alignment",
-        "Bangla Matra, Kar & Letter Balance",
-        "Speed Writing Drills for Exam Success"
-      ],
-      // TODO: Update fee, duration, and schedule once confirmed for the upcoming semester
-      duration: "To be announced",
-      schedule: "To be announced",
-      fee: "To be announced",
-      features: ["Special practice workbooks", "Personal stroke corrections", "Speed development", "Certificate"]
-    }
-  ] as Course[],
 
   whyChooseUs: [
     {
@@ -421,53 +261,34 @@ export const siteContent = {
     title: "Founder, CEO & Lead Instructor",
     credentials: "B.Sc. Engineering • Passionate Educator & Language Mentor",
     message: "At The Educatee Centre, our mission is to ensure that no student in Feni feels held back by their fear of English or lack of modern computer skills. When I started Educatee in 2022, I wanted to build more than just a training institute — I wanted a safe, uplifting community where every student feels valued, respected, and inspired to reach their full potential. Join us for a free demo class and discover the difference friendly mentorship can make.",
+    teachingStyle: "Engaging, conversational, and mentor-like. Engr. Zahir Uddin Babar seamlessly blends practical spoken drills with ethical life lessons, character building, and career guidance, inspiring students to speak fearlessly with genuine purpose.",
     image: "/images/founder/founder.jpg",
     imageAlt: "Engineer Zahir Uddin Babar, Founder and CEO of The Educatee Centre",
   },
 
-  faculty: [
+  // TODO: Add actual faculty members (name, role, and verified photo) once approved by administration
+  facultyPlaceholders: [
     {
       id: "fac-1",
-      name: "Guest Language Instructor",
-      role: "Faculty Member",
-      specialty: "Spoken English & Pronunciation",
+      name: "Faculty Instructor (To be announced)",
+      role: "Language & Spoken English Trainer",
+      specialty: "Phonetics & Fluency Development",
+      note: "TODO: Add verified instructor profile",
       image: "/images/faculty/faculty-1.jpg",
-      imageAlt: "Faculty member at The Educatee Centre",
+      imageAlt: "The Educatee Centre Faculty Instructor Placeholder",
       isPlaceholder: true,
     },
     {
       id: "fac-2",
-      name: "IT & Digital Skills Instructor",
-      role: "Faculty Member",
+      name: "Faculty Instructor (To be announced)",
+      role: "IT & Digital Skills Trainer",
       specialty: "Computer Applications & Marketing",
+      note: "TODO: Add verified instructor profile",
       image: "/images/faculty/faculty-2.jpg",
-      imageAlt: "IT instructor at The Educatee Centre",
+      imageAlt: "The Educatee Centre IT Trainer Placeholder",
       isPlaceholder: true,
     },
   ],
-
-  admissionSteps: [
-    {
-      number: "01",
-      title: "Book a Free Demo Class",
-      description: "Fill out the simple 30-second form on this page or WhatsApp us to reserve your free seat.",
-    },
-    {
-      number: "02",
-      title: "Attend the Live Demo",
-      description: "Experience our engaging, friendly teaching style and interactive classroom first-hand.",
-    },
-    {
-      number: "03",
-      title: "Choose Your Batch",
-      description: "Select the batch that fits your schedule (regular, girls-only, or evening professional batch).",
-    },
-    {
-      number: "04",
-      title: "Complete Admission",
-      description: "Finalize your admission at our Feni campus office and collect your course materials.",
-    },
-  ] as StepItem[],
 
   facilities: [
     {
@@ -477,10 +298,10 @@ export const siteContent = {
       image: "/images/facilities/spoken-room.jpg",
       imageAlt: "Spoken English classroom with circle seating and collaborative discussion space",
       features: [
-        "Quiet, focused academic environment",
-        "Circle seating promoting natural eye contact and speaking",
+        "Quiet, focused academic atmosphere",
+        "Circle seating promoting natural eye contact and open speaking",
         "Multimedia screen for interactive phonetics and audio exercises",
-        "Air-conditioned comfort on the 5th floor"
+        "Air-conditioned comfort on the peaceful 5th floor"
       ]
     },
     {
@@ -490,20 +311,538 @@ export const siteContent = {
       image: "/images/facilities/computer-room.jpg",
       imageAlt: "Dedicated IT computer room with individual workstations for practical training",
       features: [
-        "1 student per dedicated modern PC workstation",
-        "High-speed internet for web research and freelancing practice",
-        "Licensed Office applications and design software",
-        "Continuous instructor assistance during lab hours"
+        "1 student per dedicated modern PC workstation (strictly no sharing)",
+        "High-speed internet for live web research and campaign practice",
+        "Up-to-date Microsoft Office suite and creative design software",
+        "Continuous instructor assistance during every lab session"
+      ]
+    },
+    {
+      id: "quiet-environment",
+      title: "Quiet, Focused 5th-Floor Environment",
+      description: "Elevated above College Road noise, our center provides the peaceful focus essential for language absorption and analytical learning.",
+      image: "/images/hero/hero.jpg",
+      imageAlt: "Calm, welcoming study environment at The Educatee Centre",
+      features: [
+        "Press 4th floor button in lift for 5th floor access",
+        "Noise-isolated classrooms with bright ambient natural light",
+        "Safe, welcoming environment with dedicated staff support",
+        "Clean, comfortable student lounge and waiting area"
       ]
     }
   ] as FacilityItem[],
 
+  cultureGallery: [
+    {
+      id: "cg-1",
+      title: "The Prestigious CEO Award Ceremony",
+      category: "Awards",
+      caption: "The CEO Award is the highest student honor at The Educatee Centre, presented personally by Engr. Zahir Uddin Babar for extraordinary progress, leadership, and dedication.",
+      image: "/images/events/award-1.jpg",
+      imageAlt: "CEO Award presentation celebrating student academic excellence",
+      badge: "CEO Award Honor",
+    },
+    {
+      id: "cg-2",
+      title: "Annual Graduation & Batch Celebration",
+      category: "Graduation",
+      caption: "Honoring our course graduates with official certificates, proud smiles, and batch memories celebrating their language and computer mastery.",
+      image: "/images/events/graduation-1.jpg",
+      imageAlt: "Graduation celebration with certificates and caps at The Educatee Centre",
+      badge: "Graduation Day",
+    },
+    {
+      id: "cg-3",
+      title: "Interactive Speaking Workshop & Roleplays",
+      category: "Workshops",
+      caption: "Engaging, practical classroom workshop where students practice conversational roleplays in a supportive, judgment-free circle.",
+      image: "/images/events/workshop-1.jpg",
+      imageAlt: "Interactive speaking workshop at The Educatee Centre",
+      badge: "Live Workshop",
+    },
+    {
+      id: "cg-4",
+      title: "Annual Academic Recognition & Honors",
+      category: "Awards",
+      caption: "Recognizing outstanding student milestones, dedication, and speaking transformations during our semester celebration.",
+      image: "/images/events/award-2.jpg",
+      imageAlt: "Awards and certificates presented to hardworking students",
+      badge: "Honor Roll",
+    },
+    {
+      id: "cg-5",
+      title: "Free English & Career Guidance Seminar",
+      category: "Seminars",
+      caption: "Empowering Feni's students with actionable strategies to conquer English anxiety, navigate IELTS preparation, and build IT careers.",
+      image: "/images/events/seminar-1.jpg",
+      imageAlt: "Free educational seminar presented to enthusiastic students",
+      badge: "Free Seminar",
+    },
+    {
+      id: "cg-6",
+      title: "Batch Farewell & Cultural Fellowship",
+      category: "Farewell",
+      caption: "Heartfelt farewell ceremonies marking batch completion with shared memories, reflections, tea fellowship, and lifelong community bonds.",
+      image: "/images/events/farewell-1.jpg",
+      imageAlt: "Batch farewell ceremony and cultural fellowship",
+      badge: "Farewell Day",
+    },
+    {
+      id: "cg-7",
+      title: "Public Speaking Contest & Confidence Showcase",
+      category: "Speaking",
+      caption: "Students step up to the podium to deliver prepared and spontaneous speeches, demonstrating their newly acquired fluency and stage presence.",
+      image: "/images/events/contest-1.jpg",
+      imageAlt: "Student presenting confidently at speaking competition",
+      badge: "Confidence Showcase",
+    },
+  ] as CultureGalleryItem[],
+
+  programs: [
+    {
+      id: "spoken-english-ssc-dakhil",
+      slug: "spoken-english-ssc-dakhil",
+      title: "SSC / Dakhil Spoken English",
+      subtitle: "Dedicated separate Girls' Batch & Regular Batch",
+      category: "English",
+      description: "Designed specifically for post-exam SSC and Dakhil students to break the ice, overcome stage fright, and build spontaneous English speaking fluency in a supportive peer group.",
+      badge: "50% Off Girls Batch",
+      accentColor: "pink",
+      image: "/images/programs/spoken-english.jpg",
+      imageAlt: "Students practicing conversational English in a supportive group",
+      targetAudience: [
+        "SSC & Dakhil examination candidates awaiting results or starting college",
+        "Female students seeking an exclusively female, comfortable learning setting",
+        "Beginners with basic textbook grammar who freeze when speaking English aloud",
+        "Students wanting to build lasting speaking confidence before college"
+      ],
+      keyHighlights: [
+        "Dedicated separate comfortable Girls' batch",
+        "Overcomes stage fright and removes speaking hesitation completely",
+        "Everyday situational roleplays, dialogues & phonetics guidance",
+        "Essential spoken grammar applied in practice with zero rote memorization",
+        "100% offline interactive classroom sessions"
+      ],
+      curriculumOutline: [
+        "Module 1: Conquering Speaking Hesitation & Ice-Breaking Drills",
+        "Module 2: Daily Life Conversation Circles & Routine Expressions",
+        "Module 3: Correct English Pronunciation, Word Stress & Rhythm",
+        "Module 4: Practical Grammar for Natural Sentence Formation",
+        "Module 5: Public Speaking, Impromptu Introductions & Group Debates"
+      ],
+      // TODO: Confirm upcoming batch schedule, fee, and exact duration with administration
+      duration: "To be announced",
+      schedule: "To be announced",
+      fee: "To be announced",
+      batchType: "Offline / Separate Girls Batch & Regular Batch",
+      features: [
+        "Separate Girls batch",
+        "Small interactive groups",
+        "Free speaking handouts",
+        "Certificate on completion"
+      ],
+      faqs: [
+        {
+          question: "Is there a completely separate batch for female students?",
+          answer: "Yes! We run an exclusive, comfortable Girls' Batch where female students practice speaking freely with complete privacy and peer encouragement."
+        },
+        {
+          question: "I know grammar rules but freeze when speaking. Can this course help?",
+          answer: "This course is engineered specifically for that! We eliminate textbook memorization and focus on interactive speaking drills that build spontaneous reflex fluency."
+        },
+        {
+          question: "Can I attend a free demo class before enrolling?",
+          answer: "Absolutely! We conduct free demo classes before every new batch so you can experience the interactive classroom atmosphere first-hand."
+        }
+      ]
+    },
+    {
+      id: "spoken-english-professionals",
+      slug: "spoken-english-professionals",
+      title: "Spoken English for Working Professionals",
+      subtitle: "Convenient evening batch designed around job schedules",
+      category: "English",
+      description: "Polished workplace English, email etiquette, client communication, and interview mastery designed specifically to fit the busy evening schedules of jobholders and entrepreneurs.",
+      badge: "Evening Batch",
+      accentColor: "blue",
+      image: "/images/programs/spoken-english.jpg",
+      imageAlt: "Working professionals in English communication training",
+      targetAudience: [
+        "Working professionals, corporate executives, bankers, and teachers",
+        "Business owners and entrepreneurs dealing with corporate clients",
+        "University graduates preparing for corporate job interviews & BCS viva",
+        "Anyone needing fluent workplace English for meetings, calls, and emails"
+      ],
+      keyHighlights: [
+        "Convenient evening time slots tailored to office working hours",
+        "Workplace meetings, client presentations & negotiations",
+        "Professional email drafting, formal tone & executive vocabulary",
+        "Mock job interviews, resume screening & viva confidence",
+        "Supportive networking community with fellow professionals in Feni"
+      ],
+      curriculumOutline: [
+        "Module 1: Professional Workplace Etiquette & Meeting Communication",
+        "Module 2: Executive Email Writing, Reports & Formal Vocabulary",
+        "Module 3: Impactful Presentation Delivery & Handling Q&A Confidently",
+        "Module 4: Client Phone Handling, Negotiations & Professional Small Talk",
+        "Module 5: Job Interview Simulations, Viva Strategy & Poise"
+      ],
+      // TODO: Confirm upcoming batch schedule, fee, and exact duration with administration
+      duration: "To be announced",
+      schedule: "To be announced",
+      fee: "To be announced",
+      batchType: "Evening Batch (After Office Hours)",
+      features: [
+        "Evening classes",
+        "Workplace roleplay simulations",
+        "One-on-one pronunciation review",
+        "Certificate on completion"
+      ],
+      faqs: [
+        {
+          question: "What time do the professional evening classes take place?",
+          answer: "Evening batches are scheduled after standard office hours (typically 6:30 PM - 8:00 PM). Please contact us or book a demo for exact upcoming batch timings."
+        },
+        {
+          question: "Will this course cover formal email writing and corporate presentations?",
+          answer: "Yes, workplace correspondence, presentation slide commentary, and business meeting etiquette are core pillars of this curriculum."
+        }
+      ]
+    },
+    {
+      id: "ielts-preparation",
+      slug: "ielts-preparation",
+      title: "IELTS Preparation",
+      subtitle: "Post-HSC Foundation, Complete Course & Crash Course",
+      category: "IELTS",
+      description: "Structured band-targeted preparation across Listening, Reading, Writing, and Speaking with free authentic Cambridge mock tests. Classes strictly capped at a maximum of 16 students.",
+      badge: "Max 16 Students",
+      accentColor: "yellow",
+      image: "/images/programs/ielts.jpg",
+      imageAlt: "IELTS study materials and small group preparation",
+      targetAudience: [
+        "Post-HSC students planning for higher study abroad (UK, USA, Canada, Australia, Europe)",
+        "Job seekers applying for international migration or work visas",
+        "Candidates aiming for target Band 6.5, 7.0, 7.5 or 8.0+",
+        "Students seeking personalized writing correction and mock exam practice"
+      ],
+      keyHighlights: [
+        "Three distinct specialized tracks: Post-HSC Foundation, Target-Based Complete Course, and Crash Course",
+        "Strictly small groups: maximum 16 students per batch for individual focus",
+        "Regular authentic Cambridge-format free mock tests with detailed evaluations",
+        "Individual Task 1 & Task 2 writing assessments with sentence-by-sentence feedback",
+        "One-on-one simulated speaking interviews with examiner-grade review"
+      ],
+      curriculumOutline: [
+        "Module 1: Diagnostic Assessment & Band Strategy Roadmap",
+        "Module 2: Listening Module (Audio accents, note completion, multiple choice)",
+        "Module 3: Reading Module (Skimming, scanning, True/False/Not Given mastery)",
+        "Module 4: Writing Module (Task 1 data reports/letters & Task 2 Band 7+ essays)",
+        "Module 5: Speaking Module (1-on-1 interview simulations & fluency drills)",
+        "Module 6: Full-Length Authentic Mock Tests with Band Score Analysis"
+      ],
+      // TODO: Confirm upcoming batch schedule, fee, and exact duration with administration
+      duration: "To be announced",
+      schedule: "To be announced",
+      fee: "To be announced",
+      batchType: "Small Group (Max 16 Students)",
+      features: [
+        "Max 16 students/batch",
+        "Free authentic mock tests",
+        "Individual writing corrections",
+        "One-on-one speaking drills"
+      ],
+      tiers: [
+        {
+          id: "tier-foundation",
+          name: "Post-HSC Foundation",
+          badge: "Starting Fresh",
+          target: "Post-HSC candidates & early starters",
+          description: "Builds a robust academic English vocabulary, sentence structure precision, and reading endurance before moving into intense test strategies.",
+          highlights: [
+            "Grammar & academic vocabulary booster",
+            "Introductory reading & listening techniques",
+            "Speaking confidence & phonetics drills",
+            "Free diagnostic band evaluation"
+          ],
+        },
+        {
+          id: "tier-complete",
+          name: "Target-Based Complete Course",
+          badge: "Most Popular",
+          target: "Target Band 6.5 to 8.0+ seekers",
+          description: "Our comprehensive flagship program covering advanced test strategies for all 4 test components with rigorous weekly evaluations.",
+          highlights: [
+            "Comprehensive 4-module mastery",
+            "Weekly full-length mock tests included",
+            "Personalized essay & graph corrections",
+            "Strict max 16 students per batch guarantee"
+          ],
+          popular: true,
+        },
+        {
+          id: "tier-crash",
+          name: "Crash Course",
+          badge: "Fast Track",
+          target: "Upcoming test-takers needing fast revision",
+          description: "High-intensity fast-track preparation focusing on high-scoring tips, time management tricks, and full-length exam simulations.",
+          highlights: [
+            "Exam strategy & time management drills",
+            "Targeted weaknesses diagnosis",
+            "Simulated speaking interview marathons",
+            "Quick band score optimization"
+          ],
+        }
+      ],
+      faqs: [
+        {
+          question: "Why are IELTS classes capped at 16 students?",
+          answer: "Quality over quantity. With a maximum of 16 students, our lead instructors can give line-by-line feedback on every student's essays and conduct regular 1-on-1 speaking interviews."
+        },
+        {
+          question: "Are mock tests really free of charge?",
+          answer: "Yes! Full-length Cambridge-format mock tests are completely free for all enrolled IELTS students, complete with examiner-standard band scoring and feedback."
+        },
+        {
+          question: "Which tier should I choose?",
+          answer: "If you just finished HSC, the Foundation track prepares your core English. If you have moderate English fluency, the Complete Course is recommended. For test-takers with an exam date within a month, the Crash Course is ideal."
+        }
+      ]
+    },
+    {
+      id: "basic-computer-ms-office",
+      slug: "basic-computer-ms-office",
+      title: "Basic Computer & Microsoft Office",
+      subtitle: "100% practical training in a dedicated computer room",
+      category: "IT & Digital Skills",
+      description: "Hands-on mastery of Word, Excel, PowerPoint, Bangla & English touch typing, and internet essentials. Every student practices on their own dedicated workstation in a quiet computer lab.",
+      badge: "Dedicated PC Lab",
+      accentColor: "teal",
+      image: "/images/programs/computer.jpg",
+      imageAlt: "Students training on individual computer workstations in IT lab",
+      targetAudience: [
+        "School, college, and madrasah students needing essential computer literacy",
+        "Job seekers preparing for office, corporate, or government employment",
+        "Office assistants needing Word typing, Excel calculations, and email skills",
+        "Beginners with zero prior computer experience"
+      ],
+      keyHighlights: [
+        "1 student per dedicated computer workstation (strictly no sharing)",
+        "Bangla (Bijoy & Avro) and English high-speed touch typing",
+        "Microsoft Word: document formatting, official letters, tables & layout",
+        "Microsoft Excel: mathematical formulas, payroll sheets, ledger & charts",
+        "Microsoft PowerPoint: modern slide design & presentations",
+        "Cloud file storage, professional email communication & internet safety"
+      ],
+      curriculumOutline: [
+        "Module 1: Computer Fundamentals, Hardware, Windows OS & File Management",
+        "Module 2: High-Speed Touch Typing in English & Bangla (Bijoy/Avro)",
+        "Module 3: MS Word (Official Letters, Formatting, Tables & Printing)",
+        "Module 4: MS Excel (Calculations, IF Logic, Financial Sheets & Charts)",
+        "Module 5: MS PowerPoint (Presentation Design, Animations & Slideshows)",
+        "Module 6: Web Browsing, Email Etiquette, Google Drive & Cyber Security"
+      ],
+      // TODO: Confirm upcoming batch schedule, fee, and exact duration with administration
+      duration: "To be announced",
+      schedule: "To be announced",
+      fee: "To be announced",
+      batchType: "Dedicated PC Lab (1 Student Per Machine)",
+      features: [
+        "Individual PC for every student",
+        "Quiet lab environment",
+        "100% practical assignments",
+        "Certificate on completion"
+      ],
+      faqs: [
+        {
+          question: "Do I have to share a computer with other students?",
+          answer: "Never! At The Educatee Centre, every single student sits at their own individual workstation for the entirety of each class."
+        },
+        {
+          question: "I have never touched a computer before. Can I learn?",
+          answer: "Yes, our instructors guide you step-by-step from switching on the PC and holding the mouse properly to advanced Excel spreadsheets and touch typing."
+        }
+      ]
+    },
+    {
+      id: "social-media-marketing",
+      slug: "social-media-marketing",
+      title: "Social Media Marketing",
+      subtitle: "Practical campaigns, content creation & digital branding",
+      category: "IT & Digital Skills",
+      description: "Learn foundational digital marketing across social platforms. Build and optimize business pages, launch targeted Meta ads, design eye-catching graphics with Canva, and write high-converting copy.",
+      badge: "High Demand",
+      accentColor: "blue",
+      image: "/images/programs/social-media-marketing.jpg",
+      imageAlt: "Digital marketing campaign planning and social media strategy",
+      targetAudience: [
+        "Aspiring digital marketers, freelancers, and content creators",
+        "Feni business owners looking to increase sales through Facebook marketing",
+        "Students wanting to earn through digital freelancing and social media management",
+        "Anyone interested in modern digital brand building"
+      ],
+      keyHighlights: [
+        "Meta (Facebook & Instagram) business page setup, verification & branding",
+        "Meta Ads Manager: Campaign creation, custom audiences, budgets & ROI",
+        "Canva graphic design essentials for social banners and promotional posts",
+        "Copywriting fundamentals in Bangla & English for maximum engagement",
+        "Practical campaign analysis based on local and international case studies"
+      ],
+      curriculumOutline: [
+        "Module 1: Social Media Landscape & Brand Building Fundamentals",
+        "Module 2: Facebook & Instagram Business Page Setup & Organic Growth",
+        "Module 3: Canva Graphic Design for High-Performing Social Creatives",
+        "Module 4: Meta Ads Manager (Ad Objectives, Targeting, Pixels & Budgets)",
+        "Module 5: Content Calendar Creation, Copywriting & Video Reels Strategy",
+        "Module 6: Freelancing Platforms & Landing Your First Client"
+      ],
+      // TODO: Confirm upcoming batch schedule, fee, and exact duration with administration
+      duration: "To be announced",
+      schedule: "To be announced",
+      fee: "To be announced",
+      batchType: "Hands-on Practical / Live Case Studies",
+      features: [
+        "Live ad campaigns",
+        "Canva design templates",
+        "Business case studies",
+        "Certificate on completion"
+      ],
+      faqs: [
+        {
+          question: "Do I need graphic design software like Photoshop for this course?",
+          answer: "No, we teach modern, high-speed design tools like Canva which allow anyone to create stunning social media graphics without steep learning curves."
+        },
+        {
+          question: "Can local Feni entrepreneurs apply this to their own shops and businesses?",
+          answer: "Absolutely! We dedicate class time to local store promotion, targeting customers within Feni and surrounding districts using Facebook location advertising."
+        }
+      ]
+    },
+    {
+      id: "smart-handwriting",
+      slug: "smart-handwriting",
+      title: "Smart Handwriting Course",
+      subtitle: "English & Bangla neat writing transformation",
+      category: "English",
+      description: "Transform untidy, slow, or illegible handwriting into neat, beautiful, exam-ready script in both English and Bengali through scientific stroke, grip, and posture correction.",
+      badge: "Visible Results",
+      accentColor: "yellow",
+      image: "/images/programs/handwriting.jpg",
+      imageAlt: "Neat handwriting transformation on practice notebook",
+      targetAudience: [
+        "School and college students losing exam marks due to messy handwriting",
+        "Candidates preparing for board exams, university admissions, and job tests",
+        "Students who experience wrist fatigue or slow writing speed",
+        "Anyone seeking clean, confident, and beautiful handwriting"
+      ],
+      keyHighlights: [
+        "Scientific pen grip, sitting posture & wrist pressure correction",
+        "Letter formation, spacing, proportion, and stroke consistency",
+        "Techniques for maintaining neat presentation under exam time pressure",
+        "Both English (print & cursive) and Bangla handwriting modules covered",
+        "Individual stroke corrections and progress monitoring"
+      ],
+      curriculumOutline: [
+        "Module 1: Ergonomics, Grip Correction, Posture & Pressure Control",
+        "Module 2: English Alphabet Proportions, Slant & Baseline Uniformity",
+        "Module 3: English Word Spacing, Line Alignment & Cursive Connections",
+        "Module 4: Bangla Matra, Kar, Yuktakkhor & Letter Balance",
+        "Module 5: Speed Writing Drills to Ace Exam Papers Neatly"
+      ],
+      // TODO: Confirm upcoming batch schedule, fee, and exact duration with administration
+      duration: "To be announced",
+      schedule: "To be announced",
+      fee: "To be announced",
+      batchType: "Practice & Personal Stroke Correction",
+      features: [
+        "Special practice workbooks",
+        "Personal stroke corrections",
+        "Speed development drills",
+        "Certificate on completion"
+      ],
+      faqs: [
+        {
+          question: "How quickly can someone improve their handwriting?",
+          answer: "With our structured scientific drills and workbook practice, noticeable improvements in neatness and spacing appear within just 2 to 3 weeks."
+        },
+        {
+          question: "Is this course only for children or also for adults?",
+          answer: "It is open to all ages! Many college students, BCS aspirants, and jobholders attend to increase their writing speed and exam presentation clarity."
+        }
+      ]
+    }
+  ] as Course[],
+
+  offers: [
+    {
+      id: "offer-demo",
+      title: "Free Demo Classes Before Every Batch",
+      description: "Experience our warm, interactive teaching style and meet your instructors before paying any admission fee. 100% free with no obligation.",
+      badge: "Always Available",
+      note: "Seats are limited per session",
+    },
+    {
+      id: "offer-discount",
+      title: "50% Discount on Selected Batches",
+      description: "Special community incentive for our dedicated Girls' Spoken English batches and early-bird IELTS foundation intakes.",
+      badge: "50% Off",
+      note: "Limited seats available per intake",
+    },
+  ],
+
+  admissionSteps: [
+    {
+      number: "01",
+      title: "Book a Free Demo Class",
+      description: "Fill out the simple 30-second form on this page or WhatsApp us to reserve your free demo seat.",
+    },
+    {
+      number: "02",
+      title: "Attend the Live Demo",
+      description: "Step into our quiet 5th-floor classrooms and experience our friendly, engaging teaching method.",
+    },
+    {
+      number: "03",
+      title: "Choose Your Batch",
+      description: "Select the schedule that fits your life (regular, separate girls' batch, or evening professional batch).",
+    },
+    {
+      number: "04",
+      title: "Complete Admission at Campus",
+      description: "Finalize your admission at our Feni office, collect your course handouts, and begin your journey.",
+    },
+  ] as StepItem[],
+
+  targetAudiences: [
+    {
+      title: "SSC & Dakhil Students",
+      description: "Conquer spoken English hesitation and learn essential computer skills right after exams.",
+      icon: "graduation-cap",
+    },
+    {
+      title: "Post-HSC Students",
+      description: "Target Band 6.5 - 8.0+ in IELTS and build academic English fluency for university & study abroad.",
+      icon: "compass",
+    },
+    {
+      title: "Working Professionals",
+      description: "Convenient evening batches for corporate communication, presentations, emails, and promotion.",
+      icon: "briefcase",
+    },
+    {
+      title: "General Skill Seekers",
+      description: "Neat handwriting, practical digital literacy, and social media freelancing for all ages.",
+      icon: "sparkles",
+    },
+  ],
+
+  // TODO: Replace sample student reviews with verified student testimonials and photos
   testimonials: [
     {
       id: "t1",
-      name: "Ayesha Siddiqua",
+      name: "Ayesha Siddiqua (Sample Review)",
       role: "College Student",
-      course: "Spoken English (Girls Batch)",
+      course: "SSC/Dakhil Spoken English (Girls Batch)",
       avatar: "/images/testimonials/student-1.jpg",
       text: "I used to freeze whenever someone asked me a question in English. The separate Girls' Batch gave me a completely comfortable space to speak without any shame or fear. Within weeks, my hesitation was gone. Zahir sir treats every student like a caring mentor.",
       theme: "Friendly environment & gained confidence in speaking",
@@ -511,21 +850,21 @@ export const siteContent = {
     },
     {
       id: "t2",
-      name: "Tanvir Ahmed",
+      name: "Tanvir Ahmed (Sample Review)",
       role: "Corporate Executive",
-      course: "Spoken English for Professionals",
+      course: "Spoken English for Working Professionals",
       avatar: "/images/testimonials/student-2.jpg",
-      text: "The evening batch was exactly what I needed after office hours. The classes are clear, lively, and focused on real workplace conversations rather than boring grammar rules. My meeting communication and email drafting have improved dramatically.",
+      text: "The evening batch was exactly what I needed after office hours. The classes are clear, lively, and focused on real workplace conversations rather than dry grammar rules. My meeting communication and email drafting have improved dramatically.",
       theme: "Clear teaching & engaging practical classes",
       isPlaceholder: true
     },
     {
       id: "t3",
-      name: "Nusrat Jahan",
+      name: "Nusrat Jahan (Sample Review)",
       role: "Post-HSC Student",
       course: "IELTS Preparation",
       avatar: "/images/testimonials/student-3.jpg",
-      text: "With only 16 students in our class, every single one of us got personal attention and feedback on our writing tasks. The regular free mock tests made the actual test atmosphere feel completely familiar.",
+      text: "With only 16 students in our class, every single one of us got personal attention and feedback on our writing tasks. The regular free mock tests made the actual exam atmosphere feel completely familiar.",
       theme: "Founder as mentor & small group care",
       isPlaceholder: true
     }
@@ -534,9 +873,9 @@ export const siteContent = {
   successStories: [
     {
       id: "s1",
-      studentName: "IELTS Target Band Achiever",
+      studentName: "IELTS Target Band Achiever (Spotlight)",
       achievement: "Target Band 7.5 Overall",
-      program: "IELTS Complete Course",
+      program: "IELTS Preparation",
       tag: "IELTS Success Spotlight",
       image: "/images/success/ielts-1.jpg",
       imageAlt: "IELTS success result spotlight at The Educatee Centre",
@@ -545,16 +884,16 @@ export const siteContent = {
     },
     {
       id: "s2",
-      studentName: "CEO Award Recipient",
+      studentName: "CEO Award Recipient (Honors)",
       achievement: "Top Student Honor of the Year",
-      program: "English & IT Diploma",
+      program: "English & IT Programs",
       tag: "CEO Award Honor",
       image: "/images/events/award-1.jpg",
       imageAlt: "CEO Award presentation celebrating student academic excellence",
       quote: "The CEO Award inspired me to believe in my capabilities. The Educatee Centre changed my perspective on learning.",
       isPlaceholder: true
     }
-  ] as SuccessStory[],
+  ],
 
   events: [
     {
@@ -597,7 +936,7 @@ export const siteContent = {
       imageAlt: "Batch farewell ceremony and cultural fellowship",
       badge: "Farewell Day"
     }
-  ] as EventItem[],
+  ],
 
   faqs: [
     {

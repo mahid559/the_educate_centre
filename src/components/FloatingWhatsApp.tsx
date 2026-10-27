@@ -9,8 +9,11 @@ export function FloatingWhatsApp() {
   return (
     <aside aria-label="Quick contact" className="fixed bottom-6 right-6 z-50 flex items-center group">
       {/* Tooltip */}
-      <span className="hidden sm:inline-block mr-3 px-3.5 py-1.5 rounded-full bg-white text-[#3B3B3D] text-xs font-bold shadow-lg border border-[#E2E9EB] opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
-        Chat with us on WhatsApp 👋
+      <span className="hidden sm:inline-flex items-center gap-1.5 mr-3 px-3.5 py-1.5 rounded-full bg-white text-[#3B3B3D] text-xs font-bold shadow-lg border border-[#E2E9EB] opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
+        <svg className="w-3.5 h-3.5 fill-[#25D366]" viewBox="0 0 24 24">
+          <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
+        </svg>
+        <span>Chat with us on WhatsApp</span>
       </span>
 
       {/* Button */}

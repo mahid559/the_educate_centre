@@ -33,18 +33,20 @@
   --font-body-val: var(--font-open-sans), sans-serif;
 }
 
-body {
-  font-family: var(--font-body-val);
-  color: #54595F;
-  background-color: #FFFFFF;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
-}
+@layer base {
+  body {
+    font-family: var(--font-body-val);
+    color: #54595F;
+    background-color: #FFFFFF;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading-val);
-  color: #3B3B3D;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading-val);
+    color: #3B3B3D;
+  }
 }
 
 /* Padora Specific Shapes & Hero Decorations */
@@ -70,9 +72,30 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 20px 40px -12px rgba(79, 103, 255, 0.16);
 }
 
+/* Custom Scrollbar for Smooth Touch */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F8FAFC;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
 /* Smooth Scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+/* Focus styles for keyboard accessibility */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid #4F67FF;
+  outline-offset: 2px;
 }
 
 /* Reduced Motion Support */

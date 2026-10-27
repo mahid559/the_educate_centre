@@ -57,21 +57,27 @@ export function DemoBookingForm() {
               </p>
 
               <div className="flex flex-col gap-2.5 text-sm text-white/80">
-                <div className="flex items-center gap-2 justify-center lg:justify-start">
-                  <span className="w-5 h-5 rounded-full bg-[#00CDC4] text-white flex items-center justify-center text-xs font-bold">
-                    ✓
+                <div className="flex items-center gap-2.5 justify-center lg:justify-start">
+                  <span className="w-5 h-5 rounded-full bg-[#00CDC4] text-white flex items-center justify-center flex-shrink-0">
+                    <svg className="w-3 h-3 fill-none stroke-white stroke-[2.5]" viewBox="0 0 24 24">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
                   </span>
                   <span>100% Free • No obligation to register</span>
                 </div>
-                <div className="flex items-center gap-2 justify-center lg:justify-start">
-                  <span className="w-5 h-5 rounded-full bg-[#00CDC4] text-white flex items-center justify-center text-xs font-bold">
-                    ✓
+                <div className="flex items-center gap-2.5 justify-center lg:justify-start">
+                  <span className="w-5 h-5 rounded-full bg-[#00CDC4] text-white flex items-center justify-center flex-shrink-0">
+                    <svg className="w-3 h-3 fill-none stroke-white stroke-[2.5]" viewBox="0 0 24 24">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
                   </span>
                   <span>Separate comfortable Girls&apos; batch available</span>
                 </div>
-                <div className="flex items-center gap-2 justify-center lg:justify-start">
-                  <span className="w-5 h-5 rounded-full bg-[#00CDC4] text-white flex items-center justify-center text-xs font-bold">
-                    ✓
+                <div className="flex items-center gap-2.5 justify-center lg:justify-start">
+                  <span className="w-5 h-5 rounded-full bg-[#00CDC4] text-white flex items-center justify-center flex-shrink-0">
+                    <svg className="w-3 h-3 fill-none stroke-white stroke-[2.5]" viewBox="0 0 24 24">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
                   </span>
                   <span>Small batches strictly capped at 16 students</span>
                 </div>
@@ -90,8 +96,10 @@ export function DemoBookingForm() {
                       exit={{ opacity: 0, scale: 0.95 }}
                       className="text-center py-6"
                     >
-                      <div className="w-16 h-16 rounded-full bg-[#00CDC4]/20 text-[#00CDC4] flex items-center justify-center mx-auto mb-4 text-3xl font-bold">
-                        ✓
+                      <div className="w-16 h-16 rounded-full bg-[#00CDC4]/20 text-[#00CDC4] flex items-center justify-center mx-auto mb-4">
+                        <svg className="w-8 h-8 fill-none stroke-[#00CDC4] stroke-[3]" viewBox="0 0 24 24">
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
                       </div>
                       <h3 className="text-2xl font-bold text-[#3B3B3D] mb-2 font-[var(--font-nunito)]">
                         Demo Class Reserved!
@@ -198,9 +206,12 @@ export function DemoBookingForm() {
                         {isSubmitting ? "Submitting..." : "Reserve My Free Seat →"}
                       </button>
 
-                      <p className="text-[11px] text-center text-[#54595F] mt-1">
-                        🔒 Your contact number is safe and only used for your demo class schedule.
-                      </p>
+                      <div className="flex items-center justify-center gap-1.5 text-[11px] text-[#54595F] mt-1">
+                        <svg className="w-3.5 h-3.5 fill-current text-[#54595F]" viewBox="0 0 24 24">
+                          <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z" />
+                        </svg>
+                        <span>Your contact number is safe and only used for your demo class schedule.</span>
+                      </div>
                     </motion.form>
                   )}
                 </AnimatePresence>

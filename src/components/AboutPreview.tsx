@@ -72,8 +72,10 @@ export function AboutPreview() {
             <ul className="flex flex-col gap-3.5 mb-8 w-full">
               {aboutPreview.bullets.map((bullet, idx) => (
                 <li key={idx} className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#4F67FF] text-white flex items-center justify-center mt-0.5 text-xs font-bold shadow-sm">
-                    ✓
+                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#4F67FF] text-white flex items-center justify-center mt-0.5 shadow-sm">
+                    <svg className="w-3.5 h-3.5 fill-none stroke-white stroke-[2.5]" viewBox="0 0 24 24">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
                   </span>
                   <span className="text-sm sm:text-base font-semibold text-[#3B3B3D]">
                     {bullet}

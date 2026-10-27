@@ -1,11 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { Ubuntu, Nunito, Open_Sans, Hind_Siliguri } from "next/font/google";
 import "./globals.css";
-import { siteContent } from "@/data/content";
-import { AnnouncementBar } from "@/components/AnnouncementBar";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
+import { siteContent } from "@/data/content";
 
 const ubuntu = Ubuntu({
   weight: ["400", "500", "700"],
@@ -59,6 +58,7 @@ export const metadata: Metadata = {
     "Zahir Uddin Babar",
     "English language institute Feni",
     "Girls spoken english batch Feni",
+    "IT training Feni",
   ],
   authors: [{ name: "Engr. Zahir Uddin Babar" }],
   creator: "The Educatee Centre",
@@ -97,19 +97,49 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    name: siteContent.brand.name,
+    alternateName: "Educatee Feni",
+    url: "https://theeducatee.com",
+    logo: "https://theeducatee.com/logo.png",
+    description: siteContent.brand.subtext,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: siteContent.contact.address,
+      addressLocality: "Feni",
+      addressRegion: "Chittagong",
+      addressCountry: "BD",
+    },
+    telephone: siteContent.contact.primaryPhone,
+    founder: {
+      "@type": "Person",
+      name: siteContent.founder.name,
+      jobTitle: siteContent.founder.title,
+    },
+    sameAs: [
+      siteContent.contact.facebookUrl,
+      siteContent.contact.whatsappLink,
+    ],
+  };
+
   return (
     <html
       lang="en"
       className={`${ubuntu.variable} ${nunito.variable} ${openSans.variable} ${hindSiliguri.variable} scroll-smooth`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="min-h-screen flex flex-col bg-white text-[#54595F] selection:bg-[#4F67FF] selection:text-white">
-        {/* Top Announcement Bar */}
-        <AnnouncementBar />
-
-        {/* Global Site Header */}
+        {/* Global Site Header - Sits directly at top */}
         <Header />
 
-        {/* Main Page Content */}
+        {/* Main Content Area */}
         <main className="flex-1">{children}</main>
 
         {/* Global Site Footer */}
