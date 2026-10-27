@@ -95,49 +95,50 @@ export function SuccessStories() {
   };
 
   return (
-    <section className="py-14 sm:py-16 md:py-20 bg-[#F73775] text-white relative overflow-hidden">
-      {/* Decorative Padora geometric shapes */}
+    <section className="py-20 md:py-28 bg-white text-[#3B3B3D] relative overflow-hidden border-t border-[#E2E9EB]">
+      {/* Decorative Padora geometric shapes in subtle pastel tone */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-10 overflow-hidden"
+        className="absolute inset-0 pointer-events-none opacity-40 overflow-hidden"
         aria-hidden="true"
       >
-        <div className="absolute top-10 left-12 w-24 h-24 border-4 border-white rotate-12" />
-        <div className="absolute bottom-16 right-20 w-32 h-32 border-4 border-white -rotate-12" />
-        <div className="absolute top-1/2 left-1/3 w-16 h-16 border-4 border-white rotate-45" />
+        <div className="absolute top-10 left-12 w-24 h-24 border-4 border-[#EFF1FB] rotate-12" />
+        <div className="absolute bottom-16 right-20 w-32 h-32 border-4 border-[#EFF1FB] -rotate-12" />
+        <div className="absolute top-1/2 left-1/3 w-16 h-16 border-4 border-[#EFF1FB] rotate-45" />
+        <div className="absolute top-1/3 right-10 w-80 h-80 rounded-full bg-[#EFF1FB]/60 blur-3xl" />
       </div>
 
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
         {/* Section Header - Clean and Elegant */}
         <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
-          <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-md border border-white/25 rounded-full px-3.5 py-1 mb-3 text-xs font-bold tracking-wide uppercase text-white shadow-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#FFC73B] animate-pulse" />
+          <div className="inline-flex items-center gap-2 bg-[#F73775]/10 border border-[#F73775]/20 rounded-full px-4 py-1.5 mb-3 text-xs font-bold tracking-wide uppercase text-[#F73775] shadow-sm">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#F73775] animate-pulse" />
             <span>Student Voices</span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-2.5 font-[var(--font-ubuntu)]">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#3B3B3D] tracking-tight mb-3 font-[var(--font-ubuntu)]">
             <span>Loved by </span>
-            <span className="text-[#FFC73B] underline decoration-wavy decoration-[#FFC73B] underline-offset-8">
+            <span className="text-[#4F67FF] underline decoration-wavy decoration-[#FFC73B] underline-offset-8">
               Students in Feni
             </span>
           </h2>
 
-          <p className="text-sm sm:text-base text-white/90 font-normal">
+          <p className="text-base sm:text-lg text-[#54595F] font-normal">
             Real recommendations from our students on Facebook.
           </p>
         </div>
 
         {/* HIGHLIGHT STRIP: 3 compact chips built strictly from reviews */}
         <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8 sm:mb-10">
-          <div className="inline-flex items-center gap-1.5 bg-white/15 backdrop-blur-md border border-white/25 text-white text-xs sm:text-sm font-medium px-3.5 py-1.5 rounded-full shadow-sm">
-            <Sparkles className="w-3.5 h-3.5 text-[#FFC73B]" />
+          <div className="inline-flex items-center gap-2 bg-[#EFF1FB] border border-[#E2E9EB] text-[#3B3B3D] text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow-sm">
+            <Sparkles className="w-4 h-4 text-[#FFC73B]" />
             <span>Skilled &amp; passionate teachers</span>
           </div>
-          <div className="inline-flex items-center gap-1.5 bg-white/15 backdrop-blur-md border border-white/25 text-white text-xs sm:text-sm font-medium px-3.5 py-1.5 rounded-full shadow-sm">
-            <Smile className="w-3.5 h-3.5 text-[#00CDC4]" />
+          <div className="inline-flex items-center gap-2 bg-[#EFF1FB] border border-[#E2E9EB] text-[#3B3B3D] text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow-sm">
+            <Smile className="w-4 h-4 text-[#00CDC4]" />
             <span>Easy to learn, fun classes</span>
           </div>
-          <div className="inline-flex items-center gap-1.5 bg-white/15 backdrop-blur-md border border-white/25 text-white text-xs sm:text-sm font-medium px-3.5 py-1.5 rounded-full shadow-sm">
-            <Heart className="w-3.5 h-3.5 text-[#FFC73B]" />
+          <div className="inline-flex items-center gap-2 bg-[#EFF1FB] border border-[#E2E9EB] text-[#3B3B3D] text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow-sm">
+            <Heart className="w-4 h-4 text-[#F73775]" />
             <span>Care for every student</span>
           </div>
         </div>
@@ -148,31 +149,31 @@ export function SuccessStories() {
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          <div className="bg-white text-[#1F242E] rounded-[28px] sm:rounded-[32px] p-6 sm:p-8 md:p-10 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.22)] border border-white/80 relative overflow-hidden">
+          <div className="bg-[#F8FAFC] text-[#1F242E] rounded-[28px] sm:rounded-[36px] p-7 sm:p-10 md:p-12 shadow-[0_16px_50px_-12px_rgba(0,0,0,0.08)] border border-[#E2E9EB] relative overflow-hidden">
             {/* Background decorative quote watermark */}
             <div
-              className="absolute -top-3 -right-3 text-[#F2F5FA] pointer-events-none select-none"
+              className="absolute -top-3 -right-3 text-[#EFF1FB] pointer-events-none select-none"
               aria-hidden="true"
             >
-              <Quote className="w-28 h-28 rotate-180" />
+              <Quote className="w-32 h-32 rotate-180" />
             </div>
 
             {/* Top row: Quote icon + Facebook badge */}
-            <div className="flex items-center justify-between mb-5 relative z-10">
+            <div className="flex items-center justify-between mb-6 relative z-10">
               <div
-                className="w-10 h-10 rounded-2xl bg-[#F73775]/10 text-[#F73775] flex items-center justify-center shadow-sm"
+                className="w-11 h-11 rounded-2xl bg-[#4F67FF]/10 text-[#4F67FF] flex items-center justify-center shadow-sm"
               >
-                <Quote className="w-4 h-4 fill-current/20" />
+                <Quote className="w-5 h-5 fill-current/20" />
               </div>
 
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1877F2]/10 text-[#1877F2] text-xs font-semibold">
+              <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#1877F2]/10 border border-[#1877F2]/20 text-[#1877F2] text-xs font-semibold">
                 <FacebookIcon className="w-3.5 h-3.5" />
                 <span>Recommends on Facebook</span>
               </div>
             </div>
 
             {/* Animated Quote Text & Author info */}
-            <div className="min-h-[110px] sm:min-h-[100px] relative z-10">
+            <div className="min-h-[120px] sm:min-h-[110px] relative z-10">
               <AnimatePresence mode="wait" custom={direction}>
                 <motion.div
                   key={activeReview.id}
@@ -183,14 +184,14 @@ export function SuccessStories() {
                   exit="exit"
                   className="flex flex-col justify-between"
                 >
-                  <blockquote className="font-serif text-base sm:text-xl md:text-[22px] text-[#1E232E] leading-relaxed tracking-tight italic mb-6">
+                  <blockquote className="font-serif text-base sm:text-xl md:text-[23px] text-[#1F242E] leading-relaxed tracking-tight italic mb-7">
                     &ldquo;{activeReview.text}&rdquo;
                   </blockquote>
 
                   {/* Reviewer Details */}
-                  <div className="flex items-center gap-3.5 pt-4 border-t border-[#F0F2F6]">
+                  <div className="flex items-center gap-3.5 pt-4 border-t border-[#E2E9EB]">
                     <div
-                      className={`w-11 h-11 rounded-full bg-gradient-to-br ${activeAccent.avatarGradient} flex items-center justify-center text-white font-bold text-sm tracking-wide shadow-md flex-shrink-0`}
+                      className={`w-12 h-12 rounded-full bg-gradient-to-br ${activeAccent.avatarGradient} flex items-center justify-center text-white font-bold text-sm tracking-wide shadow-md flex-shrink-0`}
                       aria-hidden="true"
                     >
                       {activeInitials}
@@ -199,7 +200,7 @@ export function SuccessStories() {
                       <h3 className="font-bold text-base sm:text-lg text-[#1F242E] leading-tight font-[var(--font-ubuntu)]">
                         {activeReview.name}
                       </h3>
-                      <p className="text-xs text-[#828894] font-medium">
+                      <p className="text-xs text-[#54595F] font-medium mt-0.5">
                         {activeReview.date}
                       </p>
                     </div>
@@ -209,7 +210,7 @@ export function SuccessStories() {
             </div>
 
             {/* Carousel Controls (10 Dots & Prev/Next Arrows) */}
-            <div className="mt-6 pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 relative z-10 border-t border-[#F0F2F6]">
+            <div className="mt-8 pt-5 flex flex-col sm:flex-row items-center justify-between gap-4 relative z-10 border-t border-[#E2E9EB]">
               {/* Dots */}
               <div
                 className="flex items-center gap-1.5 flex-wrap justify-center"
@@ -225,10 +226,10 @@ export function SuccessStories() {
                       role="tab"
                       aria-selected={isActive}
                       aria-label={`Go to recommendation ${idx + 1}: ${item.name}`}
-                      className={`h-2 rounded-full transition-all duration-300 focus-visible:outline-[#4F67FF] ${
+                      className={`h-2.5 rounded-full transition-all duration-300 focus-visible:outline-[#00CDC4] ${
                         isActive
-                          ? "w-6 bg-[#F73775]"
-                          : "w-2 bg-[#D5DAE2] hover:bg-[#A8AFBC]"
+                          ? "w-7 bg-[#00CDC4]"
+                          : "w-2.5 bg-[#CBD5E1] hover:bg-[#94A3B8]"
                       }`}
                     />
                   );
@@ -240,14 +241,14 @@ export function SuccessStories() {
                 <button
                   onClick={prevSlide}
                   aria-label="Previous recommendation"
-                  className="w-9 h-9 rounded-full border border-[#E2E6EC] hover:border-[#F73775] hover:text-[#F73775] text-[#54595F] flex items-center justify-center transition-all duration-200 active:scale-95 bg-white shadow-sm"
+                  className="w-10 h-10 rounded-full border border-[#CBD5E1] hover:border-[#00CDC4] hover:text-[#00CDC4] text-[#54595F] flex items-center justify-center transition-all duration-200 active:scale-95 bg-white shadow-sm"
                 >
                   <ChevronLeft className="w-4 h-4" />
                 </button>
                 <button
                   onClick={nextSlide}
                   aria-label="Next recommendation"
-                  className="w-9 h-9 rounded-full border border-[#E2E6EC] hover:border-[#F73775] hover:text-[#F73775] text-[#54595F] flex items-center justify-center transition-all duration-200 active:scale-95 bg-white shadow-sm"
+                  className="w-10 h-10 rounded-full border border-[#CBD5E1] hover:border-[#00CDC4] hover:text-[#00CDC4] text-[#54595F] flex items-center justify-center transition-all duration-200 active:scale-95 bg-white shadow-sm"
                 >
                   <ChevronRight className="w-4 h-4" />
                 </button>
@@ -256,66 +257,91 @@ export function SuccessStories() {
           </div>
         </div>
 
-        {/* CTA BUTTON: Read more reviews on Facebook */}
-        <div className="text-center mt-5 mb-14">
+        {/* CTA BUTTON: Read more reviews on Facebook (Standardized to Signature Brand Teal) */}
+        <div className="text-center mt-6 mb-16">
           <a
             href="https://www.facebook.com/TheEducatee.edu"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 bg-white hover:bg-[#FFF5F8] text-[#1F242E] font-bold text-sm sm:text-base px-7 py-3.5 rounded-full shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 group border border-white/80"
+            className="inline-flex items-center gap-2.5 bg-[#00CDC4] hover:bg-[#04B9B1] text-white font-extrabold text-sm sm:text-base px-8 py-4 rounded-full shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 group"
           >
-            <FacebookIcon className="w-4 h-4 text-[#1877F2]" />
+            <FacebookIcon className="w-4 h-4 text-white" />
             <span>Read more reviews on Facebook</span>
-            <ArrowUpRight className="w-4 h-4 text-[#828894] group-hover:text-[#1877F2] transition-colors" />
+            <ArrowUpRight className="w-4 h-4 text-white/80 group-hover:text-white transition-colors" />
           </a>
         </div>
 
         {/* IELTS RESULTS & CEO AWARD SECTION (Kept as placeholder with TODO) */}
-        <div className="pt-8 border-t border-white/20">
-          <div className="text-center max-w-xl mx-auto mb-8">
-            <span className="text-white/80 text-xs font-extrabold uppercase tracking-widest block mb-1.5">
+        <div className="pt-12 border-t border-[#E2E9EB]">
+          <div className="text-center max-w-xl mx-auto mb-10">
+            <span className="text-[#4F67FF] text-xs font-extrabold uppercase tracking-widest block mb-2">
               ACADEMIC EXCELLENCE &amp; HONORS
             </span>
-            <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight font-[var(--font-ubuntu)]">
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-[#3B3B3D] tracking-tight font-[var(--font-ubuntu)]">
               Student Milestone Achievements
             </h3>
+            <p className="text-sm text-[#54595F] mt-2">
+              Celebrating dedicated students achieving target IELTS scores and prestigious leadership honors.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-            {successStories.map((story) => (
-              <motion.div
-                key={story.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="bg-white/15 backdrop-blur-md rounded-[24px] p-6 sm:p-7 border border-white/30 shadow-xl hover:bg-white/20 transition-all flex flex-col sm:flex-row items-center gap-5"
-              >
-                <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-[18px] overflow-hidden border-2 border-white/70 flex-shrink-0 shadow-lg bg-white/20">
-                  <Image
-                    src={story.image}
-                    alt={story.imageAlt}
-                    fill
-                    sizes="112px"
-                    className="object-cover object-center"
-                  />
-                </div>
-                <div className="flex-1 text-center sm:text-left">
-                  <span className="inline-block bg-[#FFC73B] text-[#3B3B3D] text-[10.5px] font-black uppercase px-3 py-0.5 rounded-full mb-2 shadow-sm">
-                    {story.tag}
-                  </span>
-                  <h4 className="text-lg sm:text-xl font-extrabold text-white font-[var(--font-ubuntu)] leading-tight mb-1">
-                    {story.achievement}
-                  </h4>
-                  <p className="text-xs text-white/80 font-bold mb-2">
-                    {story.program}
-                  </p>
-                  <p className="text-xs sm:text-sm text-white/95 italic leading-relaxed">
-                    &ldquo;{story.quote}&rdquo;
-                  </p>
-                </div>
-              </motion.div>
-            ))}
+            {successStories.map((story, idx) => {
+              const cardThemes = [
+                {
+                  cardBg: "bg-[#4F67FF] text-white",
+                  tagBg: "bg-[#FFC73B] text-[#3B3B3D]",
+                  titleColor: "text-white",
+                  subColor: "text-white/80",
+                  quoteColor: "text-white/95",
+                  frameBorder: "border-white/40",
+                },
+                {
+                  cardBg: "bg-[#00CDC4] text-white",
+                  tagBg: "bg-white text-[#008982]",
+                  titleColor: "text-white",
+                  subColor: "text-white/80",
+                  quoteColor: "text-white/95",
+                  frameBorder: "border-white/40",
+                },
+              ];
+              const theme = cardThemes[idx % cardThemes.length];
+
+              return (
+                <motion.div
+                  key={story.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  className={`${theme.cardBg} rounded-[28px] p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col sm:flex-row items-center gap-6`}
+                >
+                  <div className={`relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 ${theme.frameBorder} flex-shrink-0 shadow-lg bg-black/10`}>
+                    <Image
+                      src={story.image}
+                      alt={story.imageAlt}
+                      fill
+                      sizes="112px"
+                      className="object-cover object-center"
+                    />
+                  </div>
+                  <div className="flex-1 text-center sm:text-left">
+                    <span className={`inline-block ${theme.tagBg} text-[10.5px] font-black uppercase px-3 py-1 rounded-full mb-2.5 shadow-sm`}>
+                      {story.tag}
+                    </span>
+                    <h4 className={`text-lg sm:text-xl font-extrabold ${theme.titleColor} font-[var(--font-ubuntu)] leading-tight mb-1`}>
+                      {story.achievement}
+                    </h4>
+                    <p className={`text-xs ${theme.subColor} font-bold mb-2`}>
+                      {story.program}
+                    </p>
+                    <p className={`text-xs sm:text-sm ${theme.quoteColor} italic leading-relaxed`}>
+                      &ldquo;{story.quote}&rdquo;
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </div>

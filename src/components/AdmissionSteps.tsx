@@ -95,7 +95,7 @@ export function AdmissionSteps() {
         <div className="mt-14 text-center">
           <Link
             href="/admissions#free-demo"
-            className="inline-flex items-center justify-center bg-[#4F67FF] hover:bg-[#3850EB] text-white font-extrabold text-sm sm:text-base px-8 py-4 rounded-full transition-all duration-200 shadow-md hover:scale-[1.02]"
+            className="inline-flex items-center justify-center bg-[#00CDC4] hover:bg-[#04B9B1] text-white font-extrabold text-sm sm:text-base px-8 py-4 rounded-full transition-all duration-200 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]"
           >
             Start with Step 1: Book Free Demo Now →
           </Link>

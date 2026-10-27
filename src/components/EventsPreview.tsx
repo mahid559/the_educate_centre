@@ -38,7 +38,7 @@ export function EventsPreview() {
 
           <Link
             href="/admissions"
-            className="inline-flex items-center gap-2 self-start md:self-auto bg-[#4F67FF] hover:bg-[#3850EB] text-white font-bold text-sm px-7 py-3.5 rounded-full transition-all duration-200 shadow-md hover:scale-[1.02] active:scale-[0.98]"
+            className="inline-flex items-center gap-2 self-start md:self-auto bg-[#00CDC4] hover:bg-[#04B9B1] text-white font-extrabold text-sm px-7 py-3.5 rounded-full transition-all duration-200 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]"
           >
             <span>Join Our Next Batch</span>
             <span>→</span>

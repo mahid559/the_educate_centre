@@ -563,9 +563,9 @@ export default function AdmissionsClientView() {
             <div className="flex flex-wrap items-center gap-3">
               <a
                 href={`tel:${contact.primaryPhone.replace(/-/g, "")}`}
-                className="inline-flex items-center gap-2 bg-[#4F67FF] hover:bg-[#3850EB] text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-full transition-all shadow"
+                className="inline-flex items-center gap-2 bg-white hover:bg-[#F8FAFC] text-[#3B3B3D] border border-[#E2E9EB] font-bold text-xs sm:text-sm px-6 py-3 rounded-full transition-all shadow-sm hover:scale-[1.02]"
               >
-                <Phone className="w-4 h-4" />
+                <Phone className="w-4 h-4 text-[#4F67FF]" />
                 <span>Call {contact.primaryPhone}</span>
               </a>
 
@@ -573,7 +573,7 @@ export default function AdmissionsClientView() {
                 href={contact.whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[#00CDC4] hover:bg-[#04B9B1] text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-full transition-all shadow"
+                className="inline-flex items-center gap-2 bg-[#00CDC4] hover:bg-[#04B9B1] text-white font-extrabold text-xs sm:text-sm px-6 py-3 rounded-full transition-all duration-200 shadow hover:shadow-md hover:scale-[1.02] active:scale-[0.98]"
               >
                 <MessageCircle className="w-4 h-4" />
                 <span>WhatsApp Us</span>
