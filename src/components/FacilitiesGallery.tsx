@@ -36,6 +36,18 @@ export function FacilitiesGallery() {
       actionLink: "/programs",
       actionText: "Explore IT Batches",
     },
+    {
+      cardBg: "bg-[#F73775]",
+      titleColor: "text-white",
+      descColor: "text-white/90",
+      badgeBg: "bg-white text-[#F73775]",
+      buttonBg: "bg-white text-[#3B3B3D] hover:bg-white/90",
+      chipBg: "bg-white/20 text-white border-white/20",
+      dividerColor: "border-white/20",
+      badgeText: "Campus Sanctuary",
+      actionLink: "/contact",
+      actionText: "Visit Campus on 5th Floor",
+    },
   ];
 
   return (
@@ -55,10 +67,94 @@ export function FacilitiesGallery() {
           </p>
         </div>
 
-        {/* Facilities Dual Showcase (Padora Signature Card Style matching Upper Cards) */}
+        {/* Facilities Dual Showcase + Full-Width Horizontal 3rd Card */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10">
           {facilities.map((fac, idx) => {
             const style = facilityStyles[idx % facilityStyles.length];
+            const isHorizontal = idx === 2; // 3rd item placed horizontally across both columns to eliminate empty space
+
+            if (isHorizontal) {
+              return (
+                <motion.article
+                  key={fac.id}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.15 }}
+                  {...cardLiftProps}
+                  className={`lg:col-span-2 flex flex-col lg:flex-row ${style.cardBg} rounded-[28px] p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-300 gap-6 sm:gap-8 lg:gap-10 items-stretch group`}
+                >
+                  {/* Left Side: Wide Horizontal Image */}
+                  <div className="relative w-full lg:w-5/12 h-64 sm:h-72 lg:h-auto min-h-[260px] sm:min-h-[280px] lg:min-h-[300px] rounded-[20px] overflow-hidden bg-black/10 flex-shrink-0">
+                    <Image
+                      src={fac.image}
+                      alt={fac.imageAlt}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 520px"
+                      className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
+                    />
+                    <span
+                      className={`absolute top-4 left-4 text-xs font-black px-4 py-1.5 rounded-full shadow-md ${style.badgeBg}`}
+                    >
+                      {style.badgeText}
+                    </span>
+                  </div>
+
+                  {/* Right Side: Details & Actions */}
+                  <div className="flex-1 flex flex-col justify-between">
+                    <div>
+                      <h3
+                        className={`text-2xl sm:text-3xl font-extrabold ${style.titleColor} mb-3 font-[var(--font-ubuntu)] leading-tight`}
+                      >
+                        {fac.title}
+                      </h3>
+                      <p
+                        className={`text-sm sm:text-base ${style.descColor} leading-relaxed mb-6 font-normal`}
+                      >
+                        {fac.description}
+                      </p>
+
+                      {/* Features Checklist Pills */}
+                      <div className="flex flex-wrap gap-2 mb-6">
+                        {fac.features.map((item, i) => (
+                          <span
+                            key={i}
+                            className={`text-xs font-bold px-3 py-1.5 rounded-xl inline-flex items-center gap-1.5 border ${style.chipBg}`}
+                          >
+                            <Check
+                              className="w-3.5 h-3.5 text-white"
+                              strokeWidth={3}
+                            />
+                            <span>{item}</span>
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Footer Action Bar */}
+                    <div
+                      className={`pt-5 border-t ${style.dividerColor} flex flex-col sm:flex-row sm:items-center justify-between gap-4`}
+                    >
+                      <div className="flex flex-col">
+                        <span className="text-[10px] uppercase font-bold tracking-wider text-white/70">
+                          Campus Level
+                        </span>
+                        <span className="text-xs font-extrabold text-white">
+                          5th Floor • Lift Access (Press 4th Floor Button)
+                        </span>
+                      </div>
+                      <Link
+                        href={style.actionLink}
+                        className={`inline-flex items-center justify-center gap-2 ${style.buttonBg} font-extrabold text-xs sm:text-sm px-6 py-3 rounded-xl transition-all duration-200 shadow-md hover:scale-[1.02] active:scale-[0.98] group/btn self-start sm:self-auto`}
+                      >
+                        <span>{style.actionText}</span>
+                        <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-0.5" />
+                      </Link>
+                    </div>
+                  </div>
+                </motion.article>
+              );
+            }
 
             return (
               <motion.article
@@ -90,10 +186,14 @@ export function FacilitiesGallery() {
 
                   {/* Title & Description */}
                   <div>
-                    <h3 className={`text-2xl sm:text-3xl font-extrabold ${style.titleColor} mb-3 font-[var(--font-ubuntu)] leading-tight`}>
+                    <h3
+                      className={`text-2xl sm:text-3xl font-extrabold ${style.titleColor} mb-3 font-[var(--font-ubuntu)] leading-tight`}
+                    >
                       {fac.title}
                     </h3>
-                    <p className={`text-sm sm:text-base ${style.descColor} leading-relaxed mb-6 font-normal`}>
+                    <p
+                      className={`text-sm sm:text-base ${style.descColor} leading-relaxed mb-6 font-normal`}
+                    >
                       {fac.description}
                     </p>
 
@@ -104,7 +204,10 @@ export function FacilitiesGallery() {
                           key={i}
                           className={`text-xs font-bold px-3 py-1.5 rounded-xl inline-flex items-center gap-1.5 border ${style.chipBg}`}
                         >
-                          <Check className="w-3.5 h-3.5 text-white" strokeWidth={3} />
+                          <Check
+                            className="w-3.5 h-3.5 text-white"
+                            strokeWidth={3}
+                          />
                           <span>{item}</span>
                         </span>
                       ))}
@@ -113,7 +216,9 @@ export function FacilitiesGallery() {
                 </div>
 
                 {/* Footer with Padora White Action Button */}
-                <div className={`pt-5 border-t ${style.dividerColor} flex items-center justify-between gap-3`}>
+                <div
+                  className={`pt-5 border-t ${style.dividerColor} flex items-center justify-between gap-3`}
+                >
                   <div className="flex flex-col">
                     <span className="text-[10px] uppercase font-bold tracking-wider text-white/70">
                       Campus Level
