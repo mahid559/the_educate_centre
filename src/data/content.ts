@@ -80,12 +80,11 @@ export interface CultureGalleryItem {
 export interface Testimonial {
   id: string;
   name: string;
-  role: string;
-  course: string;
-  avatar: string;
+  date: string;
   text: string;
-  theme: string;
-  isPlaceholder?: boolean;
+  source: 'Facebook';
+  isShort?: boolean;
+  featured?: boolean;
 }
 
 export interface FAQItem {
@@ -94,6 +93,88 @@ export interface FAQItem {
   answer: string;
   category: 'admission' | 'demo' | 'batches' | 'location' | 'contact' | 'courses';
 }
+
+// TODO: Confirm with the center (and reviewers if needed) before publishing names
+export const testimonials: Testimonial[] = [
+  {
+    id: "fb-1",
+    name: "Ahmed Shafin",
+    date: "31 January 2024",
+    text: "learning english is fun with the Educatee centre. they are providing 4 months IELTS course. Which is probably the best service in town. teachers are so skilled and highly qualified. They are passionate and sincere about their service.",
+    source: "Facebook",
+    featured: true,
+  },
+  {
+    id: "fb-2",
+    name: "Safayat Hossain Ton Moy",
+    date: "31 January 2024",
+    text: "The trainers are highly motivated and skilled. They make the lessons easy just like that. anyone can learn quickly with their experienced teaching method.",
+    source: "Facebook",
+  },
+  {
+    id: "fb-3",
+    name: "Abdullah AL Mehmud",
+    date: "31 January 2024",
+    text: "The best thing about The Educatee Centre is their vision and care about every individual student. Best educational institution in feni for obvious reasons.",
+    source: "Facebook",
+    featured: true,
+  },
+  {
+    id: "fb-4",
+    name: "Naimur Rahman",
+    date: "31 January 2024",
+    text: "Undoubtedly they are providing the best service in Feni. Especially the spoken English with the educated team is fantastic. All instructors are highly skilled",
+    source: "Facebook",
+    featured: true,
+  },
+  {
+    id: "fb-5",
+    name: "Sayful Islam",
+    date: "2 May 2023",
+    text: "The Educatee Centre is the perfect place to learn English. The teachers are experienced and the classes are well-structured, making learning easy and enjoyable.",
+    source: "Facebook",
+    featured: true,
+  },
+  {
+    id: "fb-6",
+    name: "Raihan Chowdhury",
+    date: "14 March 2023",
+    text: "The Educatee Centre is a top-notch English teaching centre. The teachers are dedicated and passionate about teaching, and the classes are fun and interactive.",
+    source: "Facebook",
+    featured: true,
+  },
+  {
+    id: "fb-7",
+    name: "Sharif Mazumder",
+    date: "26 October 2022",
+    text: "This best English learning institutions in the town!",
+    source: "Facebook",
+    isShort: true,
+  },
+  {
+    id: "fb-8",
+    name: "Fahimul Hoq Tahi",
+    date: "17 March 2024",
+    text: "I have been watching the activity of this institution for long period time and I think this is a good place for learning not only english but also a lot of necessary skills for career. I am highly recommending this institution..",
+    source: "Facebook",
+    featured: true,
+  },
+  {
+    id: "fb-9",
+    name: "Abdulla Al Momin",
+    date: "14 March 2024",
+    text: "Highly recommended for learning english in feni.",
+    source: "Facebook",
+    isShort: true,
+  },
+  {
+    id: "fb-10",
+    name: "Kazi Ovi",
+    date: "14 March 2024",
+    text: "I am a regular student of this fantastic institution. Highly recommended for learning english.",
+    source: "Facebook",
+  },
+];
 
 export const siteContent = {
   brand: {
@@ -836,39 +917,7 @@ export const siteContent = {
     },
   ],
 
-  // TODO: Replace sample student reviews with verified student testimonials and photos
-  testimonials: [
-    {
-      id: "t1",
-      name: "Ayesha Siddiqua (Sample Review)",
-      role: "College Student",
-      course: "SSC/Dakhil Spoken English (Girls Batch)",
-      avatar: "/images/testimonials/student-1.jpg",
-      text: "I used to freeze whenever someone asked me a question in English. The separate Girls' Batch gave me a completely comfortable space to speak without any shame or fear. Within weeks, my hesitation was gone. Zahir sir treats every student like a caring mentor.",
-      theme: "Friendly environment & gained confidence in speaking",
-      isPlaceholder: true
-    },
-    {
-      id: "t2",
-      name: "Tanvir Ahmed (Sample Review)",
-      role: "Corporate Executive",
-      course: "Spoken English for Working Professionals",
-      avatar: "/images/testimonials/student-2.jpg",
-      text: "The evening batch was exactly what I needed after office hours. The classes are clear, lively, and focused on real workplace conversations rather than dry grammar rules. My meeting communication and email drafting have improved dramatically.",
-      theme: "Clear teaching & engaging practical classes",
-      isPlaceholder: true
-    },
-    {
-      id: "t3",
-      name: "Nusrat Jahan (Sample Review)",
-      role: "Post-HSC Student",
-      course: "IELTS Preparation",
-      avatar: "/images/testimonials/student-3.jpg",
-      text: "With only 16 students in our class, every single one of us got personal attention and feedback on our writing tasks. The regular free mock tests made the actual exam atmosphere feel completely familiar.",
-      theme: "Founder as mentor & small group care",
-      isPlaceholder: true
-    }
-  ] as Testimonial[],
+  testimonials: testimonials,
 
   successStories: [
     {

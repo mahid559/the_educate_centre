@@ -393,27 +393,52 @@ export default function AdmissionsClientView() {
         </div>
       </section>
 
-      {/* 6. What Students Say (Compact Testimonial Strip of 3 Marked Placeholder Cards) */}
+      {/* 6. What Students Say (3 Real Facebook Recommendations: Items 5, 6, 3) */}
       <section className="py-20 md:py-28 bg-white relative">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           <SectionHeading
             tag="STUDENT VOICES"
             tagColor="pink"
             title="What Students Say"
-            subtext="Clear teaching, friendly classroom environment, and the confidence to speak without fear. Here is sample feedback from our course participants."
+            subtext="Real experiences and honest feedback from students who achieved confidence and fluency at The Educatee Centre."
           />
 
-          {/* Testimonial Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((item, idx) => (
-              <TestimonialCard key={item.id} item={item} index={idx} />
-            ))}
-          </div>
+          {/* Testimonial Cards: Items 5, 6, and 3 */}
+          {(() => {
+            const admissionsReviews = [
+              testimonials.find((t) => t.id === "fb-5"),
+              testimonials.find((t) => t.id === "fb-6"),
+              testimonials.find((t) => t.id === "fb-3"),
+            ].filter(Boolean) as typeof testimonials;
 
-          <div className="mt-6 text-center text-xs text-[#54595F]">
-            {/* TODO: Replace sample student reviews with verified reviews and student photos */}
-            * Sample student reviews for demonstration. Verified student reviews will be uploaded following upcoming batch graduations.
-          </div>
+            return (
+              <>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-8">
+                  {admissionsReviews.map((item, idx) => (
+                    <div key={item.id} className="h-[190px]">
+                      <TestimonialCard
+                        item={item}
+                        index={idx}
+                        animate
+                      />
+                    </div>
+                  ))}
+                </div>
+
+                <div className="text-center pt-2">
+                  <a
+                    href="https://www.facebook.com/TheEducatee.edu"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-[#4F67FF] hover:text-[#384ED0] transition-colors group px-4 py-2 rounded-full hover:bg-[#4F67FF]/5"
+                  >
+                    <span>See what students say on Facebook</span>
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </a>
+                </div>
+              </>
+            );
+          })()}
         </div>
       </section>
 
