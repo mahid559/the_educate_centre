@@ -19,7 +19,10 @@ export function FacilitiesGallery() {
       badgeBg: "bg-white text-[#4F67FF]",
       buttonBg: "bg-white text-[#3B3B3D] hover:bg-white/90",
       chipBg: "bg-white/20 text-white border-white/20",
+      checkColor: "text-white",
       dividerColor: "border-white/20",
+      footerLabel: "text-white/70",
+      footerValue: "text-white",
       badgeText: "Language Studio",
       actionLink: "/programs",
       actionText: "Explore Spoken Batches",
@@ -31,19 +34,25 @@ export function FacilitiesGallery() {
       badgeBg: "bg-white text-[#008982]",
       buttonBg: "bg-white text-[#3B3B3D] hover:bg-white/90",
       chipBg: "bg-white/20 text-white border-white/20",
+      checkColor: "text-white",
       dividerColor: "border-white/20",
+      footerLabel: "text-white/70",
+      footerValue: "text-white",
       badgeText: "IT Training Lab",
       actionLink: "/programs",
       actionText: "Explore IT Batches",
     },
     {
-      cardBg: "bg-[#F73775]",
-      titleColor: "text-white",
-      descColor: "text-white/90",
-      badgeBg: "bg-white text-[#F73775]",
-      buttonBg: "bg-white text-[#3B3B3D] hover:bg-white/90",
-      chipBg: "bg-white/20 text-white border-white/20",
-      dividerColor: "border-white/20",
+      cardBg: "bg-[#FFC73B]",
+      titleColor: "text-[#3B3B3D]",
+      descColor: "text-[#3B3B3D]/90",
+      badgeBg: "bg-[#3B3B3D] text-[#FFC73B]",
+      buttonBg: "bg-[#3B3B3D] text-white hover:bg-[#222428]",
+      chipBg: "bg-black/10 text-[#3B3B3D] border-black/10",
+      checkColor: "text-[#3B3B3D]",
+      dividerColor: "border-black/10",
+      footerLabel: "text-[#3B3B3D]/70",
+      footerValue: "text-[#3B3B3D]",
       badgeText: "Campus Sanctuary",
       actionLink: "/contact",
       actionText: "Visit Campus on 5th Floor",
@@ -67,7 +76,7 @@ export function FacilitiesGallery() {
           </p>
         </div>
 
-        {/* Facilities Dual Showcase + Full-Width Horizontal 3rd Card */}
+        {/* Facilities Dual Showcase + Full-Width Horizontal 3rd Card in Padora Yellow */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10">
           {facilities.map((fac, idx) => {
             const style = facilityStyles[idx % facilityStyles.length];
@@ -122,7 +131,7 @@ export function FacilitiesGallery() {
                             className={`text-xs font-bold px-3 py-1.5 rounded-xl inline-flex items-center gap-1.5 border ${style.chipBg}`}
                           >
                             <Check
-                              className="w-3.5 h-3.5 text-white"
+                              className={`w-3.5 h-3.5 ${style.checkColor}`}
                               strokeWidth={3}
                             />
                             <span>{item}</span>
@@ -136,10 +145,14 @@ export function FacilitiesGallery() {
                       className={`pt-5 border-t ${style.dividerColor} flex flex-col sm:flex-row sm:items-center justify-between gap-4`}
                     >
                       <div className="flex flex-col">
-                        <span className="text-[10px] uppercase font-bold tracking-wider text-white/70">
+                        <span
+                          className={`text-[10px] uppercase font-bold tracking-wider ${style.footerLabel}`}
+                        >
                           Campus Level
                         </span>
-                        <span className="text-xs font-extrabold text-white">
+                        <span
+                          className={`text-xs font-extrabold ${style.footerValue}`}
+                        >
                           5th Floor • Lift Access (Press 4th Floor Button)
                         </span>
                       </div>
@@ -205,7 +218,7 @@ export function FacilitiesGallery() {
                           className={`text-xs font-bold px-3 py-1.5 rounded-xl inline-flex items-center gap-1.5 border ${style.chipBg}`}
                         >
                           <Check
-                            className="w-3.5 h-3.5 text-white"
+                            className={`w-3.5 h-3.5 ${style.checkColor}`}
                             strokeWidth={3}
                           />
                           <span>{item}</span>
@@ -215,15 +228,19 @@ export function FacilitiesGallery() {
                   </div>
                 </div>
 
-                {/* Footer with Padora White Action Button */}
+                {/* Footer with Padora Action Button */}
                 <div
                   className={`pt-5 border-t ${style.dividerColor} flex items-center justify-between gap-3`}
                 >
                   <div className="flex flex-col">
-                    <span className="text-[10px] uppercase font-bold tracking-wider text-white/70">
+                    <span
+                      className={`text-[10px] uppercase font-bold tracking-wider ${style.footerLabel}`}
+                    >
                       Campus Level
                     </span>
-                    <span className="text-xs font-extrabold text-white">
+                    <span
+                      className={`text-xs font-extrabold ${style.footerValue}`}
+                    >
                       5th Floor • Lift Access
                     </span>
                   </div>
