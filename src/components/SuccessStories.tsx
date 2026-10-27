@@ -1,14 +1,12 @@
 "use client";
 
-import React, { useState, useEffect, useCallback, useMemo } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence, useReducedMotion, type Variants } from "framer-motion";
 import {
   Quote,
   ChevronLeft,
   ChevronRight,
-  Pause,
-  Play,
   ArrowUpRight,
   Sparkles,
   Heart,
@@ -16,7 +14,6 @@ import {
 } from "lucide-react";
 import { siteContent, testimonials, Testimonial } from "@/data/content";
 import {
-  TestimonialCard,
   getInitials,
   cardAccents,
 } from "@/components/TestimonialCard";
@@ -34,25 +31,16 @@ function FacebookIcon({ className = "w-4 h-4" }: { className?: string }) {
   );
 }
 
-const FEATURED_IDS = ["fb-1", "fb-3", "fb-4", "fb-5", "fb-6", "fb-8"];
-const ROW_1_IDS = ["fb-1", "fb-2", "fb-7", "fb-3", "fb-4"];
-const ROW_2_IDS = ["fb-5", "fb-6", "fb-9", "fb-8", "fb-10"];
-
 export function SuccessStories() {
   const { successStories } = siteContent;
   const shouldReduceMotion = useReducedMotion();
 
-  // Featured reviews: Longer reviews (items 1, 3, 4, 5, 6, 8)
-  const featuredReviews: Testimonial[] = useMemo(() => {
-    return FEATURED_IDS
-      .map((id) => testimonials.find((t) => t.id === id))
-      .filter(Boolean) as Testimonial[];
-  }, []);
+  // All 10 real Facebook recommendations in the carousel
+  const featuredReviews: Testimonial[] = testimonials;
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(1);
   const [isPaused, setIsPaused] = useState(false);
-  const [isMarqueePaused, setIsMarqueePaused] = useState(false);
 
   // Auto-rotate featured testimonial every 6 seconds, pauses on hover
   const nextSlide = useCallback(() => {
@@ -81,23 +69,6 @@ export function SuccessStories() {
   const activeReview = featuredReviews[currentIndex] || featuredReviews[0];
   const activeInitials = getInitials(activeReview.name);
   const activeAccent = cardAccents[currentIndex % cardAccents.length];
-
-  // Marquee rows (5 items each, repeated twice for infinite loop)
-  const row1Reviews = useMemo(
-    () =>
-      ROW_1_IDS
-        .map((id) => testimonials.find((t) => t.id === id))
-        .filter(Boolean) as Testimonial[],
-    []
-  );
-
-  const row2Reviews = useMemo(
-    () =>
-      ROW_2_IDS
-        .map((id) => testimonials.find((t) => t.id === id))
-        .filter(Boolean) as Testimonial[],
-    []
-  );
 
   // Framer Motion variants for smooth crossfade & slight horizontal slide
   const slideVariants: Variants = {
@@ -136,7 +107,7 @@ export function SuccessStories() {
       </div>
 
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
-        {/* Section Header - Compact and Elegant */}
+        {/* Section Header - Clean and Elegant */}
         <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
           <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-md border border-white/25 rounded-full px-3.5 py-1 mb-3 text-xs font-bold tracking-wide uppercase text-white shadow-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-[#FFC73B] animate-pulse" />
@@ -156,7 +127,7 @@ export function SuccessStories() {
         </div>
 
         {/* HIGHLIGHT STRIP: 3 compact chips built strictly from reviews */}
-        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8 sm:mb-9">
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8 sm:mb-10">
           <div className="inline-flex items-center gap-1.5 bg-white/15 backdrop-blur-md border border-white/25 text-white text-xs sm:text-sm font-medium px-3.5 py-1.5 rounded-full shadow-sm">
             <Sparkles className="w-3.5 h-3.5 text-[#FFC73B]" />
             <span>Skilled &amp; passionate teachers</span>
@@ -171,37 +142,37 @@ export function SuccessStories() {
           </div>
         </div>
 
-        {/* FEATURED TESTIMONIAL CARD - Compact, Classy & Well-Proportioned */}
+        {/* FEATURED TESTIMONIAL CARD - The Centerpiece */}
         <div
-          className="max-w-2xl sm:max-w-3xl mx-auto mb-10 relative"
+          className="max-w-2xl sm:max-w-3xl mx-auto mb-8 relative"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          <div className="bg-white text-[#1F242E] rounded-[26px] p-6 sm:p-7 md:p-8 shadow-[0_16px_40px_-10px_rgba(0,0,0,0.2)] border border-white/80 relative overflow-hidden">
+          <div className="bg-white text-[#1F242E] rounded-[28px] sm:rounded-[32px] p-6 sm:p-8 md:p-10 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.22)] border border-white/80 relative overflow-hidden">
             {/* Background decorative quote watermark */}
             <div
-              className="absolute -top-2 -right-2 text-[#F2F5FA] pointer-events-none select-none"
+              className="absolute -top-3 -right-3 text-[#F2F5FA] pointer-events-none select-none"
               aria-hidden="true"
             >
-              <Quote className="w-24 h-24 rotate-180" />
+              <Quote className="w-28 h-28 rotate-180" />
             </div>
 
             {/* Top row: Quote icon + Facebook badge */}
-            <div className="flex items-center justify-between mb-4 relative z-10">
+            <div className="flex items-center justify-between mb-5 relative z-10">
               <div
-                className={`w-9 h-9 rounded-xl bg-[#F73775]/10 text-[#F73775] flex items-center justify-center shadow-sm`}
+                className="w-10 h-10 rounded-2xl bg-[#F73775]/10 text-[#F73775] flex items-center justify-center shadow-sm"
               >
                 <Quote className="w-4 h-4 fill-current/20" />
               </div>
 
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#1877F2]/10 text-[#1877F2] text-xs font-semibold">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1877F2]/10 text-[#1877F2] text-xs font-semibold">
                 <FacebookIcon className="w-3.5 h-3.5" />
                 <span>Recommends on Facebook</span>
               </div>
             </div>
 
             {/* Animated Quote Text & Author info */}
-            <div className="min-h-[105px] sm:min-h-[95px] relative z-10">
+            <div className="min-h-[110px] sm:min-h-[100px] relative z-10">
               <AnimatePresence mode="wait" custom={direction}>
                 <motion.div
                   key={activeReview.id}
@@ -212,23 +183,23 @@ export function SuccessStories() {
                   exit="exit"
                   className="flex flex-col justify-between"
                 >
-                  <blockquote className="font-serif text-base sm:text-lg md:text-[20px] text-[#1E232E] leading-relaxed tracking-tight italic mb-5">
+                  <blockquote className="font-serif text-base sm:text-xl md:text-[22px] text-[#1E232E] leading-relaxed tracking-tight italic mb-6">
                     &ldquo;{activeReview.text}&rdquo;
                   </blockquote>
 
                   {/* Reviewer Details */}
-                  <div className="flex items-center gap-3 pt-3.5 border-t border-[#F0F2F6]">
+                  <div className="flex items-center gap-3.5 pt-4 border-t border-[#F0F2F6]">
                     <div
-                      className={`w-10 h-10 rounded-full bg-gradient-to-br ${activeAccent.avatarGradient} flex items-center justify-center text-white font-bold text-xs sm:text-sm tracking-wide shadow-sm flex-shrink-0`}
+                      className={`w-11 h-11 rounded-full bg-gradient-to-br ${activeAccent.avatarGradient} flex items-center justify-center text-white font-bold text-sm tracking-wide shadow-md flex-shrink-0`}
                       aria-hidden="true"
                     >
                       {activeInitials}
                     </div>
                     <div>
-                      <h3 className="font-bold text-sm sm:text-base text-[#1F242E] leading-tight font-[var(--font-ubuntu)]">
+                      <h3 className="font-bold text-base sm:text-lg text-[#1F242E] leading-tight font-[var(--font-ubuntu)]">
                         {activeReview.name}
                       </h3>
-                      <p className="text-[11px] sm:text-xs text-[#828894] font-medium">
+                      <p className="text-xs text-[#828894] font-medium">
                         {activeReview.date}
                       </p>
                     </div>
@@ -237,11 +208,11 @@ export function SuccessStories() {
               </AnimatePresence>
             </div>
 
-            {/* Carousel Controls */}
-            <div className="mt-5 pt-3 flex items-center justify-between gap-4 relative z-10 border-t border-[#F0F2F6]">
+            {/* Carousel Controls (10 Dots & Prev/Next Arrows) */}
+            <div className="mt-6 pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 relative z-10 border-t border-[#F0F2F6]">
               {/* Dots */}
               <div
-                className="flex items-center gap-1.5"
+                className="flex items-center gap-1.5 flex-wrap justify-center"
                 role="tablist"
                 aria-label="Recommendation slides"
               >
@@ -253,7 +224,7 @@ export function SuccessStories() {
                       onClick={() => goToSlide(idx)}
                       role="tab"
                       aria-selected={isActive}
-                      aria-label={`Go to slide ${idx + 1} (${item.name})`}
+                      aria-label={`Go to recommendation ${idx + 1}: ${item.name}`}
                       className={`h-2 rounded-full transition-all duration-300 focus-visible:outline-[#4F67FF] ${
                         isActive
                           ? "w-6 bg-[#F73775]"
@@ -265,18 +236,18 @@ export function SuccessStories() {
               </div>
 
               {/* Prev / Next Buttons */}
-              <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-2">
                 <button
                   onClick={prevSlide}
                   aria-label="Previous recommendation"
-                  className="w-8 h-8 rounded-full border border-[#E2E6EC] hover:border-[#F73775] hover:text-[#F73775] text-[#54595F] flex items-center justify-center transition-all duration-200 active:scale-95 bg-white shadow-sm"
+                  className="w-9 h-9 rounded-full border border-[#E2E6EC] hover:border-[#F73775] hover:text-[#F73775] text-[#54595F] flex items-center justify-center transition-all duration-200 active:scale-95 bg-white shadow-sm"
                 >
                   <ChevronLeft className="w-4 h-4" />
                 </button>
                 <button
                   onClick={nextSlide}
                   aria-label="Next recommendation"
-                  className="w-8 h-8 rounded-full border border-[#E2E6EC] hover:border-[#F73775] hover:text-[#F73775] text-[#54595F] flex items-center justify-center transition-all duration-200 active:scale-95 bg-white shadow-sm"
+                  className="w-9 h-9 rounded-full border border-[#E2E6EC] hover:border-[#F73775] hover:text-[#F73775] text-[#54595F] flex items-center justify-center transition-all duration-200 active:scale-95 bg-white shadow-sm"
                 >
                   <ChevronRight className="w-4 h-4" />
                 </button>
@@ -285,121 +256,8 @@ export function SuccessStories() {
           </div>
         </div>
 
-        {/* TWO LINES OF MARQUEE (UNIFORM MEDIUM SIZE, COMPACT VERTICAL FOOTPRINT) */}
-        <div className="mb-8">
-          <div className="flex items-center justify-between mb-3 px-2">
-            <p className="text-xs font-semibold text-white/80 uppercase tracking-wider">
-              Student Recommendations
-            </p>
-            <button
-              onClick={() => setIsMarqueePaused((prev) => !prev)}
-              aria-label={
-                isMarqueePaused
-                  ? "Resume marquee animations"
-                  : "Pause marquee animations"
-              }
-              className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-white/15 hover:bg-white/25 text-white text-[11px] font-medium transition-colors focus-visible:outline-white"
-            >
-              {isMarqueePaused ? (
-                <>
-                  <Play className="w-2.5 h-2.5 fill-current" />
-                  <span>Resume</span>
-                </>
-              ) : (
-                <>
-                  <Pause className="w-2.5 h-2.5 fill-current" />
-                  <span>Pause</span>
-                </>
-              )}
-            </button>
-          </div>
-
-          {/* REDUCED MOTION STATIC GRID FALLBACK */}
-          {shouldReduceMotion ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-              {testimonials.map((item, idx) => (
-                <div key={item.id} className="h-[185px]">
-                  <TestimonialCard item={item} index={idx} />
-                </div>
-              ))}
-            </div>
-          ) : (
-            <>
-              {/* DESKTOP: TWO UNIFORM MEDIUM-SIZED ROWS */}
-              <div className="hidden md:block relative overflow-hidden py-1 -mx-4 sm:-mx-6 px-4 sm:px-6 group">
-                {/* Left & Right Soft Fade Masks */}
-                <div
-                  className="absolute left-0 top-0 bottom-0 w-20 sm:w-28 bg-gradient-to-r from-[#F73775] to-transparent z-20 pointer-events-none"
-                  aria-hidden="true"
-                />
-                <div
-                  className="absolute right-0 top-0 bottom-0 w-20 sm:w-28 bg-gradient-to-l from-[#F73775] to-transparent z-20 pointer-events-none"
-                  aria-hidden="true"
-                />
-
-                {/* Line 1: Moving Left (all cards exactly 330px × 185px) */}
-                <div className="overflow-hidden mb-3.5">
-                  <div
-                    className={`flex gap-4 animate-marquee-left ${
-                      isMarqueePaused
-                        ? "pause-animation"
-                        : "group-hover:[animation-play-state:paused]"
-                    }`}
-                  >
-                    {[...row1Reviews, ...row1Reviews].map((item, idx) => (
-                      <div
-                        key={`r1-${item.id}-${idx}`}
-                        className="w-[325px] h-[185px] flex-shrink-0"
-                      >
-                        <TestimonialCard item={item} index={idx} />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Line 2: Moving Right (all cards exactly 330px × 185px) */}
-                <div className="overflow-hidden">
-                  <div
-                    className={`flex gap-4 animate-marquee-right ${
-                      isMarqueePaused
-                        ? "pause-animation"
-                        : "group-hover:[animation-play-state:paused]"
-                    }`}
-                  >
-                    {[...row2Reviews, ...row2Reviews].map((item, idx) => (
-                      <div
-                        key={`r2-${item.id}-${idx}`}
-                        className="w-[325px] h-[185px] flex-shrink-0"
-                      >
-                        <TestimonialCard item={item} index={idx} />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* MOBILE: SWIPEABLE HORIZONTAL SCROLL WITH SNAP */}
-              <div className="md:hidden">
-                <div className="flex gap-3.5 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-3 pt-1 px-1">
-                  {testimonials.map((item, idx) => (
-                    <div
-                      key={`m-${item.id}`}
-                      className="snap-center flex-shrink-0 w-[82vw] max-w-[320px] h-[185px]"
-                    >
-                      <TestimonialCard item={item} index={idx} />
-                    </div>
-                  ))}
-                </div>
-                <p className="text-center text-[11px] text-white/70 mt-1.5 font-medium">
-                  Swipe sideways to view more recommendations →
-                </p>
-              </div>
-            </>
-          )}
-        </div>
-
         {/* CTA BUTTON: Read more reviews on Facebook */}
-        <div className="text-center mt-6 mb-14">
+        <div className="text-center mt-5 mb-14">
           <a
             href="https://www.facebook.com/TheEducatee.edu"
             target="_blank"
