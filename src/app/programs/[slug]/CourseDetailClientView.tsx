@@ -485,7 +485,7 @@ export function CourseDetailClientView({
                 </div>
 
                 {/* Trust guarantee card */}
-                <div className="bg-[#FFF9EB] p-5 rounded-2xl border border-[#FFC73B]/40 text-xs text-[#3B3B3D]">
+                <div className="bg-[#FFF9EB] p-5 rounded-2xl border border-[#E2E9EB] text-xs text-[#3B3B3D]">
                   <strong className="text-[#B87C00] block mb-1 font-bold">
                     100% Free Demo Guarantee:
                   </strong>

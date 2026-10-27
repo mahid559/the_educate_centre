@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Check, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Course } from "@/data/content";
 import { cardLiftProps } from "@/lib/motion";
 
@@ -86,11 +86,11 @@ export function CourseCard({ course, index = 0 }: CourseCardProps) {
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
       {...cardLiftProps}
-      className={`flex flex-col ${styles.cardBg} rounded-[28px] p-6 sm:p-7 shadow-xl hover:shadow-2xl transition-all duration-300 justify-between group`}
+      className={`flex flex-col ${styles.cardBg} rounded-[24px] p-5 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 justify-between group`}
     >
       <div>
-        {/* Inner Rounded Image Container (Signature Padora Style) */}
-        <div className="relative w-full h-56 sm:h-64 rounded-[20px] overflow-hidden bg-black/10 mb-6">
+        {/* Inner Rounded Image Container */}
+        <div className="relative w-full h-44 sm:h-48 rounded-[18px] overflow-hidden bg-black/10 mb-4 sm:mb-5">
           <Image
             src={course.image}
             alt={course.imageAlt}
@@ -99,13 +99,13 @@ export function CourseCard({ course, index = 0 }: CourseCardProps) {
             className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
           />
           {/* Category Pill Floating on Image */}
-          <span className="absolute top-3.5 left-3.5 bg-white/95 backdrop-blur-md text-xs font-bold px-3.5 py-1 rounded-full text-[#3B3B3D] shadow-sm">
+          <span className="absolute top-3 left-3 bg-white/95 backdrop-blur-md text-xs font-bold px-3 py-1 rounded-full text-[#3B3B3D] shadow-sm">
             {course.category}
           </span>
           {/* Highlight Badge Floating on Image */}
           {course.badge && (
             <span
-              className={`absolute top-3.5 right-3.5 text-xs font-black px-3.5 py-1 rounded-full shadow-md ${styles.badgeBg}`}
+              className={`absolute top-3 right-3 text-xs font-black px-3 py-1 rounded-full shadow-md ${styles.badgeBg}`}
             >
               {course.badge}
             </span>
@@ -113,31 +113,15 @@ export function CourseCard({ course, index = 0 }: CourseCardProps) {
         </div>
 
         {/* Card Content */}
-        <div>
+        <div className="mb-4">
           <span className={`block text-xs font-extrabold uppercase tracking-wider mb-1.5 ${styles.subColor}`}>
             {course.subtitle}
           </span>
           <Link href={`/programs/${course.slug}`}>
-            <h3 className={`text-2xl sm:text-3xl font-extrabold ${styles.titleColor} mb-3 font-[var(--font-ubuntu)] leading-tight hover:underline`}>
+            <h3 className={`text-xl sm:text-2xl font-extrabold ${styles.titleColor} font-[var(--font-ubuntu)] leading-tight hover:underline`}>
               {course.title}
             </h3>
           </Link>
-          <p className={`text-sm ${styles.descColor} leading-relaxed line-clamp-3 mb-6 font-normal`}>
-            {course.description}
-          </p>
-
-          {/* Highlights / Features List */}
-          <div className="flex flex-wrap gap-1.5 mb-6">
-            {course.features.slice(0, 3).map((feat, i) => (
-              <span
-                key={i}
-                className={`text-[11px] font-bold px-2.5 py-1 rounded-lg inline-flex items-center gap-1.5 border ${styles.chipBg}`}
-              >
-                <Check className={`w-3 h-3 ${styles.checkColor}`} strokeWidth={3} />
-                <span>{feat}</span>
-              </span>
-            ))}
-          </div>
         </div>
       </div>
 
@@ -147,14 +131,13 @@ export function CourseCard({ course, index = 0 }: CourseCardProps) {
           <span className={`text-[10px] uppercase font-bold tracking-wider ${styles.footerLabel}`}>
             Batch Status
           </span>
-          {/* TODO: Update fee & schedule once finalized */}
           <span className={`text-xs font-extrabold ${styles.footerValue}`}>
             Admission Open
           </span>
         </div>
         <Link
           href={`/programs/${course.slug}`}
-          className={`inline-flex items-center justify-center gap-2 ${styles.buttonBg} font-extrabold text-xs sm:text-sm px-6 py-3 rounded-xl transition-all duration-200 shadow-md hover:scale-[1.02] active:scale-[0.98] group/btn`}
+          className={`inline-flex items-center justify-center gap-1.5 ${styles.buttonBg} font-extrabold text-xs sm:text-sm px-5 py-2.5 rounded-xl transition-all duration-200 shadow-md hover:scale-[1.02] active:scale-[0.98] group/btn`}
         >
           <span>Read More</span>
           <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-0.5" />

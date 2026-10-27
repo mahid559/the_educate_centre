@@ -201,7 +201,7 @@ export default function AdmissionsClientView() {
                         {offer.badge}
                       </span>
                       <span className="text-xs font-bold text-white/90">
-                        ★ Active Now
+                        Active Now
                       </span>
                     </div>
 

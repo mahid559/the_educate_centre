@@ -46,6 +46,24 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Ensure landing on home page always scrolls to top (Hero section)
+  useEffect(() => {
+    if (pathname === "/") {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    }
+  }, [pathname]);
+
+  const handleHomeClick = (e: React.MouseEvent) => {
+    setMobileMenuOpen(false);
+    setProgramsDropdownOpen(false);
+    if (pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    } else {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    }
+  };
+
   const isActive = (href: string) => {
     if (href === "/" && pathname === "/") return true;
     if (href !== "/" && pathname?.startsWith(href)) return true;
@@ -69,6 +87,7 @@ export function Header() {
           {/* Authentic Logo (Transparent background) */}
           <Link
             href="/"
+            onClick={handleHomeClick}
             className="flex items-center group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4F67FF] rounded-xl"
             aria-label="The Educatee Centre Home"
           >
@@ -91,6 +110,7 @@ export function Header() {
           >
             <Link
               href="/"
+              onClick={handleHomeClick}
               className={`transition-colors hover:text-[#4F67FF] py-1 relative ${
                 isActive("/") ? "text-[#4F67FF] font-bold" : ""
               }`}
@@ -258,7 +278,7 @@ export function Header() {
                       ? "text-[#4F67FF]"
                       : "text-[#3B3B3D] hover:text-[#4F67FF]"
                   }`}
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={handleHomeClick}
                 >
                   Home
                 </Link>

@@ -10,7 +10,7 @@ export function Hero() {
   const { hero } = siteContent;
 
   return (
-    <section className="relative overflow-hidden bg-[#4F67FF] text-white pt-28 pb-16 sm:pt-32 md:pt-36 md:pb-24 lg:pt-40 lg:pb-32">
+    <section id="hero" className="relative overflow-hidden bg-[#4F67FF] text-white pt-28 pb-16 sm:pt-32 md:pt-36 md:pb-24 lg:pt-40 lg:pb-32">
       {/* Background Decorative Curves & Blobs (Padora Aesthetics) */}
       <div className="absolute inset-0 pointer-events-none opacity-20 overflow-hidden" aria-hidden="true">
         <svg
@@ -58,7 +58,7 @@ export function Hero() {
               <span className="text-white block sm:inline">
                 {hero.headlineLine1}{" "}
               </span>
-              <span className="text-[#FFC73B] underline decoration-wavy decoration-[#FFC73B]/60 underline-offset-8">
+              <span className="text-[#FFC73B]">
                 {hero.headlineLine2}
               </span>
             </h1>

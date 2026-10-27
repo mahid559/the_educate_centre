@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, HelpCircle, Phone, Sparkles } from "lucide-react";
+import { MessageCircle, HelpCircle, Phone } from "lucide-react";
 import { siteContent } from "@/data/content";
 import { PageHero } from "@/components/PageHero";
 import { FilterTabs } from "@/components/FilterTabs";
@@ -83,7 +83,6 @@ export default function ProgramsClientView() {
           </div>
 
           <div className="inline-flex items-center gap-1.5 bg-[#EFF1FB] text-[#4F67FF] text-xs font-bold px-3.5 py-1 rounded-full mb-3">
-            <Sparkles className="w-3.5 h-3.5 text-[#FFC73B]" />
             <span>Free Academic Counseling</span>
           </div>
 

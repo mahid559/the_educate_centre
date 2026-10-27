@@ -399,7 +399,7 @@ export default function ContactClientView() {
                 </div>
 
                 {/* PROMINENT LIFT NOTE CALLOUT */}
-                <div className="bg-[#FFF9EB] border-2 border-[#FFC73B] rounded-2xl p-4 text-xs sm:text-sm text-[#3B3B3D] leading-relaxed">
+                <div className="bg-[#FFF9EB] border border-[#E2E9EB] rounded-2xl p-4 text-xs sm:text-sm text-[#3B3B3D] leading-relaxed">
                   <strong className="text-[#B87C00] block uppercase tracking-wider mb-1 font-extrabold">
                     Important Campus Finding Tip:
                   </strong>

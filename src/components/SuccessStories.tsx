@@ -8,9 +8,6 @@ import {
   ChevronLeft,
   ChevronRight,
   ArrowUpRight,
-  Sparkles,
-  Heart,
-  Smile,
 } from "lucide-react";
 import { siteContent, testimonials, Testimonial } from "@/data/content";
 import {
@@ -116,10 +113,7 @@ export function SuccessStories() {
           </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#3B3B3D] tracking-tight mb-3 font-[var(--font-ubuntu)]">
-            <span>Loved by </span>
-            <span className="text-[#4F67FF] underline decoration-wavy decoration-[#FFC73B] underline-offset-8">
-              Students in Feni
-            </span>
+            Loved by Students in Feni
           </h2>
 
           <p className="text-base sm:text-lg text-[#54595F] font-normal">
@@ -129,16 +123,13 @@ export function SuccessStories() {
 
         {/* HIGHLIGHT STRIP: 3 compact chips built strictly from reviews */}
         <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8 sm:mb-10">
-          <div className="inline-flex items-center gap-2 bg-[#EFF1FB] border border-[#E2E9EB] text-[#3B3B3D] text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow-sm">
-            <Sparkles className="w-4 h-4 text-[#FFC73B]" />
+          <div className="inline-flex items-center bg-[#EFF1FB] border border-[#E2E9EB] text-[#3B3B3D] text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow-sm">
             <span>Skilled &amp; passionate teachers</span>
           </div>
-          <div className="inline-flex items-center gap-2 bg-[#EFF1FB] border border-[#E2E9EB] text-[#3B3B3D] text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow-sm">
-            <Smile className="w-4 h-4 text-[#00CDC4]" />
+          <div className="inline-flex items-center bg-[#EFF1FB] border border-[#E2E9EB] text-[#3B3B3D] text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow-sm">
             <span>Easy to learn, fun classes</span>
           </div>
-          <div className="inline-flex items-center gap-2 bg-[#EFF1FB] border border-[#E2E9EB] text-[#3B3B3D] text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow-sm">
-            <Heart className="w-4 h-4 text-[#F73775]" />
+          <div className="inline-flex items-center bg-[#EFF1FB] border border-[#E2E9EB] text-[#3B3B3D] text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow-sm">
             <span>Care for every student</span>
           </div>
         </div>

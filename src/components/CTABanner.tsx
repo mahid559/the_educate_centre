@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Phone, MessageCircle, ArrowRight, Sparkles } from "lucide-react";
+import { Phone, MessageCircle, ArrowRight } from "lucide-react";
 import { siteContent } from "@/data/content";
 
 interface CTABannerProps {
@@ -47,7 +47,6 @@ export function CTABanner({
             {/* Left Content (8 cols) */}
             <div className="lg:col-span-8 flex flex-col items-center md:items-start">
               <div className="inline-flex items-center gap-2 bg-white/15 border border-white/25 rounded-full px-4 py-1.5 mb-4 text-xs font-bold uppercase tracking-wider text-white">
-                <Sparkles className="w-3.5 h-3.5 text-[#FFC73B]" />
                 <span>{badge}</span>
               </div>
 

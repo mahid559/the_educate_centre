@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle2, Lock, Sparkles, Send } from "lucide-react";
+import { CheckCircle2, Lock, Send } from "lucide-react";
 import { siteContent } from "@/data/content";
 
 interface DemoFormProps {
@@ -64,7 +64,6 @@ export function DemoForm({ defaultCourse, className = "" }: DemoFormProps) {
             </div>
 
             <div className="inline-flex items-center gap-1.5 bg-[#EFF1FB] text-[#4F67FF] text-xs font-bold px-3 py-1 rounded-full mb-3">
-              <Sparkles className="w-3.5 h-3.5" />
               <span>Seat Reserved Successfully</span>
             </div>
 

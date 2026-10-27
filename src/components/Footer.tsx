@@ -1,10 +1,23 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { siteContent } from "@/data/content";
 
 export function Footer() {
   const { brand, contact, programs } = siteContent;
+  const pathname = usePathname();
+
+  const handleHomeClick = (e: React.MouseEvent) => {
+    if (pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    } else {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    }
+  };
 
   return (
     <footer className="bg-[#0F172A] border-t border-white/10 pt-16 pb-12 text-slate-400">
@@ -12,7 +25,12 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-white/10">
           {/* Col 1: Brand Info (5 cols) */}
           <div className="lg:col-span-5 flex flex-col gap-4">
-            <Link href="/" className="inline-block" aria-label="The Educatee Centre Home">
+            <Link
+              href="/"
+              onClick={handleHomeClick}
+              className="inline-block"
+              aria-label="The Educatee Centre Home"
+            >
               <div className="relative w-[190px] h-[48px] flex items-center">
                 <Image
                   src="/logo-white.png"
@@ -58,7 +76,11 @@ export function Footer() {
           {/* Col 2: Quick Links (2 cols) */}
           <div className="lg:col-span-2 flex flex-col gap-3">
             <h3 className="font-bold text-white text-base mb-1">Navigation</h3>
-            <Link href="/" className="text-sm hover:text-[#00CDC4] transition-colors">
+            <Link
+              href="/"
+              onClick={handleHomeClick}
+              className="text-sm hover:text-[#00CDC4] transition-colors"
+            >
               Home
             </Link>
             <Link href="/about" className="text-sm hover:text-[#00CDC4] transition-colors">

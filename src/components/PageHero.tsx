@@ -75,7 +75,7 @@ export function PageHero({
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-[1.15] tracking-tight !text-white mb-4 font-[var(--font-nunito)]">
             <span className="text-white">{title} </span>
             {accentText && (
-              <span className="text-[#FFC73B] underline decoration-wavy decoration-[#FFC73B]/60 underline-offset-8">
+              <span className="text-[#FFC73B]">
                 {accentText}
               </span>
             )}

@@ -10,7 +10,6 @@ import {
   UserCheck,
   PartyPopper,
   Award,
-  Sparkles,
   CheckCircle,
   Eye,
 } from "lucide-react";
@@ -91,7 +90,6 @@ export default function AboutClientView() {
                 </div>
 
                 <div className="absolute -bottom-4 right-2 bg-white text-[#3B3B3D] px-4 py-2 rounded-full font-black text-xs shadow-lg border border-[#E2E9EB] z-20 flex items-center gap-1.5">
-                  <Sparkles className="w-3.5 h-3.5 text-[#FFC73B]" />
                   <span>Est. 2022 • Feni</span>
                 </div>
               </div>
@@ -297,7 +295,7 @@ export default function AboutClientView() {
                 </div>
 
                 {/* Teaching Style Box */}
-                <div className="p-5 rounded-2xl bg-[#FFF9EB] border border-[#FFC73B]/40 text-xs sm:text-sm text-[#3B3B3D] leading-relaxed mb-6">
+                <div className="p-5 rounded-2xl bg-[#FFF9EB] border border-[#E2E9EB] text-xs sm:text-sm text-[#3B3B3D] leading-relaxed mb-6">
                   <strong className="text-[#B87C00] block uppercase tracking-wider mb-1 font-bold">
                     Teaching Style &amp; Mentorship Philosophy:
                   </strong>
@@ -517,7 +515,7 @@ export default function AboutClientView() {
               </p>
             </div>
 
-            <div className="bg-[#FFF9EB] rounded-2xl p-5 text-center border border-[#FFC73B]/30">
+            <div className="bg-[#FFF9EB] rounded-2xl p-5 text-center border border-[#E2E9EB]">
               <span className="text-xs font-bold text-[#B87C00] uppercase block mb-1">
                 Fellowship
               </span>
