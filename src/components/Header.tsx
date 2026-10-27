@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -11,14 +11,35 @@ import { siteContent } from "@/data/content";
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [programsDropdownOpen, setProgramsDropdownOpen] = useState(false);
+  const [visible, setVisible] = useState(true);
   const [scrolled, setScrolled] = useState(false);
+  const lastScrollYRef = useRef(0);
   const pathname = usePathname();
 
   const { contact, programs } = siteContent;
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+      const prevScrollY = lastScrollYRef.current;
+
+      // Track if page is scrolled past top
+      setScrolled(currentScrollY > 20);
+
+      // Always show navbar at the very top of the page
+      if (currentScrollY <= 40) {
+        setVisible(true);
+      } else if (currentScrollY > prevScrollY + 8) {
+        // Scrolling DOWN -> hide navbar to allow full screen view
+        setVisible(false);
+        setProgramsDropdownOpen(false);
+        setMobileMenuOpen(false);
+      } else if (currentScrollY < prevScrollY - 8) {
+        // Scrolling UP -> reveal navbar smoothly
+        setVisible(true);
+      }
+
+      lastScrollYRef.current = currentScrollY;
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -33,15 +54,19 @@ export function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
-        scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-md py-2 md:py-2.5 border-b border-[#E2E9EB]"
-          : "bg-white/90 backdrop-blur-sm py-2.5 md:py-3.5 border-b border-[#E2E9EB]/60"
+      className={`fixed top-0 left-0 right-0 z-50 pt-3 sm:pt-4 md:pt-5 px-3 sm:px-6 bg-transparent transition-transform duration-300 ease-in-out pointer-events-none ${
+        visible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
-        <div className="bg-white rounded-2xl md:rounded-full px-4 md:px-7 py-2 sm:py-2.5 flex items-center justify-between padora-card-shadow border border-[#E2E9EB]/80">
-          {/* Authentic Logo (Transparent background, no black box) */}
+      <div className="max-w-[1240px] mx-auto pointer-events-auto">
+        <div
+          className={`bg-white rounded-2xl md:rounded-full px-4 md:px-7 py-2 sm:py-2.5 flex items-center justify-between border border-[#E2E9EB]/90 transition-shadow duration-300 ${
+            scrolled
+              ? "shadow-[0_12px_36px_-6px_rgba(0,0,0,0.18)]"
+              : "shadow-[0_8px_30px_rgb(0,0,0,0.12)]"
+          }`}
+        >
+          {/* Authentic Logo (Transparent background) */}
           <Link
             href="/"
             className="flex items-center group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4F67FF] rounded-xl"
@@ -59,7 +84,7 @@ export function Header() {
             </div>
           </Link>
 
-          {/* Desktop Navigation (Exact 5 items: Home, About, Programs dropdown, Admissions & Fees, Contact) */}
+          {/* Desktop Navigation */}
           <nav
             className="hidden lg:flex items-center gap-7 xl:gap-8 text-sm font-semibold text-[#3B3B3D]"
             aria-label="Main Navigation"
@@ -97,7 +122,9 @@ export function Header() {
               <button
                 type="button"
                 className={`flex items-center gap-1.5 transition-colors hover:text-[#4F67FF] py-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4F67FF] rounded-lg relative ${
-                  pathname?.startsWith("/programs") ? "text-[#4F67FF] font-bold" : ""
+                  pathname?.startsWith("/programs")
+                    ? "text-[#4F67FF] font-bold"
+                    : ""
                 }`}
                 aria-expanded={programsDropdownOpen}
                 aria-haspopup="true"
@@ -212,101 +239,109 @@ export function Header() {
             </button>
           </div>
         </div>
-      </div>
 
-      {/* Mobile Menu Drawer */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="lg:hidden bg-white border-b border-[#E2E9EB] shadow-2xl overflow-hidden mt-2"
-          >
-            <div className="max-w-[1240px] mx-auto px-5 py-5 flex flex-col gap-3">
-              <Link
-                href="/"
-                className={`py-2 text-base font-bold transition-colors ${
-                  isActive("/") ? "text-[#4F67FF]" : "text-[#3B3B3D] hover:text-[#4F67FF]"
-                }`}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Home
-              </Link>
-
-              <Link
-                href="/about"
-                className={`py-2 text-base font-bold transition-colors ${
-                  isActive("/about") ? "text-[#4F67FF]" : "text-[#3B3B3D] hover:text-[#4F67FF]"
-                }`}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                About
-              </Link>
-
-              <div className="py-1">
+        {/* Mobile Menu Drawer (Floating pill card) */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -8, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -6, scale: 0.98 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              className="lg:hidden bg-white rounded-2xl shadow-2xl border border-[#E2E9EB] overflow-hidden mt-2 p-5"
+            >
+              <div className="flex flex-col gap-3">
                 <Link
-                  href="/programs"
-                  className="block text-base font-bold text-[#4F67FF]"
+                  href="/"
+                  className={`py-2 text-base font-bold transition-colors ${
+                    isActive("/")
+                      ? "text-[#4F67FF]"
+                      : "text-[#3B3B3D] hover:text-[#4F67FF]"
+                  }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  Programs (All Courses)
+                  Home
                 </Link>
-                <div className="pl-3 mt-2 flex flex-col gap-2 border-l-2 border-[#EFF1FB]">
-                  {programs.map((p) => (
-                    <Link
-                      key={p.id}
-                      href={`/programs/${p.slug}`}
-                      className="text-sm text-[#54595F] hover:text-[#4F67FF] py-0.5"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      {p.title}
-                    </Link>
-                  ))}
+
+                <Link
+                  href="/about"
+                  className={`py-2 text-base font-bold transition-colors ${
+                    isActive("/about")
+                      ? "text-[#4F67FF]"
+                      : "text-[#3B3B3D] hover:text-[#4F67FF]"
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  About
+                </Link>
+
+                <div className="py-1">
+                  <Link
+                    href="/programs"
+                    className="block text-base font-bold text-[#4F67FF]"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Programs (All Courses)
+                  </Link>
+                  <div className="pl-3 mt-2 flex flex-col gap-2 border-l-2 border-[#EFF1FB]">
+                    {programs.map((p) => (
+                      <Link
+                        key={p.id}
+                        href={`/programs/${p.slug}`}
+                        className="text-sm text-[#54595F] hover:text-[#4F67FF] py-0.5"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {p.title}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+
+                <Link
+                  href="/admissions"
+                  className={`py-2 text-base font-bold transition-colors ${
+                    isActive("/admissions")
+                      ? "text-[#4F67FF]"
+                      : "text-[#3B3B3D] hover:text-[#4F67FF]"
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Admissions &amp; Fees
+                </Link>
+
+                <Link
+                  href="/contact"
+                  className={`py-2 text-base font-bold transition-colors ${
+                    isActive("/contact")
+                      ? "text-[#4F67FF]"
+                      : "text-[#3B3B3D] hover:text-[#4F67FF]"
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Contact
+                </Link>
+
+                <div className="pt-3 border-t border-[#E2E9EB] flex flex-col gap-3">
+                  <a
+                    href={`tel:${contact.primaryPhone.replace(/-/g, "")}`}
+                    className="flex items-center justify-center gap-2 py-2.5 rounded-full bg-[#EFF1FB] text-[#4F67FF] font-bold text-sm"
+                  >
+                    <Phone className="w-4 h-4" />
+                    <span>Call {contact.primaryPhone}</span>
+                  </a>
+                  <Link
+                    href="/admissions#free-demo"
+                    className="flex items-center justify-center py-3 rounded-full bg-[#00CDC4] text-white font-bold text-sm shadow-md"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Book a Free Demo Class
+                  </Link>
                 </div>
               </div>
-
-              <Link
-                href="/admissions"
-                className={`py-2 text-base font-bold transition-colors ${
-                  isActive("/admissions") ? "text-[#4F67FF]" : "text-[#3B3B3D] hover:text-[#4F67FF]"
-                }`}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Admissions &amp; Fees
-              </Link>
-
-              <Link
-                href="/contact"
-                className={`py-2 text-base font-bold transition-colors ${
-                  isActive("/contact") ? "text-[#4F67FF]" : "text-[#3B3B3D] hover:text-[#4F67FF]"
-                }`}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Contact
-              </Link>
-
-              <div className="pt-3 border-t border-[#E2E9EB] flex flex-col gap-3">
-                <a
-                  href={`tel:${contact.primaryPhone.replace(/-/g, "")}`}
-                  className="flex items-center justify-center gap-2 py-2.5 rounded-full bg-[#EFF1FB] text-[#4F67FF] font-bold text-sm"
-                >
-                  <Phone className="w-4 h-4" />
-                  <span>Call {contact.primaryPhone}</span>
-                </a>
-                <Link
-                  href="/admissions#free-demo"
-                  className="flex items-center justify-center py-3 rounded-full bg-[#00CDC4] text-white font-bold text-sm shadow-md"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Book a Free Demo Class
-                </Link>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </header>
   );
 }

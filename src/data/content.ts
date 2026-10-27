@@ -488,7 +488,7 @@ export const siteContent = {
       category: "English",
       description: "Designed specifically for post-exam SSC and Dakhil students to break the ice, overcome stage fright, and build spontaneous English speaking fluency in a supportive peer group.",
       badge: "50% Off Girls Batch",
-      accentColor: "pink",
+      accentColor: "blue",
       image: "/images/programs/spoken-english.jpg",
       imageAlt: "Students practicing conversational English in a supportive group",
       targetAudience: [
@@ -753,7 +753,7 @@ export const siteContent = {
       category: "IT & Digital Skills",
       description: "Learn foundational digital marketing across social platforms. Build and optimize business pages, launch targeted Meta ads, design eye-catching graphics with Canva, and write high-converting copy.",
       badge: "High Demand",
-      accentColor: "blue",
+      accentColor: "teal",
       image: "/images/programs/social-media-marketing.jpg",
       imageAlt: "Digital marketing campaign planning and social media strategy",
       targetAudience: [
@@ -807,7 +807,7 @@ export const siteContent = {
       category: "English",
       description: "Transform untidy, slow, or illegible handwriting into neat, beautiful, exam-ready script in both English and Bengali through scientific stroke, grip, and posture correction.",
       badge: "Visible Results",
-      accentColor: "yellow",
+      accentColor: "pink",
       image: "/images/programs/handwriting.jpg",
       imageAlt: "Neat handwriting transformation on practice notebook",
       targetAudience: [

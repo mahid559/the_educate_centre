@@ -4,7 +4,7 @@ import { BookOpen, Home } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <div className="min-h-[75vh] flex items-center justify-center py-20 px-4 sm:px-6 bg-white relative overflow-hidden">
+    <div className="min-h-[75vh] flex items-center justify-center pt-32 pb-20 sm:pt-40 px-4 sm:px-6 bg-white relative overflow-hidden">
       {/* Background Decorative Padora Blobs */}
       <div
         className="absolute inset-0 pointer-events-none opacity-25 overflow-hidden"

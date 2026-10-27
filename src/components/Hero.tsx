@@ -10,7 +10,7 @@ export function Hero() {
   const { hero } = siteContent;
 
   return (
-    <section className="relative overflow-hidden bg-[#4F67FF] text-white pt-10 pb-16 md:pt-16 md:pb-24 lg:pt-20 lg:pb-32">
+    <section className="relative overflow-hidden bg-[#4F67FF] text-white pt-28 pb-16 sm:pt-32 md:pt-36 md:pb-24 lg:pt-40 lg:pb-32">
       {/* Background Decorative Curves & Blobs (Padora Aesthetics) */}
       <div className="absolute inset-0 pointer-events-none opacity-20 overflow-hidden" aria-hidden="true">
         <svg

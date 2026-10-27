@@ -23,7 +23,7 @@ export function PageHero({
   children,
 }: PageHeroProps) {
   return (
-    <section className="relative overflow-hidden bg-[#4F67FF] text-white pt-10 pb-16 md:pt-14 md:pb-20 lg:pt-16 lg:pb-24">
+    <section className="relative overflow-hidden bg-[#4F67FF] text-white pt-28 pb-14 sm:pt-32 md:pt-36 md:pb-20 lg:pt-40 lg:pb-24">
       {/* Background Decorative Curves (Matches Home Hero) */}
       <div
         className="absolute inset-0 pointer-events-none opacity-20 overflow-hidden"
