@@ -12,6 +12,8 @@ import {
   Award,
   CheckCircle,
   Eye,
+  Maximize2,
+  ArrowRight,
 } from "lucide-react";
 import { siteContent } from "@/data/content";
 import { PageHero } from "@/components/PageHero";
@@ -42,8 +44,6 @@ export default function AboutClientView() {
   const lightboxImages: LightboxImage[] = cultureGallery.map((item) => ({
     src: item.image,
     alt: item.imageAlt,
-    title: item.title,
-    caption: `${item.badge ? `${item.badge} • ` : ""}${item.caption}`,
   }));
 
   return (
@@ -528,17 +528,17 @@ export default function AboutClientView() {
             </div>
           </div>
 
-          {/* Interactive Lightbox Image Strip (7 curated images) */}
+          {/* Interactive Lightbox Image Strip (Clean real photos) */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-            {cultureGallery.map((item, index) => (
+            {cultureGallery.slice(0, 8).map((item, index) => (
               <motion.div
                 key={item.id}
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.06 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
                 onClick={() => setActiveLightboxIndex(index)}
-                className={`relative rounded-2xl overflow-hidden cursor-pointer group shadow-sm hover:shadow-xl transition-all duration-300 border border-[#E2E9EB] ${
+                className={`relative rounded-2xl overflow-hidden cursor-pointer group shadow-sm hover:shadow-xl transition-all duration-300 border border-[#E2E9EB] bg-slate-900 ${
                   index === 0 ? "sm:col-span-2 sm:row-span-2 h-72 sm:h-full" : "h-48 sm:h-56"
                 }`}
               >
@@ -554,24 +554,25 @@ export default function AboutClientView() {
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-85 group-hover:opacity-95 transition-opacity" />
-
-                {item.badge && (
-                  <span className="absolute top-3 left-3 bg-[#4F67FF] text-white text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full shadow">
-                    {item.badge}
-                  </span>
-                )}
-
-                <div className="absolute bottom-3 left-3 right-3 text-white">
-                  <h4 className="text-xs sm:text-sm font-bold font-[var(--font-nunito)] line-clamp-1">
-                    {item.title}
-                  </h4>
-                  <span className="text-[10px] text-white/80 group-hover:text-white inline-flex items-center gap-1 mt-0.5">
-                    Click to view full photo ⤢
+                {/* Subtle Hover Scrim with Center Enlarge Icon */}
+                <div className="absolute inset-0 bg-black/35 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <span className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md text-white border border-white/30 flex items-center justify-center shadow-lg transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                    <Maximize2 className="w-4 h-4" />
                   </span>
                 </div>
               </motion.div>
             ))}
+          </div>
+
+          {/* Link to Full Photo Gallery */}
+          <div className="mt-10 text-center">
+            <Link
+              href="/gallery"
+              className="inline-flex items-center gap-2 bg-[#ED1C24] hover:bg-[#C81017] text-white font-extrabold text-sm px-7 py-3.5 rounded-full transition-all duration-200 shadow-md shadow-red-500/20 hover:scale-[1.02] active:scale-[0.98] group"
+            >
+              <span>Explore All {cultureGallery.length} Gallery Photos</span>
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </Link>
           </div>
         </div>
 

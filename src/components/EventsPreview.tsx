@@ -18,8 +18,6 @@ export function EventsPreview() {
   const lightboxImages: LightboxImage[] = cultureGallery.map((item) => ({
     src: item.image,
     alt: item.imageAlt,
-    title: item.title,
-    caption: `${item.badge ? `${item.badge} • ` : ""}${item.caption}`,
   }));
 
   return (
@@ -52,10 +50,10 @@ export function EventsPreview() {
           </div>
         </div>
 
-        {/* Gallery Image Grid (Modern Bento Layout - No bulky text cards) */}
+        {/* Gallery Image Grid (Clean Photo Cards — No text/category overlays) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {previewPhotos.map((photo, index) => {
-            const isFeatured = index === 0; // First item gets a prominent card aspect
+            const isFeatured = index === 0;
 
             return (
               <motion.div
@@ -84,32 +82,11 @@ export function EventsPreview() {
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
 
-                {/* Smooth Dark Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-300" />
-
-                {/* Floating Category Badge */}
-                {photo.badge && (
-                  <span className="absolute top-4 left-4 bg-white/95 backdrop-blur-md text-[#3B3B3D] text-xs font-black px-3.5 py-1 rounded-full shadow-md">
-                    {photo.badge}
+                {/* Subtle Scrim & Center Enlarge Icon on Hover */}
+                <div className="absolute inset-0 bg-black/35 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <span className="w-13 h-13 rounded-full bg-white/20 backdrop-blur-md text-white border border-white/30 flex items-center justify-center shadow-lg transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                    <Maximize2 className="w-5 h-5" />
                   </span>
-                )}
-
-                {/* Expand Icon on Top Right */}
-                <span className="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/40 backdrop-blur-md text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                  <Maximize2 className="w-4 h-4" />
-                </span>
-
-                {/* Bottom Caption & Title */}
-                <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 text-white">
-                  <span className="text-[11px] font-bold text-[#FFC73B] uppercase tracking-wider block mb-1">
-                    {photo.category}
-                  </span>
-                  <h3 className="text-base sm:text-xl font-extrabold font-[var(--font-ubuntu)] leading-snug line-clamp-2 mb-1">
-                    {photo.title}
-                  </h3>
-                  <p className="text-xs text-white/80 line-clamp-1 group-hover:text-white transition-colors">
-                    {photo.caption}
-                  </p>
                 </div>
               </motion.div>
             );
