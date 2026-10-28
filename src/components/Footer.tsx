@@ -125,12 +125,6 @@ export function Footer() {
               </span>
               <div>
                 <p className="font-medium text-slate-200">{contact.address}</p>
-                <div className="text-xs text-[#F73775] font-semibold mt-1 bg-white/5 border border-white/10 px-2.5 py-1 rounded-md inline-flex items-center gap-1.5">
-                  <svg className="w-3.5 h-3.5 fill-current flex-shrink-0" viewBox="0 0 24 24">
-                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-                  </svg>
-                  <span>{contact.addressFloorNote}</span>
-                </div>
               </div>
             </div>
 

@@ -192,10 +192,6 @@ export default function ContactClientView() {
                 <p className="text-xs font-semibold text-white/90 mb-2 leading-relaxed">
                   {contact.address}
                 </p>
-                {/* PROMINENT LIFT NOTE */}
-                <div className="bg-white/20 border border-white/30 rounded-xl p-2.5 text-xs text-white font-extrabold">
-                  ⚠️ {contact.addressFloorNote}
-                </div>
               </div>
               <div className="mt-6 pt-3 border-t border-white/20 text-xs font-bold text-white/90">
                 Near Pourashava Gate

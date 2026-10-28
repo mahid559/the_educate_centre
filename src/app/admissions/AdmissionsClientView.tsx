@@ -554,9 +554,6 @@ export default function AdmissionsClientView() {
                 <p className="font-bold text-sm sm:text-base">
                   {contact.address}
                 </p>
-                <p className="text-xs font-semibold text-[#F73775]">
-                  {contact.addressFloorNote}
-                </p>
               </div>
             </div>
 

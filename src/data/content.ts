@@ -192,8 +192,7 @@ export const siteContent = {
   },
 
   contact: {
-    address: "Appayan Afroz Tower, Near Pourashava Gate, College Road, Feni",
-    addressFloorNote: "5th floor (press the 4th floor button in the lift)",
+    address: "Appayan Afroz Tower (5th floor), Near Pourashava Gate, College Road, Feni",
     primaryPhone: "01874-232272",
     secondaryPhone: "01576-560505",
     whatsappNumber: "8801874232272",
@@ -631,8 +630,8 @@ export const siteContent = {
       description: "Designed specifically for post-exam SSC and Dakhil students to break the ice, overcome stage fright, and build spontaneous English speaking fluency in a supportive peer group.",
       badge: "50% Off Girls Batch",
       accentColor: "blue",
-      image: "/images/programs/spoken-english.jpg",
-      imageAlt: "Students practicing conversational English in a supportive group",
+      image: "/images/programs/ssc-dakhil-spoken-english.png",
+      imageAlt: "SSC & Dakhil Spoken English Course thumbnail",
       targetAudience: [
         "SSC & Dakhil examination candidates awaiting results or starting college",
         "Female students seeking an exclusively female, comfortable learning setting",
@@ -688,8 +687,8 @@ export const siteContent = {
       description: "Polished workplace English, email etiquette, client communication, and interview mastery designed specifically to fit the busy evening schedules of jobholders and entrepreneurs.",
       badge: "Evening Batch",
       accentColor: "blue",
-      image: "/images/programs/spoken-english.jpg",
-      imageAlt: "Working professionals in English communication training",
+      image: "/images/programs/spoken-english-professionals.png",
+      imageAlt: "Spoken English for Working Professionals Course thumbnail",
       targetAudience: [
         "Working professionals, corporate executives, bankers, and teachers",
         "Business owners and entrepreneurs dealing with corporate clients",
@@ -741,8 +740,8 @@ export const siteContent = {
       description: "Structured band-targeted preparation across Listening, Reading, Writing, and Speaking with free authentic Cambridge mock tests. Classes strictly capped at a maximum of 16 students.",
       badge: "Max 16 Students",
       accentColor: "yellow",
-      image: "/images/programs/ielts.jpg",
-      imageAlt: "IELTS study materials and small group preparation",
+      image: "/images/programs/ielts-preparation.png",
+      imageAlt: "IELTS Preparation Course thumbnail",
       targetAudience: [
         "Post-HSC students planning for higher study abroad (UK, USA, Canada, Australia, Europe)",
         "Job seekers applying for international migration or work visas",
@@ -950,8 +949,8 @@ export const siteContent = {
       description: "Transform untidy, slow, or illegible handwriting into neat, beautiful, exam-ready script in both English and Bengali through scientific stroke, grip, and posture correction.",
       badge: "Visible Results",
       accentColor: "pink",
-      image: "/images/programs/handwriting.jpg",
-      imageAlt: "Neat handwriting transformation on practice notebook",
+      image: "/images/programs/smart-handwriting.png",
+      imageAlt: "Smart Handwriting Course thumbnail",
       targetAudience: [
         "School and college students losing exam marks due to messy handwriting",
         "Candidates preparing for board exams, university admissions, and job tests",
