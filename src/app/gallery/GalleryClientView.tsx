@@ -58,31 +58,34 @@ export default function GalleryClientView() {
             </div>
           </div>
 
-          {/* Clean Photo Grid — Pure images without titles, categories, or captions */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+          {/* Pure Masonry Photo Grid — Zero Cropping, Natural Aspect Ratios */}
+          <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-5 space-y-5 [column-fill:_balance]">
             {cultureGallery.map((photo, index) => (
               <motion.div
                 key={photo.id}
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.35, delay: (index % 8) * 0.04 }}
+                viewport={{ once: true, margin: "50px" }}
+                transition={{ duration: 0.35, delay: (index % 4) * 0.05 }}
                 onClick={() => setActiveLightboxIndex(index)}
-                className="relative rounded-2xl sm:rounded-3xl overflow-hidden cursor-pointer group shadow-sm hover:shadow-2xl transition-all duration-300 border border-[#E2E9EB] bg-slate-900 aspect-[4/3] sm:h-72"
+                className="break-inside-avoid relative rounded-2xl sm:rounded-3xl overflow-hidden cursor-pointer group shadow-sm hover:shadow-2xl transition-all duration-300 border border-[#E2E9EB]/80 bg-slate-100"
               >
-                <Image
-                  src={photo.image}
-                  alt={photo.imageAlt}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
-                />
+                <div className="relative overflow-hidden w-full">
+                  <Image
+                    src={photo.image}
+                    alt={photo.imageAlt}
+                    width={photo.width}
+                    height={photo.height}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
+                    className="w-full h-auto block object-contain group-hover:scale-[1.03] transition-transform duration-500 ease-out"
+                  />
 
-                {/* Subtle Hover Scrim with Center Enlarge Icon */}
-                <div className="absolute inset-0 bg-black/35 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <span className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md text-white border border-white/30 flex items-center justify-center shadow-lg transform scale-75 group-hover:scale-100 transition-transform duration-300">
-                    <Maximize2 className="w-5 h-5" />
-                  </span>
+                  {/* Frosted Glass Scrim & Enlarge Badge on Hover */}
+                  <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span className="w-11 h-11 rounded-full bg-white/30 backdrop-blur-md text-white border border-white/40 flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform duration-300">
+                      <Maximize2 className="w-5 h-5" />
+                    </span>
+                  </div>
                 </div>
               </motion.div>
             ))}

@@ -41,8 +41,9 @@ export function FounderSection() {
                     src={founder.image}
                     alt={founder.imageAlt}
                     fill
+                    priority
                     sizes="(max-width: 768px) 100vw, 380px"
-                    className="object-cover object-top hover:scale-105 transition-transform duration-500"
+                    className="object-cover object-center hover:scale-105 transition-transform duration-500"
                   />
                 </div>
 

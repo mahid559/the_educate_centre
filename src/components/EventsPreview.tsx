@@ -50,47 +50,37 @@ export function EventsPreview() {
           </div>
         </div>
 
-        {/* Gallery Image Grid (Clean Photo Cards — No text/category overlays) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {previewPhotos.map((photo, index) => {
-            const isFeatured = index === 0;
-
-            return (
-              <motion.div
-                key={photo.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: index * 0.08 }}
-                onClick={() => setActiveImageIndex(index)}
-                className={`relative rounded-3xl overflow-hidden cursor-pointer group shadow-md hover:shadow-2xl transition-all duration-300 border border-[#E2E9EB] bg-slate-900 ${
-                  isFeatured
-                    ? "sm:col-span-2 lg:col-span-2 h-72 sm:h-88 lg:h-[360px]"
-                    : "h-72 sm:h-88 lg:h-[360px]"
-                }`}
-              >
-                {/* Real High-Resolution Image */}
+        {/* Gallery Image Grid (Clean Masonry — Zero Cropping, Natural Aspect Ratios) */}
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6 [column-fill:_balance]">
+          {previewPhotos.map((photo, index) => (
+            <motion.div
+              key={photo.id}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.06 }}
+              onClick={() => setActiveImageIndex(index)}
+              className="break-inside-avoid relative rounded-2xl sm:rounded-3xl overflow-hidden cursor-pointer group shadow-sm hover:shadow-2xl transition-all duration-300 border border-[#E2E9EB]/80 bg-slate-100"
+            >
+              <div className="relative overflow-hidden w-full">
                 <Image
                   src={photo.image}
                   alt={photo.imageAlt}
-                  fill
-                  sizes={
-                    isFeatured
-                      ? "(max-width: 1024px) 100vw, 800px"
-                      : "(max-width: 768px) 100vw, 420px"
-                  }
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                  width={photo.width}
+                  height={photo.height}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 420px"
+                  className="w-full h-auto block object-contain group-hover:scale-[1.03] transition-transform duration-500 ease-out"
                 />
 
-                {/* Subtle Scrim & Center Enlarge Icon on Hover */}
-                <div className="absolute inset-0 bg-black/35 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <span className="w-13 h-13 rounded-full bg-white/20 backdrop-blur-md text-white border border-white/30 flex items-center justify-center shadow-lg transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                {/* Subtle Glassmorphic Hover Scrim & Enlarge Badge */}
+                <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <span className="w-12 h-12 rounded-full bg-white/30 backdrop-blur-md text-white border border-white/40 flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform duration-300">
                     <Maximize2 className="w-5 h-5" />
                   </span>
                 </div>
-              </motion.div>
-            );
-          })}
+              </div>
+            </motion.div>
+          ))}
         </div>
 
         {/* Bottom CTA for Mobile */}

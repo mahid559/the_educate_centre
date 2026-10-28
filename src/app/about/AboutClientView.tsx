@@ -253,8 +253,9 @@ export default function AboutClientView() {
                       src={founder.image}
                       alt={founder.imageAlt}
                       fill
+                      priority
                       sizes="(max-width: 768px) 100vw, 380px"
-                      className="object-cover object-top hover:scale-105 transition-transform duration-500"
+                      className="object-cover object-center hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                   <div className="absolute -bottom-4 right-4 z-20 bg-[#4F67FF] text-white px-4 py-2 rounded-full font-black text-xs shadow-lg inline-flex items-center gap-1.5">
@@ -528,37 +529,34 @@ export default function AboutClientView() {
             </div>
           </div>
 
-          {/* Interactive Lightbox Image Strip (Clean real photos) */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+          {/* Interactive Lightbox Image Strip (Clean real photos — Zero Cropping) */}
+          <div className="columns-2 sm:columns-3 lg:columns-4 gap-4 space-y-4 [column-fill:_balance]">
             {cultureGallery.slice(0, 8).map((item, index) => (
               <motion.div
                 key={item.id}
-                initial={{ opacity: 0, scale: 0.95 }}
+                initial={{ opacity: 0, scale: 0.96 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
+                transition={{ duration: 0.35, delay: index * 0.04 }}
                 onClick={() => setActiveLightboxIndex(index)}
-                className={`relative rounded-2xl overflow-hidden cursor-pointer group shadow-sm hover:shadow-xl transition-all duration-300 border border-[#E2E9EB] bg-slate-900 ${
-                  index === 0 ? "sm:col-span-2 sm:row-span-2 h-72 sm:h-full" : "h-48 sm:h-56"
-                }`}
+                className="break-inside-avoid relative rounded-2xl overflow-hidden cursor-pointer group shadow-sm hover:shadow-xl transition-all duration-300 border border-[#E2E9EB]/80 bg-slate-100"
               >
-                <Image
-                  src={item.image}
-                  alt={item.imageAlt}
-                  fill
-                  sizes={
-                    index === 0
-                      ? "(max-width: 640px) 100vw, 600px"
-                      : "(max-width: 640px) 50vw, 300px"
-                  }
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                />
+                <div className="relative overflow-hidden w-full">
+                  <Image
+                    src={item.image}
+                    alt={item.imageAlt}
+                    width={item.width}
+                    height={item.height}
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 280px"
+                    className="w-full h-auto block object-contain group-hover:scale-[1.03] transition-transform duration-500 ease-out"
+                  />
 
-                {/* Subtle Hover Scrim with Center Enlarge Icon */}
-                <div className="absolute inset-0 bg-black/35 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <span className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md text-white border border-white/30 flex items-center justify-center shadow-lg transform scale-75 group-hover:scale-100 transition-transform duration-300">
-                    <Maximize2 className="w-4 h-4" />
-                  </span>
+                  {/* Subtle Hover Scrim with Center Enlarge Icon */}
+                  <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span className="w-10 h-10 rounded-full bg-white/30 backdrop-blur-md text-white border border-white/40 flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform duration-300">
+                      <Maximize2 className="w-4 h-4" />
+                    </span>
+                  </div>
                 </div>
               </motion.div>
             ))}
