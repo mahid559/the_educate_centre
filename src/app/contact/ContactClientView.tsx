@@ -212,7 +212,7 @@ export default function ContactClientView() {
             {/* Left Column: Contact Form (6 cols) */}
             <div className="lg:col-span-6">
               <div className="bg-white rounded-3xl p-8 sm:p-10 border border-[#E2E9EB] padora-card-shadow">
-                <span className="text-xs font-extrabold uppercase tracking-widest text-[#F73775] block mb-1">
+                <span className="text-xs font-extrabold uppercase tracking-widest text-[#ED1C24] block mb-1">
                   SEND US A MESSAGE
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-[#3B3B3D] font-[var(--font-ubuntu)] mb-2">
@@ -275,7 +275,7 @@ export default function ContactClientView() {
                           htmlFor="contact-name"
                           className="block text-xs font-bold uppercase tracking-wider text-[#3B3B3D] mb-1.5"
                         >
-                          Full Name <span className="text-[#F73775]">*</span>
+                          Full Name <span className="text-[#ED1C24]">*</span>
                         </label>
                         <input
                           id="contact-name"
@@ -294,7 +294,7 @@ export default function ContactClientView() {
                           htmlFor="contact-phone"
                           className="block text-xs font-bold uppercase tracking-wider text-[#3B3B3D] mb-1.5"
                         >
-                          Mobile / WhatsApp Number <span className="text-[#F73775]">*</span>
+                          Mobile / WhatsApp Number <span className="text-[#ED1C24]">*</span>
                         </label>
                         <input
                           id="contact-phone"
@@ -313,7 +313,7 @@ export default function ContactClientView() {
                           htmlFor="contact-msg"
                           className="block text-xs font-bold uppercase tracking-wider text-[#3B3B3D] mb-1.5"
                         >
-                          Your Message / Course Inquiry <span className="text-[#F73775]">*</span>
+                          Your Message / Course Inquiry <span className="text-[#ED1C24]">*</span>
                         </label>
                         <textarea
                           id="contact-msg"
@@ -330,7 +330,7 @@ export default function ContactClientView() {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="mt-2 w-full inline-flex items-center justify-center gap-2 bg-[#00CDC4] hover:bg-[#04B9B1] disabled:opacity-60 text-white font-extrabold text-sm sm:text-base py-3.5 rounded-full transition-all duration-200 shadow-md hover:shadow-lg hover:scale-[1.01] active:scale-[0.99]"
+                        className="mt-2 w-full inline-flex items-center justify-center gap-2 bg-[#ED1C24] hover:bg-[#C81017] disabled:opacity-60 text-white font-extrabold text-sm sm:text-base py-3.5 rounded-full transition-all duration-200 shadow-md shadow-red-500/20 hover:shadow-lg hover:scale-[1.01] active:scale-[0.99]"
                       >
                         <Send className="w-4 h-4" />
                         <span>{isSubmitting ? "Sending Message..." : "Send Message"}</span>

@@ -112,7 +112,7 @@ export function CourseDetailClientView({
             <div className="flex flex-wrap items-center gap-4">
               <Link
                 href="#demo-form"
-                className="inline-flex items-center justify-center bg-[#00CDC4] hover:bg-[#04B9B1] text-white font-extrabold text-sm sm:text-base px-8 py-4 rounded-full transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
+                className="inline-flex items-center justify-center bg-[#ED1C24] hover:bg-[#C81017] text-white font-extrabold text-sm sm:text-base px-8 py-4 rounded-full transition-all duration-200 shadow-xl shadow-red-900/30 hover:scale-[1.02] active:scale-[0.98]"
               >
                 Book a Free Demo Class
               </Link>
@@ -267,7 +267,7 @@ export function CourseDetailClientView({
 
               {/* Who is this course for? */}
               <div className="pt-6 border-t border-[#E2E9EB]">
-                <span className="text-xs font-extrabold uppercase tracking-widest text-[#4F67FF] block mb-2">
+                <span className="text-xs font-extrabold uppercase tracking-widest text-[#ED1C24] block mb-2">
                   TARGET AUDIENCE
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-[#3B3B3D] font-[var(--font-ubuntu)] mb-6">
@@ -293,7 +293,7 @@ export function CourseDetailClientView({
 
               {/* What You Will Learn (Curriculum Outline) */}
               <div className="pt-6 border-t border-[#E2E9EB]">
-                <span className="text-xs font-extrabold uppercase tracking-widest text-[#F73775] block mb-2">
+                <span className="text-xs font-extrabold uppercase tracking-widest text-[#ED1C24] block mb-2">
                   CURRICULUM MODULES
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-[#3B3B3D] font-[var(--font-ubuntu)] mb-2">
@@ -323,7 +323,7 @@ export function CourseDetailClientView({
               {/* Course-Specific FAQ */}
               {course.faqs && course.faqs.length > 0 && (
                 <div className="pt-6 border-t border-[#E2E9EB]">
-                  <span className="text-xs font-extrabold uppercase tracking-widest text-[#4F67FF] block mb-2">
+                  <span className="text-xs font-extrabold uppercase tracking-widest text-[#ED1C24] block mb-2">
                     COMMON QUESTIONS
                   </span>
                   <h2 className="text-2xl sm:text-3xl font-extrabold text-[#3B3B3D] font-[var(--font-ubuntu)] mb-6">
@@ -463,7 +463,7 @@ export function CourseDetailClientView({
                   <div className="pt-6 flex flex-col gap-3">
                     <Link
                       href="#demo-form"
-                      className="w-full inline-flex items-center justify-center bg-[#00CDC4] hover:bg-[#04B9B1] text-white font-extrabold text-sm py-3.5 rounded-full transition-all shadow-md hover:scale-[1.01]"
+                      className="w-full inline-flex items-center justify-center bg-[#ED1C24] hover:bg-[#C81017] text-white font-extrabold text-sm py-3.5 rounded-full transition-all shadow-md shadow-red-500/20 hover:scale-[1.01]"
                     >
                       Book Free Demo Class
                     </Link>
@@ -502,7 +502,7 @@ export function CourseDetailClientView({
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           <SectionHeading
             tag="EXPLORE MORE"
-            tagColor="blue"
+            tagColor="red"
             title="Related Programs You Might Like"
             subtext="Discover more courses designed to accelerate your career and communication skills in Feni."
           />

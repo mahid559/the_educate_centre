@@ -32,14 +32,14 @@ export function FilterTabs({
             aria-selected={isActive}
             type="button"
             onClick={() => onChange(category)}
-            className={`relative px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4F67FF] ${
+            className={`relative px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ED1C24] ${
               isActive ? "text-white" : "text-[#54595F] hover:text-[#3B3B3D]"
             }`}
           >
             {isActive && (
               <motion.div
                 layoutId={layoutId}
-                className="absolute inset-0 bg-[#4F67FF] rounded-full shadow-md z-0"
+                className="absolute inset-0 bg-[#ED1C24] rounded-full shadow-md shadow-red-500/25 z-0"
                 transition={{ type: "spring", stiffness: 400, damping: 30 }}
               />
             )}

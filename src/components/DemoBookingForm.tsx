@@ -43,7 +43,7 @@ export function DemoBookingForm() {
                 </svg>
               </div>
 
-              <span className="text-[#FFC73B] text-xs sm:text-sm font-extrabold uppercase tracking-widest mb-2">
+              <span className="text-[#ED1C24] bg-white px-3.5 py-1 rounded-full text-xs sm:text-sm font-extrabold uppercase tracking-widest mb-3 inline-block shadow-sm">
                 RESERVE YOUR SEAT TODAY
               </span>
 
@@ -162,7 +162,7 @@ export function DemoBookingForm() {
                           htmlFor="phone"
                           className="block text-xs font-bold uppercase tracking-wider text-[#3B3B3D] mb-1.5"
                         >
-                          Phone / WhatsApp Number <span className="text-[#F73775]">*</span>
+                          Phone / WhatsApp Number <span className="text-[#ED1C24]">*</span>
                         </label>
                         <input
                           id="phone"
@@ -171,7 +171,7 @@ export function DemoBookingForm() {
                           value={phone}
                           onChange={(e) => setPhone(e.target.value)}
                           placeholder="018XXXXXXXX or 017XXXXXXXX"
-                          className="w-full px-4 py-3 rounded-xl border border-[#E2E9EB] text-sm focus:outline-none focus:ring-2 focus:ring-[#4F67FF] transition-all bg-[#F8FAFC]"
+                          className="w-full px-4 py-3 rounded-xl border border-[#E2E9EB] text-sm focus:outline-none focus:ring-2 focus:ring-[#ED1C24] transition-all bg-[#F8FAFC]"
                         />
                       </div>
 
@@ -181,13 +181,13 @@ export function DemoBookingForm() {
                           htmlFor="course"
                           className="block text-xs font-bold uppercase tracking-wider text-[#3B3B3D] mb-1.5"
                         >
-                          Select Program <span className="text-[#F73775]">*</span>
+                          Select Program <span className="text-[#ED1C24]">*</span>
                         </label>
                         <select
                           id="course"
                           value={course}
                           onChange={(e) => setCourse(e.target.value)}
-                          className="w-full px-4 py-3 rounded-xl border border-[#E2E9EB] text-sm focus:outline-none focus:ring-2 focus:ring-[#4F67FF] transition-all bg-[#F8FAFC]"
+                          className="w-full px-4 py-3 rounded-xl border border-[#E2E9EB] text-sm focus:outline-none focus:ring-2 focus:ring-[#ED1C24] transition-all bg-[#F8FAFC]"
                         >
                           {programs.map((p) => (
                             <option key={p.id} value={p.title}>
@@ -201,7 +201,7 @@ export function DemoBookingForm() {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="mt-3 w-full inline-flex items-center justify-center bg-[#00CDC4] hover:bg-[#04B9B1] disabled:opacity-60 text-white font-extrabold text-sm sm:text-base py-3.5 rounded-full transition-all duration-200 shadow-md hover:shadow-lg hover:scale-[1.01] active:scale-[0.99]"
+                        className="mt-3 w-full inline-flex items-center justify-center bg-[#ED1C24] hover:bg-[#C81017] disabled:opacity-60 text-white font-extrabold text-sm sm:text-base py-3.5 rounded-full transition-all duration-200 shadow-xl shadow-red-950/20 hover:scale-[1.01] active:scale-[0.99]"
                       >
                         {isSubmitting ? "Submitting..." : "Reserve My Free Seat →"}
                       </button>

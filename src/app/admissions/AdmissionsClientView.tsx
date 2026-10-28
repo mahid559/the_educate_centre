@@ -72,7 +72,7 @@ export default function AdmissionsClientView() {
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           <SectionHeading
             tag="HOW TO ENROLL"
-            tagColor="blue"
+            tagColor="red"
             title="Your Path to Mastery in 4 Simple Steps"
             subtext="We believe in complete transparency. Experience our interactive classroom first-hand before making any financial commitment."
           />
@@ -144,7 +144,7 @@ export default function AdmissionsClientView() {
           <div className="text-center mt-12">
             <Link
               href="#free-demo"
-              className="inline-flex items-center gap-2 bg-[#00CDC4] hover:bg-[#04B9B1] text-white font-extrabold text-sm sm:text-base px-8 py-3.5 rounded-full transition-all shadow-md hover:scale-[1.02]"
+              className="inline-flex items-center gap-2 bg-[#ED1C24] hover:bg-[#C81017] text-white font-extrabold text-sm sm:text-base px-8 py-3.5 rounded-full transition-all shadow-md shadow-red-500/20 hover:scale-[1.02]"
             >
               <span>Start With Step 1: Book Free Demo</span>
               <ArrowRight className="w-4 h-4" />
@@ -158,7 +158,7 @@ export default function AdmissionsClientView() {
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           <SectionHeading
             tag="SPECIAL ADMISSION OFFERS"
-            tagColor="pink"
+            tagColor="red"
             title="Limited-Seat Intake Discounts"
             subtext="Take advantage of our community initiatives designed to encourage girls' education and early-bird IELTS candidates."
           />
@@ -242,7 +242,7 @@ export default function AdmissionsClientView() {
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           <SectionHeading
             tag="TUITION &amp; TIMELINE"
-            tagColor="blue"
+            tagColor="red"
             title="Course Fees &amp; Batch Schedules"
             subtext="Official fee schedules and upcoming batch timelines are confirmed before each intake. Contact us or attend a demo class for current details."
           />
@@ -317,7 +317,7 @@ export default function AdmissionsClientView() {
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           <SectionHeading
             tag="WHO IS ELIGIBLE"
-            tagColor="teal"
+            tagColor="red"
             title="Who Can Join The Educatee Centre?"
             subtext="Our programs are structured with progressive learning modules, welcoming students from diverse backgrounds and age groups."
           />
@@ -398,7 +398,7 @@ export default function AdmissionsClientView() {
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           <SectionHeading
             tag="STUDENT VOICES"
-            tagColor="pink"
+            tagColor="red"
             title="What Students Say"
             subtext="Real experiences and honest feedback from students who achieved confidence and fluency at The Educatee Centre."
           />
@@ -430,7 +430,7 @@ export default function AdmissionsClientView() {
                     href="https://www.facebook.com/TheEducatee.edu"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-[#4F67FF] hover:text-[#384ED0] transition-colors group px-4 py-2 rounded-full hover:bg-[#4F67FF]/5"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-[#1877F2] hover:text-[#166FE5] transition-colors group px-4 py-2 rounded-full hover:bg-[#1877F2]/10"
                   >
                     <span>See what students say on Facebook</span>
                     <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -447,7 +447,7 @@ export default function AdmissionsClientView() {
         <div className="max-w-[900px] mx-auto px-4 sm:px-6">
           <SectionHeading
             tag="HAVE QUESTIONS?"
-            tagColor="blue"
+            tagColor="red"
             title="Admission FAQs"
             subtext="Quick answers to common questions about admission requirements, batch timings, and demo classes."
           />
@@ -508,7 +508,7 @@ export default function AdmissionsClientView() {
           <div className="bg-[#4F67FF] rounded-3xl md:rounded-[3rem] p-8 sm:p-12 lg:p-16 text-white relative overflow-hidden shadow-2xl">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
               <div className="lg:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left">
-                <span className="text-[#FFC73B] text-xs font-bold uppercase tracking-widest mb-2">
+                <span className="text-[#ED1C24] bg-white px-3.5 py-1 rounded-full text-xs font-extrabold uppercase tracking-widest mb-3 inline-block shadow-sm">
                   START YOUR ADMISSION HERE
                 </span>
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight font-[var(--font-ubuntu)] mb-4">

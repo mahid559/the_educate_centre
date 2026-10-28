@@ -10,15 +10,15 @@ export function AnnouncementBar() {
   if (!announcement.active) return null;
 
   return (
-    <aside aria-label="Announcement" className="bg-[#4F67FF] text-white text-xs sm:text-sm font-medium border-b border-white/10">
+    <aside aria-label="Announcement" className="bg-[#0B0F19] text-white text-xs sm:text-sm font-medium border-b border-white/10">
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 py-2 flex flex-col md:flex-row items-center justify-between gap-2 text-center md:text-left">
         {/* Contact Strip */}
-        <div className="hidden lg:flex items-center gap-6 text-white/90 text-xs">
+        <div className="hidden lg:flex items-center gap-6 text-white/80 text-xs">
           <a
             href={`tel:${contact.primaryPhone.replace(/-/g, "")}`}
-            className="flex items-center gap-1.5 hover:text-white transition-colors"
+            className="flex items-center gap-1.5 hover:text-[#ED1C24] transition-colors"
           >
-            <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+            <svg className="w-3.5 h-3.5 fill-[#ED1C24]" viewBox="0 0 24 24">
               <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z" />
             </svg>
             <span>{contact.primaryPhone}</span>
@@ -34,10 +34,13 @@ export function AnnouncementBar() {
 
         {/* Dynamic Offer Text */}
         <div className="flex items-center justify-center gap-2 mx-auto md:mx-0">
+          <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-[#ED1C24] text-white text-[10px] font-extrabold uppercase tracking-wider mr-1">
+            Notice
+          </span>
           <span>{announcement.text}</span>
           <Link
             href={announcement.actionLink}
-            className="underline underline-offset-4 font-bold hover:text-[#FFC73B] transition-colors ml-1"
+            className="underline underline-offset-4 font-bold text-white hover:text-[#ED1C24] transition-colors ml-1"
           >
             {announcement.actionText} →
           </Link>

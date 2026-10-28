@@ -63,7 +63,7 @@ export function CTABanner({
             <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col items-center justify-center lg:items-end gap-3.5 w-full">
               <Link
                 href={primaryCtaLink}
-                className="w-full sm:w-auto lg:w-full inline-flex items-center justify-center gap-2 bg-[#00CDC4] hover:bg-[#04B9B1] text-white font-extrabold text-sm sm:text-base px-8 py-4 rounded-full transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
+                className="w-full sm:w-auto lg:w-full inline-flex items-center justify-center gap-2 bg-[#ED1C24] hover:bg-[#C81017] text-white font-extrabold text-sm sm:text-base px-8 py-4 rounded-full transition-all duration-200 shadow-xl shadow-red-900/30 hover:scale-[1.02] active:scale-[0.98]"
               >
                 <span>{primaryCtaText}</span>
                 <ArrowRight className="w-4 h-4" />

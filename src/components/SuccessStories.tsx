@@ -107,8 +107,8 @@ export function SuccessStories() {
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
         {/* Section Header - Clean and Elegant */}
         <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
-          <div className="inline-flex items-center gap-2 bg-[#F73775]/10 border border-[#F73775]/20 rounded-full px-4 py-1.5 mb-3 text-xs font-bold tracking-wide uppercase text-[#F73775] shadow-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#F73775] animate-pulse" />
+          <div className="inline-flex items-center gap-2 bg-[#ED1C24]/10 border border-[#ED1C24]/20 rounded-full px-4 py-1.5 mb-3 text-xs font-bold tracking-wide uppercase text-[#ED1C24] shadow-sm">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#ED1C24] animate-pulse" />
             <span>Student Voices</span>
           </div>
 
@@ -248,13 +248,13 @@ export function SuccessStories() {
           </div>
         </div>
 
-        {/* CTA BUTTON: Read more reviews on Facebook (Standardized to Signature Brand Teal) */}
+        {/* CTA BUTTON: Read more reviews on Facebook (Official Facebook Brand Blue #1877F2) */}
         <div className="text-center mt-6 mb-16">
           <a
             href="https://www.facebook.com/TheEducatee.edu"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 bg-[#00CDC4] hover:bg-[#04B9B1] text-white font-extrabold text-sm sm:text-base px-8 py-4 rounded-full shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 group"
+            className="inline-flex items-center gap-2.5 bg-[#1877F2] hover:bg-[#166FE5] text-white font-extrabold text-sm sm:text-base px-8 py-4 rounded-full shadow-lg shadow-blue-500/25 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 group"
           >
             <FacebookIcon className="w-4 h-4 text-white" />
             <span>Read more reviews on Facebook</span>
@@ -262,10 +262,10 @@ export function SuccessStories() {
           </a>
         </div>
 
-        {/* IELTS RESULTS & CEO AWARD SECTION (Kept as placeholder with TODO) */}
+        {/* IELTS RESULTS & CEO AWARD SECTION */}
         <div className="pt-12 border-t border-[#E2E9EB]">
           <div className="text-center max-w-xl mx-auto mb-10">
-            <span className="text-[#4F67FF] text-xs font-extrabold uppercase tracking-widest block mb-2">
+            <span className="text-[#ED1C24] text-xs font-extrabold uppercase tracking-widest block mb-2">
               ACADEMIC EXCELLENCE &amp; HONORS
             </span>
             <h3 className="text-2xl sm:text-3xl font-extrabold text-[#3B3B3D] tracking-tight font-[var(--font-ubuntu)]">

@@ -31,6 +31,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
     },
     {
+      url: `${baseUrl}/gallery`,
+      lastModified: new Date().toISOString().split("T")[0],
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
+    {
       url: `${baseUrl}/contact`,
       lastModified: new Date().toISOString().split("T")[0],
       changeFrequency: "monthly",

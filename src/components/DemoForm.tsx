@@ -201,7 +201,7 @@ export function DemoForm({ defaultCourse, className = "" }: DemoFormProps) {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="mt-2 w-full inline-flex items-center justify-center gap-2 bg-[#00CDC4] hover:bg-[#04B9B1] disabled:opacity-60 text-white font-extrabold text-sm sm:text-base py-3.5 rounded-full transition-all duration-200 shadow-md hover:shadow-lg hover:scale-[1.01] active:scale-[0.99]"
+              className="mt-2 w-full inline-flex items-center justify-center gap-2 bg-[#ED1C24] hover:bg-[#C81017] disabled:opacity-60 text-white font-extrabold text-sm sm:text-base py-3.5 rounded-full transition-all duration-200 shadow-xl shadow-red-500/20 hover:scale-[1.01] active:scale-[0.99]"
             >
               <Send className="w-4 h-4" />
               <span>{isSubmitting ? "Reserving Seat..." : "Confirm Free Demo Seat"}</span>

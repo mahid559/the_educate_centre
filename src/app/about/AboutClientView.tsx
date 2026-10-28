@@ -103,7 +103,7 @@ export default function AboutClientView() {
               transition={{ duration: 0.6 }}
               className="lg:col-span-7 flex flex-col items-start"
             >
-              <span className="text-[#F73775] text-xs sm:text-sm font-extrabold uppercase tracking-widest mb-3">
+              <span className="text-[#ED1C24] text-xs sm:text-sm font-extrabold uppercase tracking-widest mb-3">
                 {about.story.tag}
               </span>
 
@@ -130,7 +130,7 @@ export default function AboutClientView() {
 
               <Link
                 href="/admissions#free-demo"
-                className="inline-flex items-center justify-center bg-[#00CDC4] hover:bg-[#04B9B1] text-white font-extrabold text-sm sm:text-base px-8 py-3.5 rounded-full transition-all duration-200 shadow-md hover:scale-[1.02] active:scale-[0.98]"
+                className="inline-flex items-center justify-center bg-[#ED1C24] hover:bg-[#C81017] text-white font-extrabold text-sm sm:text-base px-8 py-3.5 rounded-full transition-all duration-200 shadow-md shadow-red-500/20 hover:scale-[1.02] active:scale-[0.98]"
               >
                 Experience a Free Demo Class →
               </Link>
@@ -144,7 +144,7 @@ export default function AboutClientView() {
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           <SectionHeading
             tag="PURPOSE & DIRECTION"
-            tagColor="blue"
+            tagColor="red"
             title="Our Guiding Mission & Vision"
             subtext="We believe fluency in English and mastery of IT are not privileges — they are practical tools every student in Feni can achieve with the right guidance."
           />
@@ -210,7 +210,7 @@ export default function AboutClientView() {
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           <SectionHeading
             tag="WHY STUDENTS LOVE US"
-            tagColor="pink"
+            tagColor="red"
             title="Four Pillars That Make Educatee Different"
             subtext="From quiet, focused classrooms to personal founder mentorship, here is why students thrive at The Educatee Centre."
           />
@@ -272,7 +272,7 @@ export default function AboutClientView() {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="lg:col-span-7 flex flex-col items-start"
               >
-                <span className="text-[#F73775] text-xs sm:text-sm font-extrabold uppercase tracking-widest mb-2">
+                <span className="text-[#ED1C24] text-xs sm:text-sm font-extrabold uppercase tracking-widest mb-2">
                   FOUNDER &amp; LEAD MENTOR
                 </span>
 
@@ -304,7 +304,7 @@ export default function AboutClientView() {
 
                 <Link
                   href="/admissions#free-demo"
-                  className="inline-flex items-center justify-center bg-[#00CDC4] hover:bg-[#04B9B1] text-white font-extrabold text-sm px-7 py-3.5 rounded-full transition-all duration-200 shadow-md hover:scale-[1.02]"
+                  className="inline-flex items-center justify-center bg-[#ED1C24] hover:bg-[#C81017] text-white font-extrabold text-sm px-7 py-3.5 rounded-full transition-all duration-200 shadow-md shadow-red-500/20 hover:scale-[1.02]"
                 >
                   Join Engr. Zahir Sir&apos;s Free Demo Class
                 </Link>
@@ -319,7 +319,7 @@ export default function AboutClientView() {
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           <SectionHeading
             tag="OUR INSTRUCTORS"
-            tagColor="blue"
+            tagColor="red"
             title="Dedicated Faculty &amp; Academic Team"
             subtext="Our teaching faculty is personally trained and guided under Engr. Zahir Uddin Babar to maintain high standards of patience, clarity, and interactive teaching."
           />
@@ -373,7 +373,7 @@ export default function AboutClientView() {
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           <SectionHeading
             tag="CAMPUS FACILITIES"
-            tagColor="teal"
+            tagColor="red"
             title="Designed for Deep Focus &amp; Practical Mastery"
             subtext="Step into our comfortable, modern 5th-floor campus at Appayan Afroz Tower. Every classroom is built for real interaction and distraction-free learning."
           />
@@ -472,7 +472,7 @@ export default function AboutClientView() {
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           <SectionHeading
             tag="OUR CULTURE &amp; CELEBRATIONS"
-            tagColor="pink"
+            tagColor="red"
             title="Celebrations, Seminars &amp; Community Honors"
             subtext="Learning at Educatee is vibrant and celebratory. From our proud Graduation Day and Farewell Ceremonies to free educational seminars and the prestigious CEO Award, we honor every milestone."
           />

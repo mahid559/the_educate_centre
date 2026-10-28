@@ -17,7 +17,7 @@ export function FAQAccordion() {
       <div className="max-w-[900px] mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <span className="text-[#F73775] text-xs sm:text-sm font-extrabold uppercase tracking-widest block mb-2">
+          <span className="text-[#ED1C24] text-xs sm:text-sm font-extrabold uppercase tracking-widest block mb-2">
             GOT QUESTIONS?
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#3B3B3D] tracking-tight mb-4 font-[var(--font-ubuntu)]">

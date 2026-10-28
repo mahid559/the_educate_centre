@@ -40,7 +40,7 @@ export default function ProgramsClientView() {
           {/* Top Filter Bar */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6 mb-12 sm:mb-16 border-b border-[#E2E9EB] pb-8">
             <div>
-              <span className="text-xs font-extrabold uppercase tracking-widest text-[#F73775] block mb-1">
+              <span className="text-xs font-extrabold uppercase tracking-widest text-[#ED1C24] block mb-1">
                 SELECT A SPECIALIZATION
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-[#3B3B3D] font-[var(--font-ubuntu)]">
@@ -99,7 +99,7 @@ export default function ProgramsClientView() {
               href={contact.whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2.5 bg-[#00CDC4] hover:bg-[#04B9B1] text-white font-extrabold text-sm sm:text-base px-8 py-4 rounded-full transition-all duration-200 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]"
+              className="inline-flex items-center justify-center gap-2.5 bg-[#ED1C24] hover:bg-[#C81017] text-white font-extrabold text-sm sm:text-base px-8 py-4 rounded-full transition-all duration-200 shadow-md shadow-red-500/20 hover:scale-[1.02] active:scale-[0.98]"
             >
               <MessageCircle className="w-5 h-5" />
               <span>Ask Us on WhatsApp</span>

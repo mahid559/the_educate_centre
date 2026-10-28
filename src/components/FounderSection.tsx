@@ -64,7 +64,7 @@ export function FounderSection() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="lg:col-span-7 flex flex-col items-start"
             >
-              <span className="text-[#F73775] text-xs sm:text-sm font-extrabold uppercase tracking-widest mb-2">
+              <span className="text-[#ED1C24] text-xs sm:text-sm font-extrabold uppercase tracking-widest mb-2">
                 LEADERSHIP &amp; VISION
               </span>
 
@@ -93,7 +93,7 @@ export function FounderSection() {
               <div className="flex flex-wrap items-center gap-4">
                 <Link
                   href="#free-demo"
-                  className="inline-flex items-center justify-center bg-[#00CDC4] hover:bg-[#04B9B1] text-white font-extrabold text-sm px-7 py-3 rounded-full transition-all duration-200 shadow-md hover:scale-[1.02]"
+                  className="inline-flex items-center justify-center bg-[#ED1C24] hover:bg-[#C81017] text-white font-extrabold text-sm px-7 py-3 rounded-full transition-all duration-200 shadow-md shadow-red-500/20 hover:scale-[1.02]"
                 >
                   Join Sir&apos;s Free Demo Class
                 </Link>

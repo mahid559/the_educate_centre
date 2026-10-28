@@ -34,8 +34,8 @@ export function Breadcrumb({ items, variant = "light" }: BreadcrumbProps) {
                 <span
                   className={
                     isLight
-                      ? "text-[#FFC73B] font-bold"
-                      : "text-[#3B3B3D] font-bold"
+                      ? "text-[#FF4D52] font-extrabold"
+                      : "text-[#ED1C24] font-extrabold"
                   }
                   aria-current={isLast ? "page" : undefined}
                 >

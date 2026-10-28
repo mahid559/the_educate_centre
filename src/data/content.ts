@@ -70,7 +70,7 @@ export interface FacilityItem {
 export interface CultureGalleryItem {
   id: string;
   title: string;
-  category: 'Graduation' | 'Farewell' | 'Seminars' | 'Awards' | 'Workshops' | 'Speaking';
+  category: 'Graduation' | 'Farewell' | 'Seminars' | 'Awards' | 'Workshops' | 'Speaking' | 'Classrooms' | 'Campus' | string;
   caption: string;
   image: string;
   imageAlt: string;
@@ -477,6 +477,84 @@ export const siteContent = {
       imageAlt: "Student presenting confidently at speaking competition",
       badge: "Confidence Showcase",
     },
+    {
+      id: "cg-8",
+      title: "Modern Spoken English Studio",
+      category: "Classrooms",
+      caption: "Quiet, comfortable 5th-floor classroom environment designed for small interactive conversation batches at Appayan Afroz Tower.",
+      image: "/images/facilities/spoken-room.jpg",
+      imageAlt: "Spoken English classroom studio at The Educatee Centre",
+      badge: "Language Studio",
+    },
+    {
+      id: "cg-9",
+      title: "Hands-on Computer & IT Training Lab",
+      category: "Campus",
+      caption: "Dedicated modern PC workstations ensuring every student practices individually during MS Office and digital skills classes.",
+      image: "/images/facilities/computer-room.jpg",
+      imageAlt: "IT computer training lab at The Educatee Centre",
+      badge: "IT Lab",
+    },
+    {
+      id: "cg-10",
+      title: "Classroom Mentorship & Interactive Discussion",
+      category: "Classrooms",
+      caption: "Engaging, supportive mentoring led by experienced instructors to eliminate stage fear and speaking hesitation.",
+      image: "/images/hero/hero.jpg",
+      imageAlt: "Classroom mentorship session at The Educatee Centre",
+      badge: "Active Learning",
+    },
+    {
+      id: "cg-11",
+      title: "Spoken English Group Conversation Circle",
+      category: "Speaking",
+      caption: "Real-world conversational drills, group discussions, and phonetics practice designed for spontaneous confidence.",
+      image: "/images/programs/spoken-english.jpg",
+      imageAlt: "Students in conversational speaking circle",
+      badge: "Fluency Practice",
+    },
+    {
+      id: "cg-12",
+      title: "IELTS Intensive Preparation & Mock Sessions",
+      category: "Workshops",
+      caption: "Targeted band preparation with authentic Cambridge mock evaluations and individualized feedback.",
+      image: "/images/programs/ielts.jpg",
+      imageAlt: "IELTS study materials and preparation",
+      badge: "IELTS Batch",
+    },
+    {
+      id: "cg-13",
+      title: "IELTS Band 7.5 Academic Excellence",
+      category: "Awards",
+      caption: "Spotlight on student achieving Band 7.5 Overall, qualifying for international university admissions.",
+      image: "/images/success/ielts-1.jpg",
+      imageAlt: "IELTS success spotlight at The Educatee Centre",
+      badge: "Band 7.5 Score",
+    },
+    {
+      id: "cg-14",
+      title: "Practical Digital Skills & Marketing Workshop",
+      category: "Workshops",
+      caption: "Hands-on training session covering social media marketing, content creation, and digital freelancing tools.",
+      image: "/images/programs/social-media-marketing.jpg",
+      imageAlt: "Digital marketing and freelancing workshop",
+      badge: "Digital Skills",
+    },
+    {
+      id: "cg-15",
+      title: "Student Certificate Presentation Ceremony",
+      category: "Awards",
+      caption: "Official course completion certificates presented to students marking their transition to confident English speakers.",
+      image: "/images/success/ielts-2.jpg",
+      imageAlt: "Student receiving completion certificate",
+      badge: "Certificate Honor",
+    },
+    // ========================================================================
+    // NOTE FOR ADMIN / TEAM:
+    // To add more photos to the gallery, simply add new objects above with:
+    // id, title, category ('Graduation' | 'Awards' | 'Workshops' | 'Seminars' | 'Classrooms' | 'Speaking' | 'Campus'),
+    // caption, image (path under /public/images/...), and imageAlt.
+    // ========================================================================
   ] as CultureGalleryItem[],
 
   programs: [

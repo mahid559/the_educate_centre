@@ -2,7 +2,7 @@ import React from "react";
 
 interface SectionHeadingProps {
   tag: string;
-  tagColor?: "pink" | "blue" | "teal" | "yellow";
+  tagColor?: "red" | "pink" | "blue" | "teal" | "yellow";
   title: string;
   subtext?: string;
   align?: "center" | "left";
@@ -11,25 +11,14 @@ interface SectionHeadingProps {
 
 export function SectionHeading({
   tag,
-  tagColor = "pink",
+  tagColor = "red",
   title,
   subtext,
   align = "center",
   className = "",
 }: SectionHeadingProps) {
-  const getTagColor = () => {
-    switch (tagColor) {
-      case "blue":
-        return "text-[#4F67FF]";
-      case "teal":
-        return "text-[#00CDC4]";
-      case "yellow":
-        return "text-[#B87C00]";
-      case "pink":
-      default:
-        return "text-[#F73775]";
-    }
-  };
+  // All section subtitles across the website are standardized to signature brand red (#ED1C24)
+  const getTagColor = () => "text-[#ED1C24]";
 
   const isCenter = align === "center";
 

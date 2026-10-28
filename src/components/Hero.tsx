@@ -72,7 +72,7 @@ export function Hero() {
             <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
               <Link
                 href={hero.primaryCtaLink}
-                className="w-full sm:w-auto inline-flex items-center justify-center bg-[#00CDC4] hover:bg-[#04B9B1] text-white font-extrabold text-base px-8 py-4 rounded-full transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-[1.03] active:scale-[0.98]"
+                className="w-full sm:w-auto inline-flex items-center justify-center bg-[#ED1C24] hover:bg-[#C81017] text-white font-extrabold text-base px-8 py-4 rounded-full transition-all duration-200 shadow-xl shadow-red-900/30 hover:scale-[1.03] active:scale-[0.98]"
               >
                 {hero.primaryCtaText}
               </Link>

@@ -92,6 +92,9 @@ export function Footer() {
             <Link href="/admissions" className="text-sm hover:text-[#00CDC4] transition-colors">
               Admissions &amp; Fees
             </Link>
+            <Link href="/gallery" className="text-sm hover:text-[#00CDC4] transition-colors">
+              Photo Gallery
+            </Link>
             <Link href="/contact" className="text-sm hover:text-[#00CDC4] transition-colors">
               Contact Us
             </Link>

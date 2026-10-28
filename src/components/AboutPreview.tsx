@@ -54,7 +54,7 @@ export function AboutPreview() {
             className="lg:col-span-7 flex flex-col items-start"
           >
             {/* Tag */}
-            <span className="text-[#F73775] text-xs sm:text-sm font-extrabold uppercase tracking-widest mb-3">
+            <span className="text-[#ED1C24] text-xs sm:text-sm font-extrabold uppercase tracking-widest mb-3">
               {aboutPreview.tag}
             </span>
 
@@ -87,7 +87,7 @@ export function AboutPreview() {
             {/* CTA Button */}
             <Link
               href={aboutPreview.ctaLink}
-              className="inline-flex items-center justify-center bg-[#00CDC4] hover:bg-[#04B9B1] text-white font-extrabold text-sm sm:text-base px-8 py-3.5 rounded-full transition-all duration-200 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]"
+              className="inline-flex items-center justify-center bg-[#ED1C24] hover:bg-[#C81017] text-white font-extrabold text-sm sm:text-base px-8 py-3.5 rounded-full transition-all duration-200 shadow-md shadow-red-500/20 hover:scale-[1.02] active:scale-[0.98]"
             >
               {aboutPreview.ctaText} →
             </Link>

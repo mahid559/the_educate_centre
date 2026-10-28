@@ -111,25 +111,25 @@ export function Header() {
             <Link
               href="/"
               onClick={handleHomeClick}
-              className={`transition-colors hover:text-[#4F67FF] py-1 relative ${
-                isActive("/") ? "text-[#4F67FF] font-bold" : ""
+              className={`transition-colors hover:text-[#ED1C24] py-1 relative ${
+                isActive("/") ? "text-[#ED1C24] font-bold" : ""
               }`}
             >
               Home
               {isActive("/") && (
-                <span className="absolute -bottom-1.5 left-0 right-0 h-0.5 bg-[#4F67FF] rounded-full" />
+                <span className="absolute -bottom-1.5 left-0 right-0 h-0.5 bg-[#ED1C24] rounded-full" />
               )}
             </Link>
 
             <Link
               href="/about"
-              className={`transition-colors hover:text-[#4F67FF] py-1 relative ${
-                isActive("/about") ? "text-[#4F67FF] font-bold" : ""
+              className={`transition-colors hover:text-[#ED1C24] py-1 relative ${
+                isActive("/about") ? "text-[#ED1C24] font-bold" : ""
               }`}
             >
               About
               {isActive("/about") && (
-                <span className="absolute -bottom-1.5 left-0 right-0 h-0.5 bg-[#4F67FF] rounded-full" />
+                <span className="absolute -bottom-1.5 left-0 right-0 h-0.5 bg-[#ED1C24] rounded-full" />
               )}
             </Link>
 
@@ -141,9 +141,9 @@ export function Header() {
             >
               <button
                 type="button"
-                className={`flex items-center gap-1.5 transition-colors hover:text-[#4F67FF] py-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4F67FF] rounded-lg relative ${
+                className={`flex items-center gap-1.5 transition-colors hover:text-[#ED1C24] py-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ED1C24] rounded-lg relative ${
                   pathname?.startsWith("/programs")
-                    ? "text-[#4F67FF] font-bold"
+                    ? "text-[#ED1C24] font-bold"
                     : ""
                 }`}
                 aria-expanded={programsDropdownOpen}
@@ -156,7 +156,7 @@ export function Header() {
                   }`}
                 />
                 {pathname?.startsWith("/programs") && (
-                  <span className="absolute -bottom-1.5 left-0 right-0 h-0.5 bg-[#4F67FF] rounded-full" />
+                  <span className="absolute -bottom-1.5 left-0 right-0 h-0.5 bg-[#ED1C24] rounded-full" />
                 )}
               </button>
 
@@ -171,7 +171,7 @@ export function Header() {
                   >
                     <Link
                       href="/programs"
-                      className="flex items-center justify-between px-3.5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider text-[#4F67FF] bg-[#EFF1FB] hover:bg-[#E2E9EB] transition-colors mb-1"
+                      className="flex items-center justify-between px-3.5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider text-[#ED1C24] bg-[#FEF2F2] hover:bg-red-50 transition-colors mb-1"
                       onClick={() => setProgramsDropdownOpen(false)}
                     >
                       <span>All Programs Overview</span>
@@ -182,10 +182,10 @@ export function Header() {
                       <Link
                         key={program.id}
                         href={`/programs/${program.slug}`}
-                        className="flex flex-col px-3.5 py-2 rounded-xl hover:bg-[#EFF1FB] transition-colors group"
+                        className="flex flex-col px-3.5 py-2 rounded-xl hover:bg-[#FEF2F2]/60 transition-colors group"
                         onClick={() => setProgramsDropdownOpen(false)}
                       >
-                        <span className="text-sm font-semibold text-[#3B3B3D] group-hover:text-[#4F67FF] transition-colors">
+                        <span className="text-sm font-semibold text-[#3B3B3D] group-hover:text-[#ED1C24] transition-colors">
                           {program.title}
                         </span>
                         <span className="text-xs text-[#54595F] line-clamp-1">
@@ -200,25 +200,37 @@ export function Header() {
 
             <Link
               href="/admissions"
-              className={`transition-colors hover:text-[#4F67FF] py-1 relative ${
-                isActive("/admissions") ? "text-[#4F67FF] font-bold" : ""
+              className={`transition-colors hover:text-[#ED1C24] py-1 relative ${
+                isActive("/admissions") ? "text-[#ED1C24] font-bold" : ""
               }`}
             >
               Admissions &amp; Fees
               {isActive("/admissions") && (
-                <span className="absolute -bottom-1.5 left-0 right-0 h-0.5 bg-[#4F67FF] rounded-full" />
+                <span className="absolute -bottom-1.5 left-0 right-0 h-0.5 bg-[#ED1C24] rounded-full" />
+              )}
+            </Link>
+
+            <Link
+              href="/gallery"
+              className={`transition-colors hover:text-[#ED1C24] py-1 relative ${
+                isActive("/gallery") ? "text-[#ED1C24] font-bold" : ""
+              }`}
+            >
+              Gallery
+              {isActive("/gallery") && (
+                <span className="absolute -bottom-1.5 left-0 right-0 h-0.5 bg-[#ED1C24] rounded-full" />
               )}
             </Link>
 
             <Link
               href="/contact"
-              className={`transition-colors hover:text-[#4F67FF] py-1 relative ${
-                isActive("/contact") ? "text-[#4F67FF] font-bold" : ""
+              className={`transition-colors hover:text-[#ED1C24] py-1 relative ${
+                isActive("/contact") ? "text-[#ED1C24] font-bold" : ""
               }`}
             >
               Contact
               {isActive("/contact") && (
-                <span className="absolute -bottom-1.5 left-0 right-0 h-0.5 bg-[#4F67FF] rounded-full" />
+                <span className="absolute -bottom-1.5 left-0 right-0 h-0.5 bg-[#ED1C24] rounded-full" />
               )}
             </Link>
           </nav>
@@ -227,10 +239,10 @@ export function Header() {
           <div className="flex items-center gap-3">
             <a
               href={`tel:${contact.primaryPhone.replace(/-/g, "")}`}
-              className="hidden xl:flex items-center gap-2 text-xs font-bold text-[#3B3B3D] hover:text-[#4F67FF] transition-colors px-2 py-1"
+              className="hidden xl:flex items-center gap-2 text-xs font-bold text-[#3B3B3D] hover:text-[#ED1C24] transition-colors px-2 py-1"
               aria-label={`Call ${contact.primaryPhone}`}
             >
-              <span className="w-7 h-7 rounded-full bg-[#EFF1FB] text-[#4F67FF] flex items-center justify-center">
+              <span className="w-7 h-7 rounded-full bg-[#FEF2F2] text-[#ED1C24] flex items-center justify-center">
                 <Phone className="w-3.5 h-3.5" />
               </span>
               <span>{contact.primaryPhone}</span>
@@ -238,7 +250,7 @@ export function Header() {
 
             <Link
               href="/admissions#free-demo"
-              className="hidden sm:inline-flex items-center justify-center bg-[#00CDC4] hover:bg-[#04B9B1] text-white font-bold text-xs sm:text-sm px-5 sm:px-6 py-2.5 rounded-full transition-all duration-200 shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98]"
+              className="hidden sm:inline-flex items-center justify-center bg-[#ED1C24] hover:bg-[#C81017] text-white font-bold text-xs sm:text-sm px-5 sm:px-6 py-2.5 rounded-full transition-all duration-200 shadow-md shadow-red-500/20 hover:scale-[1.02] active:scale-[0.98]"
             >
               Book Free Demo
             </Link>
@@ -247,7 +259,7 @@ export function Header() {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-xl text-[#3B3B3D] hover:bg-[#EFF1FB] focus:outline-none focus:ring-2 focus:ring-[#4F67FF]"
+              className="lg:hidden p-2 rounded-xl text-[#3B3B3D] hover:bg-[#EFF1FB] focus:outline-none focus:ring-2 focus:ring-[#ED1C24]"
               aria-label="Toggle Navigation Menu"
               aria-expanded={mobileMenuOpen}
             >
@@ -275,8 +287,8 @@ export function Header() {
                   href="/"
                   className={`py-2 text-base font-bold transition-colors ${
                     isActive("/")
-                      ? "text-[#4F67FF]"
-                      : "text-[#3B3B3D] hover:text-[#4F67FF]"
+                      ? "text-[#ED1C24]"
+                      : "text-[#3B3B3D] hover:text-[#ED1C24]"
                   }`}
                   onClick={handleHomeClick}
                 >
@@ -287,8 +299,8 @@ export function Header() {
                   href="/about"
                   className={`py-2 text-base font-bold transition-colors ${
                     isActive("/about")
-                      ? "text-[#4F67FF]"
-                      : "text-[#3B3B3D] hover:text-[#4F67FF]"
+                      ? "text-[#ED1C24]"
+                      : "text-[#3B3B3D] hover:text-[#ED1C24]"
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -298,7 +310,7 @@ export function Header() {
                 <div className="py-1">
                   <Link
                     href="/programs"
-                    className="block text-base font-bold text-[#4F67FF]"
+                    className="block text-base font-bold text-[#ED1C24]"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Programs (All Courses)
@@ -308,7 +320,7 @@ export function Header() {
                       <Link
                         key={p.id}
                         href={`/programs/${p.slug}`}
-                        className="text-sm text-[#54595F] hover:text-[#4F67FF] py-0.5"
+                        className="text-sm text-[#54595F] hover:text-[#ED1C24] py-0.5"
                         onClick={() => setMobileMenuOpen(false)}
                       >
                         {p.title}
@@ -321,8 +333,8 @@ export function Header() {
                   href="/admissions"
                   className={`py-2 text-base font-bold transition-colors ${
                     isActive("/admissions")
-                      ? "text-[#4F67FF]"
-                      : "text-[#3B3B3D] hover:text-[#4F67FF]"
+                      ? "text-[#ED1C24]"
+                      : "text-[#3B3B3D] hover:text-[#ED1C24]"
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -330,11 +342,23 @@ export function Header() {
                 </Link>
 
                 <Link
+                  href="/gallery"
+                  className={`py-2 text-base font-bold transition-colors ${
+                    isActive("/gallery")
+                      ? "text-[#ED1C24]"
+                      : "text-[#3B3B3D] hover:text-[#ED1C24]"
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Gallery
+                </Link>
+
+                <Link
                   href="/contact"
                   className={`py-2 text-base font-bold transition-colors ${
                     isActive("/contact")
-                      ? "text-[#4F67FF]"
-                      : "text-[#3B3B3D] hover:text-[#4F67FF]"
+                      ? "text-[#ED1C24]"
+                      : "text-[#3B3B3D] hover:text-[#ED1C24]"
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -344,14 +368,14 @@ export function Header() {
                 <div className="pt-3 border-t border-[#E2E9EB] flex flex-col gap-3">
                   <a
                     href={`tel:${contact.primaryPhone.replace(/-/g, "")}`}
-                    className="flex items-center justify-center gap-2 py-2.5 rounded-full bg-[#EFF1FB] text-[#4F67FF] font-bold text-sm"
+                    className="flex items-center justify-center gap-2 py-2.5 rounded-full bg-[#FEF2F2] text-[#ED1C24] font-bold text-sm"
                   >
                     <Phone className="w-4 h-4" />
                     <span>Call {contact.primaryPhone}</span>
                   </a>
                   <Link
                     href="/admissions#free-demo"
-                    className="flex items-center justify-center py-3 rounded-full bg-[#00CDC4] text-white font-bold text-sm shadow-md"
+                    className="flex items-center justify-center py-3 rounded-full bg-[#ED1C24] hover:bg-[#C81017] text-white font-bold text-sm shadow-md shadow-red-500/20"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Book a Free Demo Class

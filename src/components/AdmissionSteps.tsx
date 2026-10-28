@@ -40,7 +40,7 @@ export function AdmissionSteps() {
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-[#F73775] text-xs sm:text-sm font-extrabold uppercase tracking-widest block mb-2">
+          <span className="text-[#ED1C24] text-xs sm:text-sm font-extrabold uppercase tracking-widest block mb-2">
             SIMPLE 4-STEP PROCESS
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#3B3B3D] tracking-tight mb-4 font-[var(--font-ubuntu)]">
@@ -95,7 +95,7 @@ export function AdmissionSteps() {
         <div className="mt-14 text-center">
           <Link
             href="/admissions#free-demo"
-            className="inline-flex items-center justify-center bg-[#00CDC4] hover:bg-[#04B9B1] text-white font-extrabold text-sm sm:text-base px-8 py-4 rounded-full transition-all duration-200 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]"
+            className="inline-flex items-center justify-center bg-[#ED1C24] hover:bg-[#C81017] text-white font-extrabold text-sm sm:text-base px-8 py-4 rounded-full transition-all duration-200 shadow-xl shadow-red-500/25 hover:shadow-2xl hover:scale-[1.02] active:scale-[0.98]"
           >
             Start with Step 1: Book Free Demo Now →
           </Link>
