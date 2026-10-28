@@ -840,8 +840,8 @@ export const siteContent = {
       description: "Hands-on mastery of Word, Excel, PowerPoint, Bangla & English touch typing, and internet essentials. Every student practices on their own dedicated workstation in a quiet computer lab.",
       badge: "Dedicated PC Lab",
       accentColor: "teal",
-      image: "/images/programs/computer.jpg",
-      imageAlt: "Students training on individual computer workstations in IT lab",
+      image: "/images/programs/basic-computer-ms-office.png",
+      imageAlt: "Basic Computer & MS Office Course thumbnail",
       targetAudience: [
         "School, college, and madrasah students needing essential computer literacy",
         "Job seekers preparing for office, corporate, or government employment",
@@ -895,8 +895,8 @@ export const siteContent = {
       description: "Learn foundational digital marketing across social platforms. Build and optimize business pages, launch targeted Meta ads, design eye-catching graphics with Canva, and write high-converting copy.",
       badge: "High Demand",
       accentColor: "teal",
-      image: "/images/programs/social-media-marketing.jpg",
-      imageAlt: "Digital marketing campaign planning and social media strategy",
+      image: "/images/programs/social-media-marketing.png",
+      imageAlt: "Social Media Marketing Course thumbnail",
       targetAudience: [
         "Aspiring digital marketers, freelancers, and content creators",
         "Feni business owners looking to increase sales through Facebook marketing",
