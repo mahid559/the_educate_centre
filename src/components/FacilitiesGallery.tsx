@@ -1,70 +1,97 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, Mic, Monitor, Sparkles } from "lucide-react";
 import { siteContent } from "@/data/content";
 import { cardLiftProps } from "@/lib/motion";
 
 export function FacilitiesGallery() {
   const { facilities } = siteContent;
 
-  const facilityStyles = [
+  const cardConfigs = [
     {
-      cardBg: "bg-[#4F67FF]",
+      id: "spoken-classroom",
+      cardBg: "bg-[#4F67FF] text-white",
+      badgeBg: "bg-white text-[#4F67FF]",
+      statBg: "bg-white/20 text-white border-white/25",
+      statText: "Max 16 / Batch",
       titleColor: "text-white",
       descColor: "text-white/90",
-      badgeBg: "bg-white text-[#4F67FF]",
-      buttonBg: "bg-white text-[#3B3B3D] hover:bg-white/90",
-      chipBg: "bg-white/20 text-white border-white/20",
+      chipBg: "bg-white/15 text-white border-white/20",
       checkColor: "text-white",
+      buttonBg: "bg-white text-[#3B3B3D] hover:bg-white/95",
       dividerColor: "border-white/20",
-      footerLabel: "text-white/70",
-      footerValue: "text-white",
-      badgeText: "Language Studio",
+      badgeText: "Spoken Studio",
       actionLink: "/programs",
-      actionText: "Explore Spoken Batches",
+      actionText: "Explore Spoken Courses",
+      icon: <Mic className="w-7 h-7 sm:w-8 sm:h-8 text-white" strokeWidth={2.2} />,
+      iconBoxBg: "bg-white/20 border border-white/30 shadow-inner",
+      watermark: (
+        <svg className="w-40 h-40 opacity-10 text-white" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2.5">
+          <circle cx="50" cy="50" r="42" strokeDasharray="5 5" />
+          <circle cx="50" cy="50" r="28" />
+          <circle cx="50" cy="50" r="14" />
+        </svg>
+      ),
     },
     {
-      cardBg: "bg-[#00CDC4]",
+      id: "computer-lab",
+      cardBg: "bg-[#00CDC4] text-white",
+      badgeBg: "bg-white text-[#008982]",
+      statBg: "bg-white/20 text-white border-white/25",
+      statText: "1 Student : 1 PC",
       titleColor: "text-white",
       descColor: "text-white/90",
-      badgeBg: "bg-white text-[#008982]",
-      buttonBg: "bg-white text-[#3B3B3D] hover:bg-white/90",
-      chipBg: "bg-white/20 text-white border-white/20",
+      chipBg: "bg-white/15 text-white border-white/20",
       checkColor: "text-white",
+      buttonBg: "bg-white text-[#3B3B3D] hover:bg-white/95",
       dividerColor: "border-white/20",
-      footerLabel: "text-white/70",
-      footerValue: "text-white",
       badgeText: "IT Training Lab",
       actionLink: "/programs",
-      actionText: "Explore IT Batches",
+      actionText: "Explore IT Programs",
+      icon: <Monitor className="w-7 h-7 sm:w-8 sm:h-8 text-white" strokeWidth={2.2} />,
+      iconBoxBg: "bg-white/20 border border-white/30 shadow-inner",
+      watermark: (
+        <svg className="w-40 h-40 opacity-10 text-white" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2.5">
+          <rect x="15" y="15" width="70" height="50" rx="8" />
+          <line x1="30" y1="80" x2="70" y2="80" />
+          <line x1="50" y1="65" x2="50" y2="80" />
+        </svg>
+      ),
     },
     {
-      cardBg: "bg-[#FFC73B]",
+      id: "quiet-environment",
+      cardBg: "bg-[#FFC73B] text-[#3B3B3D]",
+      badgeBg: "bg-[#3B3B3D] text-[#FFC73B]",
+      statBg: "bg-black/10 text-[#3B3B3D] border-black/15",
+      statText: "5th Floor Focus",
       titleColor: "text-[#3B3B3D]",
       descColor: "text-[#3B3B3D]/90",
-      badgeBg: "bg-[#3B3B3D] text-[#FFC73B]",
-      buttonBg: "bg-[#3B3B3D] text-white hover:bg-[#222428]",
       chipBg: "bg-black/10 text-[#3B3B3D] border-black/10",
       checkColor: "text-[#3B3B3D]",
-      dividerColor: "border-black/10",
-      footerLabel: "text-[#3B3B3D]/70",
-      footerValue: "text-[#3B3B3D]",
-      badgeText: "Campus Sanctuary",
+      buttonBg: "bg-[#3B3B3D] text-white hover:bg-[#222428]",
+      dividerColor: "border-black/15",
+      badgeText: "Campus Focus",
       actionLink: "/contact",
       actionText: "Visit Campus on 5th Floor",
+      icon: <Sparkles className="w-7 h-7 sm:w-8 sm:h-8 text-[#3B3B3D]" strokeWidth={2.2} />,
+      iconBoxBg: "bg-black/10 border border-black/15 shadow-inner",
+      watermark: (
+        <svg className="w-40 h-40 opacity-10 text-[#3B3B3D]" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2.5">
+          <polygon points="50,15 62,38 88,42 69,60 74,85 50,72 26,85 31,60 12,42 38,38" />
+        </svg>
+      ),
     },
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-[#F8FAFC] relative">
-      <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
+    <section className="py-20 md:py-28 bg-[#F8FAFC] relative overflow-hidden">
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-[#ED1C24] text-xs sm:text-sm font-extrabold uppercase tracking-widest block mb-2">
+        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-16">
+          <span className="text-[#ED1C24] text-xs sm:text-sm font-extrabold uppercase tracking-widest block mb-2 font-[var(--font-nunito)]">
             CAMPUS INFRASTRUCTURE
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#3B3B3D] tracking-tight mb-4 font-[var(--font-ubuntu)]">
@@ -76,86 +103,10 @@ export function FacilitiesGallery() {
           </p>
         </div>
 
-        {/* Facilities Dual Showcase + Full-Width Horizontal 3rd Card in Padora Yellow */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10">
+        {/* 3 Creative Feature Showcase Cards (Image-free, modern, balanced) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
           {facilities.map((fac, idx) => {
-            const style = facilityStyles[idx % facilityStyles.length];
-            const isHorizontal = idx === 2; // 3rd item placed horizontally across both columns to eliminate empty space
-
-            if (isHorizontal) {
-              return (
-                <motion.article
-                  key={fac.id}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.15 }}
-                  {...cardLiftProps}
-                  className={`lg:col-span-2 flex flex-col lg:flex-row ${style.cardBg} rounded-[28px] p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-300 gap-6 sm:gap-8 lg:gap-10 items-stretch group`}
-                >
-                  {/* Left Side: Wide Horizontal Image */}
-                  <div className="relative w-full lg:w-5/12 h-64 sm:h-72 lg:h-auto min-h-[260px] sm:min-h-[280px] lg:min-h-[300px] rounded-[20px] overflow-hidden bg-black/10 flex-shrink-0">
-                    <Image
-                      src={fac.image}
-                      alt={fac.imageAlt}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 520px"
-                      className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
-                    />
-                    <span
-                      className={`absolute top-4 left-4 text-xs font-black px-4 py-1.5 rounded-full shadow-md ${style.badgeBg}`}
-                    >
-                      {style.badgeText}
-                    </span>
-                  </div>
-
-                  {/* Right Side: Details & Actions */}
-                  <div className="flex-1 flex flex-col justify-between">
-                    <div>
-                      <h3
-                        className={`text-2xl sm:text-3xl font-extrabold ${style.titleColor} mb-3 font-[var(--font-ubuntu)] leading-tight`}
-                      >
-                        {fac.title}
-                      </h3>
-                      <p
-                        className={`text-sm sm:text-base ${style.descColor} leading-relaxed mb-6 font-normal`}
-                      >
-                        {fac.description}
-                      </p>
-
-                      {/* Features Checklist Pills */}
-                      <div className="flex flex-wrap gap-2 mb-6">
-                        {fac.features.map((item, i) => (
-                          <span
-                            key={i}
-                            className={`text-xs font-bold px-3 py-1.5 rounded-xl inline-flex items-center gap-1.5 border ${style.chipBg}`}
-                          >
-                            <Check
-                              className={`w-3.5 h-3.5 ${style.checkColor}`}
-                              strokeWidth={3}
-                            />
-                            <span>{item}</span>
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Footer Action Bar */}
-                    <div
-                      className={`pt-5 border-t ${style.dividerColor} flex items-center justify-end`}
-                    >
-                      <Link
-                        href={style.actionLink}
-                        className={`inline-flex items-center justify-center gap-2 ${style.buttonBg} font-extrabold text-xs sm:text-sm px-6 py-3 rounded-xl transition-all duration-200 shadow-md hover:scale-[1.02] active:scale-[0.98] group/btn`}
-                      >
-                        <span>{style.actionText}</span>
-                        <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-0.5" />
-                      </Link>
-                    </div>
-                  </div>
-                </motion.article>
-              );
-            }
+            const config = cardConfigs[idx % cardConfigs.length];
 
             return (
               <motion.article
@@ -163,69 +114,67 @@ export function FacilitiesGallery() {
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.15 }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
                 {...cardLiftProps}
-                className={`flex flex-col ${style.cardBg} rounded-[28px] p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-300 justify-between group`}
+                className={`relative flex flex-col justify-between ${config.cardBg} rounded-[28px] p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group`}
               >
-                <div>
-                  {/* Inner Rounded Image Container (Signature Padora Style) */}
-                  <div className="relative w-full h-64 sm:h-72 rounded-[20px] overflow-hidden bg-black/10 mb-6">
-                    <Image
-                      src={fac.image}
-                      alt={fac.imageAlt}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 580px"
-                      className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
-                    />
-                    {/* Floating Category Badge */}
-                    <span
-                      className={`absolute top-4 left-4 text-xs font-black px-4 py-1.5 rounded-full shadow-md ${style.badgeBg}`}
-                    >
-                      {style.badgeText}
-                    </span>
-                  </div>
-
-                  {/* Title & Description */}
-                  <div>
-                    <h3
-                      className={`text-2xl sm:text-3xl font-extrabold ${style.titleColor} mb-3 font-[var(--font-ubuntu)] leading-tight`}
-                    >
-                      {fac.title}
-                    </h3>
-                    <p
-                      className={`text-sm sm:text-base ${style.descColor} leading-relaxed mb-6 font-normal`}
-                    >
-                      {fac.description}
-                    </p>
-
-                    {/* Features Checklist Pills */}
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {fac.features.map((item, i) => (
-                        <span
-                          key={i}
-                          className={`text-xs font-bold px-3 py-1.5 rounded-xl inline-flex items-center gap-1.5 border ${style.chipBg}`}
-                        >
-                          <Check
-                            className={`w-3.5 h-3.5 ${style.checkColor}`}
-                            strokeWidth={3}
-                          />
-                          <span>{item}</span>
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+                {/* Background Watermark Illustration */}
+                <div className="absolute -bottom-6 -right-6 pointer-events-none group-hover:scale-110 transition-transform duration-500 ease-out">
+                  {config.watermark}
                 </div>
 
-                {/* Footer with Padora Action Button */}
-                <div
-                  className={`pt-5 border-t ${style.dividerColor} flex items-center justify-end`}
-                >
+                <div className="relative z-10 flex-1 flex flex-col">
+                  {/* Top Bar: Icon Badge & Stat Pill */}
+                  <div className="flex items-center justify-between gap-3 mb-6">
+                    <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl ${config.iconBoxBg} flex items-center justify-center transition-transform duration-300 group-hover:scale-105`}>
+                      {config.icon}
+                    </div>
+
+                    <div className="flex flex-col items-end gap-1.5">
+                      <span className={`text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full shadow-sm ${config.badgeBg}`}>
+                        {config.badgeText}
+                      </span>
+                      <span className={`text-[10.5px] font-bold px-2.5 py-0.5 rounded-full border ${config.statBg}`}>
+                        {config.statText}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Title */}
+                  <h3 className={`text-xl sm:text-2xl font-extrabold ${config.titleColor} mb-3 font-[var(--font-ubuntu)] leading-tight`}>
+                    {fac.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className={`text-xs sm:text-sm ${config.descColor} leading-relaxed mb-6 font-normal`}>
+                    {fac.description}
+                  </p>
+
+                  {/* Features Checklist */}
+                  <ul className="flex flex-col gap-2.5 mb-8 flex-1">
+                    {fac.features.map((item, i) => (
+                      <li
+                        key={i}
+                        className={`text-xs font-semibold px-3 py-2 rounded-xl flex items-start gap-2.5 border ${config.chipBg} leading-snug`}
+                      >
+                        <Check
+                          className={`w-3.5 h-3.5 ${config.checkColor} flex-shrink-0 mt-0.5`}
+                          strokeWidth={3}
+                        />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Card Footer: Action Button */}
+                <div className={`pt-5 border-t ${config.dividerColor} relative z-10 mt-auto`}>
                   <Link
-                    href={style.actionLink}
-                    className={`inline-flex items-center justify-center gap-2 ${style.buttonBg} font-extrabold text-xs sm:text-sm px-6 py-3 rounded-xl transition-all duration-200 shadow-md hover:scale-[1.02] active:scale-[0.98] group/btn w-full sm:w-auto`}
+                    href={config.actionLink}
+                    className={`inline-flex items-center justify-center gap-2 w-full ${config.buttonBg} font-extrabold text-xs sm:text-sm py-3.5 px-6 rounded-xl transition-all duration-200 shadow-md hover:scale-[1.02] active:scale-[0.98] group/btn`}
                   >
-                    <span>{style.actionText}</span>
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-0.5" />
+                    <span>{config.actionText}</span>
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
                   </Link>
                 </div>
               </motion.article>

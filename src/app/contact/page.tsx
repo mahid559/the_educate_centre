@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     url: "https://theeducatee.com/contact",
     images: [
       {
-        url: "/images/facilities/spoken-room.jpg",
+        url: "/images/about/about-community.jpg",
         width: 1200,
         height: 630,
         alt: "The Educatee Centre location and campus in Feni",

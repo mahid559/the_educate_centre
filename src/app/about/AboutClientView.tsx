@@ -14,6 +14,9 @@ import {
   Eye,
   Maximize2,
   ArrowRight,
+  Mic,
+  Monitor,
+  Sparkles,
 } from "lucide-react";
 import { siteContent } from "@/data/content";
 import { PageHero } from "@/components/PageHero";
@@ -81,8 +84,8 @@ export default function AboutClientView() {
 
                 <div className="relative w-[280px] h-[340px] sm:w-[350px] sm:h-[420px] rounded-[40%_60%_65%_35%_/_42%_42%_58%_58%] overflow-hidden border-4 border-white shadow-2xl bg-white z-10">
                   <Image
-                    src="/images/facilities/spoken-room.jpg"
-                    alt="The Educatee Centre classroom in Feni"
+                    src={about.story.image}
+                    alt={about.story.imageAlt}
                     fill
                     sizes="(max-width: 768px) 100vw, 400px"
                     className="object-cover object-center hover:scale-105 transition-transform duration-500"
@@ -381,36 +384,45 @@ export default function AboutClientView() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {facilities.map((fac, idx) => {
-              const facStyles = [
+              const facConfigs = [
                 {
-                  cardBg: "bg-[#4F67FF]",
+                  cardBg: "bg-[#4F67FF] text-white",
                   titleColor: "text-white",
                   descColor: "text-white/90",
                   badgeBg: "bg-white text-[#4F67FF]",
-                  chipBg: "bg-white/20 text-white border-white/20",
-                  dividerColor: "border-white/20",
-                  badgeText: "Language Studio",
+                  statBg: "bg-white/20 text-white border-white/25",
+                  statText: "Max 16 / Batch",
+                  chipBg: "bg-white/15 text-white border-white/20",
+                  badgeText: "Spoken Studio",
+                  icon: <Mic className="w-7 h-7 text-white" strokeWidth={2.2} />,
+                  iconBoxBg: "bg-white/20 border border-white/30",
                 },
                 {
-                  cardBg: "bg-[#00CDC4]",
+                  cardBg: "bg-[#00CDC4] text-white",
                   titleColor: "text-white",
                   descColor: "text-white/90",
                   badgeBg: "bg-white text-[#008982]",
-                  chipBg: "bg-white/20 text-white border-white/20",
-                  dividerColor: "border-white/20",
+                  statBg: "bg-white/20 text-white border-white/25",
+                  statText: "1 Student : 1 PC",
+                  chipBg: "bg-white/15 text-white border-white/20",
                   badgeText: "IT Training Lab",
+                  icon: <Monitor className="w-7 h-7 text-white" strokeWidth={2.2} />,
+                  iconBoxBg: "bg-white/20 border border-white/30",
                 },
                 {
-                  cardBg: "bg-[#FFC73B]",
+                  cardBg: "bg-[#FFC73B] text-[#3B3B3D]",
                   titleColor: "text-[#3B3B3D]",
                   descColor: "text-[#3B3B3D]/90",
                   badgeBg: "bg-[#3B3B3D] text-[#FFC73B]",
+                  statBg: "bg-black/10 text-[#3B3B3D] border-black/15",
+                  statText: "5th Floor Focus",
                   chipBg: "bg-black/10 text-[#3B3B3D] border-black/10",
-                  dividerColor: "border-black/10",
-                  badgeText: "Study Environment",
+                  badgeText: "Campus Focus",
+                  icon: <Sparkles className="w-7 h-7 text-[#3B3B3D]" strokeWidth={2.2} />,
+                  iconBoxBg: "bg-black/10 border border-black/15",
                 },
               ];
-              const style = facStyles[idx % facStyles.length];
+              const config = facConfigs[idx % facConfigs.length];
 
               return (
                 <motion.article
@@ -420,35 +432,37 @@ export default function AboutClientView() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
                   {...cardLiftProps}
-                  className={`${style.cardBg} rounded-[28px] p-6 sm:p-7 shadow-xl hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group`}
+                  className={`${config.cardBg} rounded-[28px] p-6 sm:p-7 shadow-xl hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group`}
                 >
-                  <div>
-                    {/* Inner Rounded Image Frame */}
-                    <div className="relative w-full h-56 rounded-[20px] overflow-hidden bg-black/10 mb-5">
-                      <Image
-                        src={fac.image}
-                        alt={fac.imageAlt}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 380px"
-                        className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                      />
-                      <span className={`absolute top-3 left-3 text-xs font-black px-3.5 py-1 rounded-full shadow-md ${style.badgeBg}`}>
-                        {style.badgeText}
-                      </span>
+                  <div className="flex-1 flex flex-col">
+                    {/* Top Bar: Icon Badge & Stat Pill */}
+                    <div className="flex items-center justify-between gap-3 mb-6">
+                      <div className={`w-14 h-14 rounded-2xl ${config.iconBoxBg} flex items-center justify-center transition-transform duration-300 group-hover:scale-105`}>
+                        {config.icon}
+                      </div>
+
+                      <div className="flex flex-col items-end gap-1">
+                        <span className={`text-[10.5px] font-black uppercase tracking-wider px-3 py-1 rounded-full shadow-sm ${config.badgeBg}`}>
+                          {config.badgeText}
+                        </span>
+                        <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${config.statBg}`}>
+                          {config.statText}
+                        </span>
+                      </div>
                     </div>
 
                     <div>
-                      <h3 className={`text-xl sm:text-2xl font-extrabold mb-3 font-[var(--font-ubuntu)] leading-tight ${style.titleColor}`}>
+                      <h3 className={`text-xl sm:text-2xl font-extrabold mb-3 font-[var(--font-ubuntu)] leading-tight ${config.titleColor}`}>
                         {fac.title}
                       </h3>
-                      <p className={`text-xs sm:text-sm ${style.descColor} leading-relaxed mb-6 font-normal`}>
+                      <p className={`text-xs sm:text-sm ${config.descColor} leading-relaxed mb-6 font-normal`}>
                         {fac.description}
                       </p>
 
-                      <ul className="flex flex-col gap-2 mb-6">
+                      <ul className="flex flex-col gap-2.5 mb-6">
                         {fac.features.map((feat, fIdx) => (
-                          <li key={fIdx} className={`flex items-center gap-2 text-xs font-bold px-2.5 py-1.5 rounded-lg border ${style.chipBg}`}>
-                            <CheckCircle className="w-3.5 h-3.5 flex-shrink-0" />
+                          <li key={fIdx} className={`flex items-start gap-2.5 text-xs font-semibold px-3 py-2 rounded-xl border ${config.chipBg} leading-snug`}>
+                            <CheckCircle className="w-3.5 h-3.5 flex-shrink-0 mt-0.5" />
                             <span>{feat}</span>
                           </li>
                         ))}

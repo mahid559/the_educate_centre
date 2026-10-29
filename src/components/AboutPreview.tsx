@@ -21,15 +21,15 @@ export function AboutPreview() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-5 relative flex items-center justify-center"
           >
-            {/* Padora Blue Blob Backing Frame */}
+            {/* Padora Yellow Blob Backing Frame */}
             <div
-              className="absolute -inset-3 sm:-inset-5 bg-[#4F67FF] rounded-[42%_58%_70%_30%_/_45%_45%_55%_55%] rotate-[-3deg] opacity-90 shadow-xl"
+              className="absolute -inset-3 sm:-inset-5 bg-[#FFC73B] rounded-[42%_58%_70%_30%_/_45%_45%_55%_55%] rotate-[-3deg] opacity-90 shadow-xl"
               aria-hidden="true"
             />
 
             {/* Decorative Corner Accent Circle */}
             <div
-              className="absolute -top-3 -right-3 w-12 h-12 rounded-full border-4 border-white bg-[#FFC73B] shadow-md z-20"
+              className="absolute -top-3 -right-3 w-12 h-12 rounded-full border-4 border-white bg-[#4F67FF] shadow-md z-20"
               aria-hidden="true"
             />
 
