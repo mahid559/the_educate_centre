@@ -79,6 +79,41 @@ export interface CultureGalleryItem {
   badge?: string;
 }
 
+export type GalleryCategory =
+  | "graduation"
+  | "certificates"
+  | "awards"
+  | "classroom"
+  | "outdoor";
+
+export interface HomeGalleryCaption {
+  label: string;
+  tagline: string;
+}
+
+export const homeGalleryCaptions: Record<GalleryCategory, HomeGalleryCaption> = {
+  graduation: {
+    label: "GRADUATION DAY",
+    tagline: "Celebrating every milestone",
+  },
+  certificates: {
+    label: "CERTIFICATES",
+    tagline: "Recognizing every effort",
+  },
+  awards: {
+    label: "AWARDS",
+    tagline: "Honoring excellence",
+  },
+  classroom: {
+    label: "CLASSROOM",
+    tagline: "Where confidence begins",
+  },
+  outdoor: {
+    label: "OUTDOOR FUN",
+    tagline: "Learning and laughing together",
+  },
+};
+
 export interface Testimonial {
   id: string;
   name: string;
@@ -414,211 +449,365 @@ export const siteContent = {
     }
   ] as FacilityItem[],
 
+  gallery: {
+    title: "Life at Educatee",
+    subtext: "Celebrating student milestones, recognizing achievement, and fostering vibrant community spirit in Feni.",
+    categories: [
+      { id: "graduation" as const, label: "Graduation Day", captionLabel: "GRADUATION DAY", tagline: "Celebrating every milestone" },
+      { id: "certificates" as const, label: "Certificates", captionLabel: "CERTIFICATES", tagline: "Recognizing every effort" },
+      { id: "awards" as const, label: "Awards", captionLabel: "AWARDS", tagline: "Honoring excellence" },
+      { id: "classroom" as const, label: "Classroom", captionLabel: "CLASSROOM", tagline: "Where confidence begins" },
+      { id: "outdoor" as const, label: "Outdoor & Fun", captionLabel: "OUTDOOR FUN", tagline: "Learning and laughing together" },
+    ],
+    captions: homeGalleryCaptions,
+  },
+
   cultureGallery: [
-    {
-      id: "gal-1",
-      image: "/images/gallery/650177057_924423867008601_8500057580163147555_n.jpg",
-      imageAlt: "The Educatee Centre Certificate & CEO Award presentation",
-      width: 2048,
-      height: 1536,
-    },
-    {
-      id: "gal-6",
-      image: "/images/gallery/743050008_1022233403894313_6915417186812600644_n.jpg",
-      imageAlt: "Engr. Zahir sir presenting gift to student",
-      width: 1536,
-      height: 2048,
-    },
-    {
-      id: "gal-3",
-      image: "/images/gallery/651882441_924431650341156_8541662025390578614_n.jpg",
-      imageAlt: "The Educatee Centre student award ceremony",
-      width: 2048,
-      height: 1536,
-    },
-    {
-      id: "gal-7",
-      image: "/images/gallery/743699353_1022233483894305_4796200074417521905_n.jpg",
-      imageAlt: "Student prize presentation at The Educatee Centre",
-      width: 1536,
-      height: 2048,
-    },
-    {
-      id: "gal-4",
-      image: "/images/gallery/652332385_924431583674496_2978045403681900790_n.jpg",
-      imageAlt: "Student receiving course certificate from Babar sir",
-      width: 2048,
-      height: 1536,
-    },
-    {
-      id: "gal-9",
-      image: "/images/gallery/819643846_1085109454273374_7902949250064428829_n.jpg",
-      imageAlt: "Focused classroom study and practice at The Educatee Centre",
-      width: 2048,
-      height: 1536,
-    },
-    {
-      id: "gal-8",
-      image: "/images/gallery/744357832_1022233497227637_4794128274733117373_n.jpg",
-      imageAlt: "Student gift presentation ceremony",
-      width: 1536,
-      height: 2048,
-    },
-    {
-      id: "gal-2",
-      image: "/images/gallery/651702472_924447613672893_2483923809284310917_n.jpg",
-      imageAlt: "The Educatee Centre certificate distribution",
-      width: 960,
-      height: 720,
-    },
-    {
-      id: "gal-5",
-      image: "/images/gallery/737091299_1829733921332590_6697968381634819015_n.jpg",
-      imageAlt: "Campus moment at The Educatee Centre",
-      width: 960,
-      height: 960,
-    },
-    {
-      id: "gal-10",
-      image: "/images/gallery/821333651_1085109384273381_6961102505208487702_n.jpg",
-      imageAlt: "Interactive classroom session at The Educatee Centre",
-      width: 2048,
-      height: 1536,
-    },
-    {
-      id: "gal-11",
-      image: "/images/gallery/821486892_1085109400940046_3434958366324139299_n.jpg",
-      imageAlt: "Spoken English learning session",
-      width: 2048,
-      height: 1536,
-    },
-    {
-      id: "gal-12",
-      image: "/images/gallery/821486902_1085109467606706_3411545381249047429_n.jpg",
-      imageAlt: "Students engaged in lecture and discussion",
-      width: 2048,
-      height: 1536,
-    },
-    {
-      id: "gal-13",
-      image: "/images/gallery/821523402_1085109030940083_7559267096220193349_n.jpg",
-      imageAlt: "Classroom activities at Appayan Afroz Tower",
-      width: 2048,
-      height: 1536,
-    },
-    {
-      id: "gal-14",
-      image: "/images/gallery/822318587_1085109414273378_3773776002240563744_n.jpg",
-      imageAlt: "Classroom mentorship by Engr. Zahir Uddin Babar",
-      width: 2048,
-      height: 1536,
-    },
-    {
-      id: "gal-15",
-      image: "/images/gallery/830513828_4648207118734839_8111924575250440686_n.jpg",
-      imageAlt: "The Educatee Centre batch gathering",
-      width: 1448,
-      height: 1086,
-    },
-    {
-      id: "gal-16",
-      image: "/images/gallery/830671669_1095349386582714_8844931787912274864_n.jpg",
-      imageAlt: "Student celebration and event moment",
-      width: 2048,
-      height: 1536,
-    },
-    {
-      id: "gal-17",
-      image: "/images/gallery/830980231_1095349403249379_2868174672025313594_n.jpg",
-      imageAlt: "Students together at The Educatee Centre",
-      width: 1280,
-      height: 960,
-    },
-    {
-      id: "gal-18",
-      image: "/images/gallery/831327307_1095349053249414_4941003578874012454_n.jpg",
-      imageAlt: "Batch certificate ceremony celebration",
-      width: 2048,
-      height: 1536,
-    },
-    {
-      id: "gal-19",
-      image: "/images/gallery/832592777_1095348209916165_7139133087998485533_n.jpg",
-      imageAlt: "Students presenting certificates proudly",
-      width: 2048,
-      height: 1536,
-    },
-    {
-      id: "gal-20",
-      image: "/images/gallery/832779916_1095349273249392_31323409940372666_n.jpg",
-      imageAlt: "Classroom presentation and celebration",
-      width: 2048,
-      height: 1536,
-    },
-    {
-      id: "gal-21",
-      image: "/images/gallery/832994170_1095348163249503_8000750830610793761_n.jpg",
-      imageAlt: "Engr. Zahir sir with batch graduates",
-      width: 2048,
-      height: 1536,
-    },
-    {
-      id: "gal-22",
-      image: "/images/gallery/833060628_1095349023249417_3078269679763061803_n.jpg",
-      imageAlt: "Group certificate showcase",
-      width: 2048,
-      height: 1536,
-    },
-    {
-      id: "gal-23",
-      image: "/images/gallery/833060632_1095349416582711_862643610559834982_n.jpg",
-      imageAlt: "Course completion celebration",
-      width: 2048,
-      height: 1536,
-    },
-    {
-      id: "gal-24",
-      image: "/images/gallery/833111429_1095349299916056_3176968590809920363_n.jpg",
-      imageAlt: "Celebration at The Educatee Centre",
-      width: 2048,
-      height: 1536,
-    },
-    {
-      id: "gal-25",
-      image: "/images/gallery/833523879_1095349153249404_7527348310474072844_n.jpg",
-      imageAlt: "Proud students holding achievement certificates",
-      width: 2048,
-      height: 1536,
-    },
-    {
-      id: "gal-26",
-      image: "/images/gallery/833779983_1841835726995521_109201482663132816_n.jpg",
-      imageAlt: "Campus group photo with Babar sir",
-      width: 2048,
-      height: 2048,
-    },
-    {
-      id: "gal-27",
-      image: "/images/gallery/833864485_1645383267096365_6071913849449253786_n.jpg",
-      imageAlt: "Batch celebration moment",
-      width: 2048,
-      height: 2048,
-    },
-    {
-      id: "gal-28",
-      image: "/images/gallery/834948207_1095348846582768_6244307365087932372_n.jpg",
-      imageAlt: "Educatee student group celebration",
-      width: 2048,
-      height: 1536,
-    },
-    {
-      id: "gal-29",
-      image: "/images/gallery/838716745_2115453176006459_7706850459904165253_n.jpg",
-      imageAlt: "Graduation celebration at The Educatee Centre",
-      width: 2048,
-      height: 1536,
-    },
-  ] as CultureGalleryItem[],
+  {
+    "id": "gal-1",
+    "image": "/images/gallery/graduation/086711202_648169754634015_4914525750402207896_n.jpg",
+    "imageAlt": "Graduation Day at The Educatee Centre",
+    "width": 2048,
+    "height": 1536,
+    "category": "Graduation Day"
+  },
+  {
+    "id": "gal-2",
+    "image": "/images/gallery/certificates/486572072_645244751593182_425354543393614183_n.jpg",
+    "imageAlt": "Certificates at The Educatee Centre",
+    "width": 2048,
+    "height": 1728,
+    "category": "Certificates"
+  },
+  {
+    "id": "gal-3",
+    "image": "/images/gallery/awards/057597948_791840006933655_3299946384635604609_n.jpg",
+    "imageAlt": "Awards at The Educatee Centre",
+    "width": 1540,
+    "height": 2048,
+    "category": "Awards"
+  },
+  {
+    "id": "gal-4",
+    "image": "/images/gallery/classroom/557593266_792413500209639_4966182424805824257_n.jpg",
+    "imageAlt": "Classroom at The Educatee Centre",
+    "width": 1170,
+    "height": 1655,
+    "category": "Classroom"
+  },
+  {
+    "id": "gal-5",
+    "image": "/images/gallery/outdoor/038425521_1017265301057790_1570134642383545483_n.jpg",
+    "imageAlt": "Outdoor & Fun at The Educatee Centre",
+    "width": 2048,
+    "height": 1152,
+    "category": "Outdoor & Fun"
+  },
+  {
+    "id": "gal-6",
+    "image": "/images/gallery/graduation/486549808_648169831300674_1298202646620577133_n.jpg",
+    "imageAlt": "Graduation Day at The Educatee Centre",
+    "width": 960,
+    "height": 720,
+    "category": "Graduation Day"
+  },
+  {
+    "id": "gal-7",
+    "image": "/images/gallery/certificates/650177057_924423867008601_8500057580163147555_n.jpg",
+    "imageAlt": "Certificates at The Educatee Centre",
+    "width": 2048,
+    "height": 1536,
+    "category": "Certificates"
+  },
+  {
+    "id": "gal-8",
+    "image": "/images/gallery/awards/555476827_787662397351416_2911080322614586653_n.jpg",
+    "imageAlt": "Awards at The Educatee Centre",
+    "width": 206,
+    "height": 206,
+    "category": "Awards"
+  },
+  {
+    "id": "gal-9",
+    "image": "/images/gallery/classroom/559052932_795537903230532_1134023329949609899_n.jpg",
+    "imageAlt": "Classroom at The Educatee Centre",
+    "width": 2048,
+    "height": 1536,
+    "category": "Classroom"
+  },
+  {
+    "id": "gal-10",
+    "image": "/images/gallery/outdoor/601830060_859325220185133_7989134668382657040_n.jpg",
+    "imageAlt": "Outdoor & Fun at The Educatee Centre",
+    "width": 206,
+    "height": 206,
+    "category": "Outdoor & Fun"
+  },
+  {
+    "id": "gal-11",
+    "image": "/images/gallery/graduation/560095835_797690506348605_6556200756662473813_n.jpg",
+    "imageAlt": "Graduation Day at The Educatee Centre",
+    "width": 2048,
+    "height": 1320,
+    "category": "Graduation Day"
+  },
+  {
+    "id": "gal-12",
+    "image": "/images/gallery/certificates/651882441_924431650341156_8541662025390578614_n.jpg",
+    "imageAlt": "Certificates at The Educatee Centre",
+    "width": 2048,
+    "height": 1536,
+    "category": "Certificates"
+  },
+  {
+    "id": "gal-13",
+    "image": "/images/gallery/awards/649280364_924420960342225_5003807260382575450_n.jpg",
+    "imageAlt": "Awards at The Educatee Centre",
+    "width": 2048,
+    "height": 1536,
+    "category": "Awards"
+  },
+  {
+    "id": "gal-14",
+    "image": "/images/gallery/classroom/560143314_804969528954036_5708054548518236706_n.jpg",
+    "imageAlt": "Classroom at The Educatee Centre",
+    "width": 206,
+    "height": 206,
+    "category": "Classroom"
+  },
+  {
+    "id": "gal-15",
+    "image": "/images/gallery/outdoor/602373293_859329650184690_8112060812601947593_n.jpg",
+    "imageAlt": "Outdoor & Fun at The Educatee Centre",
+    "width": 2048,
+    "height": 1536,
+    "category": "Outdoor & Fun"
+  },
+  {
+    "id": "gal-16",
+    "image": "/images/gallery/graduation/607706044_863471033103885_1201250032460442840_n.jpg",
+    "imageAlt": "Graduation Day at The Educatee Centre",
+    "width": 2048,
+    "height": 1536,
+    "category": "Graduation Day"
+  },
+  {
+    "id": "gal-17",
+    "image": "/images/gallery/certificates/652332385_924431583674496_2978045403681900790_n.jpg",
+    "imageAlt": "Certificates at The Educatee Centre",
+    "width": 2048,
+    "height": 1536,
+    "category": "Certificates"
+  },
+  {
+    "id": "gal-18",
+    "image": "/images/gallery/awards/651702472_924447613672893_2483923809284310917_n.jpg",
+    "imageAlt": "Awards at The Educatee Centre",
+    "width": 960,
+    "height": 720,
+    "category": "Awards"
+  },
+  {
+    "id": "gal-19",
+    "image": "/images/gallery/classroom/721099278_998335056284148_2042963328931241711_n.jpg",
+    "imageAlt": "Classroom at The Educatee Centre",
+    "width": 2048,
+    "height": 1536,
+    "category": "Classroom"
+  },
+  {
+    "id": "gal-20",
+    "image": "/images/gallery/outdoor/653365312_924504800333841_7549797409060557155_n.jpg",
+    "imageAlt": "Outdoor & Fun at The Educatee Centre",
+    "width": 2048,
+    "height": 1536,
+    "category": "Outdoor & Fun"
+  },
+  {
+    "id": "gal-21",
+    "image": "/images/gallery/graduation/830968588_1095206203263699_3345362751275082960_n.jpg",
+    "imageAlt": "Graduation Day at The Educatee Centre",
+    "width": 2048,
+    "height": 1536,
+    "category": "Graduation Day"
+  },
+  {
+    "id": "gal-22",
+    "image": "/images/gallery/certificates/831327307_1095349053249414_4941003578874012454_n.jpg",
+    "imageAlt": "Certificates at The Educatee Centre",
+    "width": 2048,
+    "height": 1536,
+    "category": "Certificates"
+  },
+  {
+    "id": "gal-23",
+    "image": "/images/gallery/awards/743050008_1022233403894313_6915417186812600644_n.jpg",
+    "imageAlt": "Awards at The Educatee Centre",
+    "width": 1536,
+    "height": 2048,
+    "category": "Awards"
+  },
+  {
+    "id": "gal-24",
+    "image": "/images/gallery/classroom/722953677_997463319704655_8353961146378372240_n.jpg",
+    "imageAlt": "Classroom at The Educatee Centre",
+    "width": 2048,
+    "height": 1536,
+    "category": "Classroom"
+  },
+  {
+    "id": "gal-25",
+    "image": "/images/gallery/outdoor/739335537_1033877599045524_2998915434243075354_n.jpg",
+    "imageAlt": "Outdoor & Fun at The Educatee Centre",
+    "width": 960,
+    "height": 720,
+    "category": "Outdoor & Fun"
+  },
+  {
+    "id": "gal-26",
+    "image": "/images/gallery/graduation/834387449_1118517147796364_9150298075086731163_n (1).jpg",
+    "imageAlt": "Graduation Day at The Educatee Centre",
+    "width": 2048,
+    "height": 1536,
+    "category": "Graduation Day"
+  },
+  {
+    "id": "gal-27",
+    "image": "/images/gallery/certificates/832592777_1095348209916165_7139133087998485533_n.jpg",
+    "imageAlt": "Certificates at The Educatee Centre",
+    "width": 2048,
+    "height": 1536,
+    "category": "Certificates"
+  },
+  {
+    "id": "gal-28",
+    "image": "/images/gallery/awards/830513828_4648207118734839_8111924575250440686_n.jpg",
+    "imageAlt": "Awards at The Educatee Centre",
+    "width": 1448,
+    "height": 1086,
+    "category": "Awards"
+  },
+  {
+    "id": "gal-29",
+    "image": "/images/gallery/classroom/746067535_1022969907153996_1478698739500016569_n.jpg",
+    "imageAlt": "Classroom at The Educatee Centre",
+    "width": 1536,
+    "height": 2048,
+    "category": "Classroom"
+  },
+  {
+    "id": "gal-30",
+    "image": "/images/gallery/outdoor/739762928_1035722768906377_5528683453237671430_n.jpg",
+    "imageAlt": "Outdoor & Fun at The Educatee Centre",
+    "width": 960,
+    "height": 720,
+    "category": "Outdoor & Fun"
+  },
+  {
+    "id": "gal-31",
+    "image": "/images/gallery/certificates/832779916_1095349273249392_31323409940372666_n.jpg",
+    "imageAlt": "Certificates at The Educatee Centre",
+    "width": 2048,
+    "height": 1536,
+    "category": "Certificates"
+  },
+  {
+    "id": "gal-32",
+    "image": "/images/gallery/awards/833864485_1645383267096365_6071913849449253786_n.jpg",
+    "imageAlt": "Awards at The Educatee Centre",
+    "width": 2048,
+    "height": 2048,
+    "category": "Awards"
+  },
+  {
+    "id": "gal-33",
+    "image": "/images/gallery/outdoor/746021033_1023480330436287_7783435890954779967_n.jpg",
+    "imageAlt": "Outdoor & Fun at The Educatee Centre",
+    "width": 2048,
+    "height": 1536,
+    "category": "Outdoor & Fun"
+  },
+  {
+    "id": "gal-34",
+    "image": "/images/gallery/certificates/832994170_1095348163249503_8000750830610793761_n.jpg",
+    "imageAlt": "Certificates at The Educatee Centre",
+    "width": 2048,
+    "height": 1536,
+    "category": "Certificates"
+  },
+  {
+    "id": "gal-35",
+    "image": "/images/gallery/outdoor/746808028_1023480327102954_4831974290325789200_n.jpg",
+    "imageAlt": "Outdoor & Fun at The Educatee Centre",
+    "width": 2048,
+    "height": 1536,
+    "category": "Outdoor & Fun"
+  },
+  {
+    "id": "gal-36",
+    "image": "/images/gallery/certificates/833060628_1095349023249417_3078269679763061803_n.jpg",
+    "imageAlt": "Certificates at The Educatee Centre",
+    "width": 2048,
+    "height": 1536,
+    "category": "Certificates"
+  },
+  {
+    "id": "gal-37",
+    "image": "/images/gallery/outdoor/748631427_1028091739975146_738324265459961494_n.jpg",
+    "imageAlt": "Outdoor & Fun at The Educatee Centre",
+    "width": 2048,
+    "height": 1536,
+    "category": "Outdoor & Fun"
+  },
+  {
+    "id": "gal-38",
+    "image": "/images/gallery/certificates/833060632_1095349416582711_862643610559834982_n.jpg",
+    "imageAlt": "Certificates at The Educatee Centre",
+    "width": 2048,
+    "height": 1536,
+    "category": "Certificates"
+  },
+  {
+    "id": "gal-39",
+    "image": "/images/gallery/outdoor/750565618_1028091719975148_6628783504481586196_n.jpg",
+    "imageAlt": "Outdoor & Fun at The Educatee Centre",
+    "width": 2048,
+    "height": 1536,
+    "category": "Outdoor & Fun"
+  },
+  {
+    "id": "gal-40",
+    "image": "/images/gallery/certificates/833523879_1095349153249404_7527348310474072844_n.jpg",
+    "imageAlt": "Certificates at The Educatee Centre",
+    "width": 2048,
+    "height": 1536,
+    "category": "Certificates"
+  },
+  {
+    "id": "gal-41",
+    "image": "/images/gallery/outdoor/750582944_2100265430845147_6175067686592255176_n.jpg",
+    "imageAlt": "Outdoor & Fun at The Educatee Centre",
+    "width": 960,
+    "height": 720,
+    "category": "Outdoor & Fun"
+  },
+  {
+    "id": "gal-42",
+    "image": "/images/gallery/certificates/834948207_1095348846582768_6244307365087932372_n.jpg",
+    "imageAlt": "Certificates at The Educatee Centre",
+    "width": 2048,
+    "height": 1536,
+    "category": "Certificates"
+  },
+  {
+    "id": "gal-43",
+    "image": "/images/gallery/outdoor/751805006_1718841236005083_5426002590649470592_n.jpg",
+    "imageAlt": "Outdoor & Fun at The Educatee Centre",
+    "width": 960,
+    "height": 720,
+    "category": "Outdoor & Fun"
+  }
+] as CultureGalleryItem[],
 
   programs: [
     {

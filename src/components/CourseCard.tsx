@@ -86,11 +86,11 @@ export function CourseCard({ course, index = 0 }: CourseCardProps) {
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
       {...cardLiftProps}
-      className={`flex flex-col ${styles.cardBg} rounded-[24px] p-5 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 justify-between group`}
+      className={`h-full flex flex-col ${styles.cardBg} rounded-[24px] p-5 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 justify-between group`}
     >
-      <div>
+      <div className="flex-1 flex flex-col">
         {/* Inner Rounded Image Container */}
-        <div className="relative w-full h-44 sm:h-48 rounded-[18px] overflow-hidden bg-black/10 mb-4 sm:mb-5">
+        <div className="relative w-full h-44 sm:h-48 rounded-[18px] overflow-hidden bg-black/10 mb-4 sm:mb-5 flex-shrink-0">
           <Image
             src={course.image}
             alt={course.imageAlt}
@@ -113,12 +113,12 @@ export function CourseCard({ course, index = 0 }: CourseCardProps) {
         </div>
 
         {/* Card Content */}
-        <div className="mb-4">
-          <span className={`block text-xs font-extrabold uppercase tracking-wider mb-1.5 ${styles.subColor}`}>
+        <div className="mb-4 flex-1 flex flex-col">
+          <span className={`block text-xs font-extrabold uppercase tracking-wider mb-1.5 min-h-[2.5rem] flex items-start ${styles.subColor}`}>
             {course.subtitle}
           </span>
           <Link href={`/programs/${course.slug}`}>
-            <h3 className={`text-xl sm:text-2xl font-extrabold ${styles.titleColor} font-[var(--font-ubuntu)] leading-tight hover:underline`}>
+            <h3 className={`text-xl sm:text-2xl font-extrabold ${styles.titleColor} font-[var(--font-ubuntu)] leading-tight hover:underline min-h-[3.5rem] sm:min-h-[4rem] flex items-start`}>
               {course.title}
             </h3>
           </Link>
@@ -126,7 +126,7 @@ export function CourseCard({ course, index = 0 }: CourseCardProps) {
       </div>
 
       {/* Card Footer with Padora White Button */}
-      <div className={`pt-4 border-t ${styles.dividerColor} flex items-center justify-between gap-3`}>
+      <div className={`pt-4 border-t ${styles.dividerColor} flex items-center justify-between gap-3 mt-auto`}>
         <div className="flex flex-col">
           <span className={`text-[10px] uppercase font-bold tracking-wider ${styles.footerLabel}`}>
             Batch Status

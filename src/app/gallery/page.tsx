@@ -1,33 +1,35 @@
+import React, { Suspense } from "react";
 import type { Metadata } from "next";
 import GalleryClientView from "./GalleryClientView";
 
 export const metadata: Metadata = {
-  title: "Photo Gallery & Moments | The Educatee Centre, Feni",
+  title: "Life at The Educatee Centre | Photo Gallery",
   description:
-    "Explore photo archives of graduation ceremonies, CEO Award presentations, interactive speaking workshops, computer labs, and vibrant student moments at The Educatee Centre in Feni.",
+    "Explore authentic photo archives of Graduation Day, Certificates, Awards, interactive Classroom sessions, and Outdoor & Fun moments at The Educatee Centre in Feni.",
   keywords: [
     "The Educatee Centre Gallery",
-    "Feni Spoken English photos",
-    "CEO Award Educatee Feni",
-    "Appayan Afroz Tower coaching gallery",
-    "IELTS batch celebrations Feni",
-    "computer training classroom Feni",
+    "Life at Educatee Feni",
+    "Graduation Day Educatee",
+    "Certificates Educatee Centre",
+    "Awards Educatee Feni",
+    "Classroom photos Educatee",
+    "Appayan Afroz Tower student moments",
   ],
   alternates: {
     canonical: "/gallery",
   },
   openGraph: {
-    title: "Photo Gallery & Moments | The Educatee Centre, Feni",
+    title: "Life at The Educatee Centre | Photo Gallery",
     description:
-      "Explore photo archives of graduation ceremonies, CEO Award presentations, interactive speaking workshops, and vibrant student moments in Feni.",
+      "Explore authentic photo archives of Graduation Day, Certificates, Awards, interactive Classroom sessions, and Outdoor & Fun moments at The Educatee Centre in Feni.",
     url: "https://theeducatee.com/gallery",
     siteName: "The Educatee Centre",
     images: [
       {
-        url: "/images/events/graduation-1.jpg",
+        url: "/images/gallery/graduation/featured.jpg",
         width: 1200,
         height: 630,
-        alt: "The Educatee Centre Student Moments & Celebrations",
+        alt: "Life at The Educatee Centre",
       },
     ],
     locale: "en_US",
@@ -36,5 +38,15 @@ export const metadata: Metadata = {
 };
 
 export default function GalleryPage() {
-  return <GalleryClientView />;
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-white flex items-center justify-center">
+          <div className="w-8 h-8 rounded-full border-2 border-[#4F67FF] border-t-transparent animate-spin" />
+        </div>
+      }
+    >
+      <GalleryClientView />
+    </Suspense>
+  );
 }

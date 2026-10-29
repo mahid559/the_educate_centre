@@ -52,7 +52,7 @@ export function ProgramsGrid() {
         </div>
 
         {/* 3 Featured Courses Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
           {featuredPrograms.map((program, index) => (
             <motion.div
               key={program.id}
@@ -60,6 +60,7 @@ export function ProgramsGrid() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.45, delay: index * 0.1 }}
+              className="h-full flex flex-col"
             >
               <CourseCard course={program} index={index} />
             </motion.div>
