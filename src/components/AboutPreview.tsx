@@ -1,9 +1,6 @@
-"use client";
-
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { siteContent } from "@/data/content";
 
 export function AboutPreview() {
@@ -14,13 +11,7 @@ export function AboutPreview() {
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column: Organic Blob Classroom Photo */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-5 relative flex items-center justify-center"
-          >
+          <div className="lg:col-span-5 relative flex items-center justify-center">
             {/* Padora Yellow Blob Backing Frame */}
             <div
               className="absolute -inset-3 sm:-inset-5 bg-[#FFC73B] rounded-[42%_58%_70%_30%_/_45%_45%_55%_55%] rotate-[-3deg] opacity-90 shadow-xl"
@@ -34,7 +25,7 @@ export function AboutPreview() {
             />
 
             {/* Photo Container */}
-            <div className="relative w-[280px] h-[340px] sm:w-[360px] sm:h-[420px] rounded-[40%_60%_65%_35%_/_42%_42%_58%_58%] overflow-hidden border-4 border-white shadow-xl z-10 bg-white">
+            <div className="relative max-w-full w-[265px] min-[360px]:w-[280px] h-[330px] sm:w-[360px] sm:h-[420px] rounded-[40%_60%_65%_35%_/_42%_42%_58%_58%] overflow-hidden border-4 border-white shadow-xl z-10 bg-white">
               <Image
                 src={aboutPreview.image}
                 alt={aboutPreview.imageAlt}
@@ -43,16 +34,10 @@ export function AboutPreview() {
                 className="object-cover object-center transform hover:scale-105 transition-transform duration-500"
               />
             </div>
-          </motion.div>
+          </div>
 
           {/* Right Column: Story & Features */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-7 flex flex-col items-start"
-          >
+          <div className="lg:col-span-7 flex flex-col items-start">
             {/* Tag */}
             <span className="text-[#ED1C24] text-xs sm:text-sm font-extrabold uppercase tracking-widest mb-3">
               {aboutPreview.tag}
@@ -91,7 +76,7 @@ export function AboutPreview() {
             >
               {aboutPreview.ctaText} →
             </Link>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

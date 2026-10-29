@@ -59,7 +59,11 @@ export function SuccessStories() {
 
   useEffect(() => {
     if (isPaused || shouldReduceMotion) return;
-    const interval = setInterval(nextSlide, 6000);
+    const interval = setInterval(() => {
+      if (!document.hidden) {
+        nextSlide();
+      }
+    }, 6000);
     return () => clearInterval(interval);
   }, [isPaused, nextSlide, shouldReduceMotion]);
 

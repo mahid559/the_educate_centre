@@ -1,9 +1,6 @@
-"use client";
-
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { siteContent } from "@/data/content";
 
 export function Hero() {
@@ -41,12 +38,7 @@ export function Hero() {
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Text & CTAs (7 cols) */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left"
-          >
+          <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left animate-hero-fade">
             {/* Tag Badge */}
             <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-md border border-white/25 rounded-full px-4 py-1.5 mb-6 text-xs sm:text-sm font-bold tracking-wide uppercase text-white shadow-sm">
               <span className="w-2 h-2 rounded-full bg-[#FFC73B] animate-pulse" />
@@ -108,15 +100,10 @@ export function Hero() {
                 <span className="font-bold text-white">Free demo before batch start</span> • 50% discount on Girls&apos; &amp; IELTS batches
               </p>
             </div>
-          </motion.div>
+          </div>
 
           {/* Right Column: Hero Graphic Blob Frame (5 cols) */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.92 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-5 relative flex items-center justify-center"
-          >
+          <div className="lg:col-span-5 relative flex items-center justify-center animate-hero-scale">
             {/* Padora Yellow Organic Backdrop Blob */}
             <div
               className="absolute -inset-4 sm:-inset-6 bg-[#FFC73B] rounded-[42%_58%_70%_30%_/_45%_45%_55%_55%] rotate-[-4deg] opacity-95 shadow-2xl transition-transform duration-700 hover:rotate-0"
@@ -135,7 +122,7 @@ export function Hero() {
             />
 
             {/* Image Container with Organic Clip */}
-            <div className="relative w-[300px] h-[340px] sm:w-[380px] sm:h-[420px] md:w-[440px] md:h-[480px] rounded-[44%_56%_62%_38%_/_46%_40%_60%_54%] overflow-hidden border-4 border-white shadow-2xl z-10 bg-white">
+            <div className="relative max-w-full w-[280px] h-[320px] min-[380px]:w-[300px] min-[380px]:h-[340px] sm:w-[380px] sm:h-[420px] md:w-[440px] md:h-[480px] rounded-[44%_56%_62%_38%_/_46%_40%_60%_54%] overflow-hidden border-4 border-white shadow-2xl z-10 bg-white">
               <Image
                 src={hero.image}
                 alt={hero.imageAlt}
@@ -145,7 +132,7 @@ export function Hero() {
                 className="object-cover object-center transform hover:scale-105 transition-transform duration-500"
               />
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

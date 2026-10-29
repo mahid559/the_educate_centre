@@ -1,9 +1,6 @@
-"use client";
-
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { siteContent } from "@/data/content";
 
 export function FounderSection() {
@@ -21,13 +18,7 @@ export function FounderSection() {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center relative z-10">
             {/* Left: Founder Portrait (5 cols) */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="lg:col-span-5 flex justify-center"
-            >
+            <div className="lg:col-span-5 flex justify-center">
               <div className="relative">
                 {/* Yellow Offset Backing Box (Padora Style) */}
                 <div
@@ -41,7 +32,6 @@ export function FounderSection() {
                     src={founder.image}
                     alt={founder.imageAlt}
                     fill
-                    priority
                     sizes="(max-width: 768px) 100vw, 380px"
                     className="object-cover object-center hover:scale-105 transition-transform duration-500"
                   />
@@ -55,16 +45,10 @@ export function FounderSection() {
                   <span>Founder &amp; CEO</span>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
             {/* Right: Message & Credentials (7 cols) */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="lg:col-span-7 flex flex-col items-start"
-            >
+            <div className="lg:col-span-7 flex flex-col items-start">
               <span className="text-[#ED1C24] text-xs sm:text-sm font-extrabold uppercase tracking-widest mb-2">
                 LEADERSHIP &amp; VISION
               </span>
@@ -105,7 +89,7 @@ export function FounderSection() {
                   Read Full Story →
                 </Link>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>

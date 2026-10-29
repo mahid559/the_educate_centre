@@ -1,7 +1,4 @@
-"use client";
-
 import React from "react";
-import { motion } from "framer-motion";
 import { siteContent, FeatureCard } from "@/data/content";
 
 export function WhyChooseUs() {
@@ -94,12 +91,8 @@ export function WhyChooseUs() {
             const style = getCardStyle(card.accent);
 
             return (
-              <motion.div
+              <div
                 key={card.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: idx * 0.08 }}
                 className={`rounded-2xl p-5 sm:p-6 ${style.cardBg} shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-start`}
               >
                 {/* Icon Badge */}
@@ -118,7 +111,7 @@ export function WhyChooseUs() {
                 <p className={`text-xs sm:text-sm ${style.descColor} leading-relaxed`}>
                   {card.description}
                 </p>
-              </motion.div>
+              </div>
             );
           })}
         </div>

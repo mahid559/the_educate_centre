@@ -82,7 +82,7 @@ export default function AboutClientView() {
                   aria-hidden="true"
                 />
 
-                <div className="relative w-[280px] h-[340px] sm:w-[350px] sm:h-[420px] rounded-[40%_60%_65%_35%_/_42%_42%_58%_58%] overflow-hidden border-4 border-white shadow-2xl bg-white z-10">
+                <div className="relative max-w-full w-[265px] min-[360px]:w-[280px] h-[330px] sm:w-[350px] sm:h-[420px] rounded-[40%_60%_65%_35%_/_42%_42%_58%_58%] overflow-hidden border-4 border-white shadow-2xl bg-white z-10">
                   <Image
                     src={about.story.image}
                     alt={about.story.imageAlt}

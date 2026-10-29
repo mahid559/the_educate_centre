@@ -1,7 +1,4 @@
-"use client";
-
 import React from "react";
-import { motion } from "framer-motion";
 import { siteContent } from "@/data/content";
 
 export function HighlightsStrip() {
@@ -46,13 +43,7 @@ export function HighlightsStrip() {
 
   return (
     <section className="relative -mt-8 sm:-mt-12 z-20 max-w-[1240px] mx-auto px-4 sm:px-6">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="bg-[#FFC73B] text-[#3B3B3D] rounded-[28px] p-6 sm:p-8 md:p-10 shadow-xl"
-      >
+      <div className="bg-[#FFC73B] text-[#3B3B3D] rounded-[28px] p-6 sm:p-8 md:p-10 shadow-xl">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 items-center divide-y-2 md:divide-y-0 md:divide-x-2 divide-black/10">
           {highlights.map((item, index) => (
             <div
@@ -73,7 +64,7 @@ export function HighlightsStrip() {
             </div>
           ))}
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

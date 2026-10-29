@@ -1,7 +1,4 @@
-"use client";
-
 import React from "react";
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { siteContent } from "@/data/content";
 
@@ -58,12 +55,8 @@ export function AdmissionSteps() {
             const style = stepStyles[idx % stepStyles.length];
 
             return (
-              <motion.div
+              <div
                 key={step.number}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: idx * 0.1 }}
                 className={`rounded-[28px] p-7 sm:p-8 ${style.cardBg} shadow-xl hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between`}
               >
                 <div>
@@ -86,7 +79,7 @@ export function AdmissionSteps() {
                 <div className="mt-6 pt-4 border-t border-white/20 text-xs font-bold uppercase tracking-wider opacity-90">
                   Step 0{idx + 1}
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>

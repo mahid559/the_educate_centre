@@ -5,10 +5,15 @@ import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Maximize2, Camera, ArrowRight, ChevronDown } from "lucide-react";
+import dynamic from "next/dynamic";
 import { PageHero } from "@/components/PageHero";
-import { Lightbox, LightboxImage } from "@/components/Lightbox";
 import { CTABanner } from "@/components/CTABanner";
 import { getGalleryData, GalleryPhoto } from "@/lib/gallery";
+import type { LightboxImage } from "@/components/Lightbox";
+
+const Lightbox = dynamic(() => import("@/components/Lightbox").then((mod) => mod.Lightbox), {
+  ssr: false,
+});
 import { GalleryCategory } from "@/data/content";
 
 type TabId = "all" | GalleryCategory;

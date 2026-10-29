@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Ubuntu, Nunito, Open_Sans, Hind_Siliguri } from "next/font/google";
+import { Ubuntu, Nunito, Open_Sans } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -7,30 +7,23 @@ import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { siteContent } from "@/data/content";
 
 const ubuntu = Ubuntu({
-  weight: ["400", "500", "700"],
+  weight: ["500", "700"],
   subsets: ["latin"],
   variable: "--font-ubuntu",
   display: "swap",
 });
 
 const nunito = Nunito({
-  weight: ["600", "700", "800", "900"],
+  weight: ["700", "800"],
   subsets: ["latin"],
   variable: "--font-nunito",
   display: "swap",
 });
 
 const openSans = Open_Sans({
-  weight: ["400", "600", "700"],
+  weight: ["400", "600"],
   subsets: ["latin"],
   variable: "--font-open-sans",
-  display: "swap",
-});
-
-const hindSiliguri = Hind_Siliguri({
-  weight: ["400", "500", "600", "700"],
-  subsets: ["bengali", "latin"],
-  variable: "--font-hind-siliguri",
   display: "swap",
 });
 
@@ -127,7 +120,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${ubuntu.variable} ${nunito.variable} ${openSans.variable} ${hindSiliguri.variable} scroll-smooth`}
+      className={`${ubuntu.variable} ${nunito.variable} ${openSans.variable} scroll-smooth`}
     >
       <head>
         <script

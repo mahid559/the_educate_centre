@@ -19,39 +19,42 @@ export function Header() {
   const { contact, programs } = siteContent;
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      const prevScrollY = lastScrollYRef.current;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY;
+          const prevScrollY = lastScrollYRef.current;
 
-      // Track if page is scrolled past top
-      setScrolled(currentScrollY > 20);
+          // Track if page is scrolled past top
+          setScrolled((prev) => {
+            const next = currentScrollY > 20;
+            return prev !== next ? next : prev;
+          });
 
-      // Always show navbar at the very top of the page
-      if (currentScrollY <= 40) {
-        setVisible(true);
-      } else if (currentScrollY > prevScrollY + 8) {
-        // Scrolling DOWN -> hide navbar to allow full screen view
-        setVisible(false);
-        setProgramsDropdownOpen(false);
-        setMobileMenuOpen(false);
-      } else if (currentScrollY < prevScrollY - 8) {
-        // Scrolling UP -> reveal navbar smoothly
-        setVisible(true);
+          // Always show navbar at the very top of the page
+          if (currentScrollY <= 40) {
+            setVisible(true);
+          } else if (currentScrollY > prevScrollY + 10) {
+            // Scrolling DOWN -> hide navbar to allow full screen view
+            setVisible(false);
+            setProgramsDropdownOpen(false);
+            setMobileMenuOpen(false);
+          } else if (currentScrollY < prevScrollY - 10) {
+            // Scrolling UP -> reveal navbar smoothly
+            setVisible(true);
+          }
+
+          lastScrollYRef.current = currentScrollY;
+          ticking = false;
+        });
+        ticking = true;
       }
-
-      lastScrollYRef.current = currentScrollY;
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  // Ensure landing on home page always scrolls to top (Hero section) unless navigating to an anchor
-  useEffect(() => {
-    if (pathname === "/" && !window.location.hash) {
-      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-    }
-  }, [pathname]);
 
   const isHomePage = pathname === "/";
   const demoLink = isHomePage ? "#free-demo" : "/admissions#free-demo";
@@ -283,7 +286,7 @@ export function Header() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -6, scale: 0.98 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
-              className="lg:hidden bg-white rounded-2xl shadow-2xl border border-[#E2E9EB] overflow-hidden mt-2 p-5"
+              className="lg:hidden bg-white rounded-2xl shadow-2xl border border-[#E2E9EB] max-h-[82vh] overflow-y-auto overscroll-contain mt-2 p-5"
             >
               <div className="flex flex-col gap-3">
                 <Link

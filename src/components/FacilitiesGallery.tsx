@@ -1,11 +1,7 @@
-"use client";
-
 import React from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { ArrowRight, Check, Mic, Monitor, Sparkles } from "lucide-react";
 import { siteContent } from "@/data/content";
-import { cardLiftProps } from "@/lib/motion";
 
 export function FacilitiesGallery() {
   const { facilities } = siteContent;
@@ -109,14 +105,9 @@ export function FacilitiesGallery() {
             const config = cardConfigs[idx % cardConfigs.length];
 
             return (
-              <motion.article
+              <article
                 key={fac.id}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                {...cardLiftProps}
-                className={`relative flex flex-col justify-between ${config.cardBg} rounded-[28px] p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group`}
+                className={`relative flex flex-col justify-between ${config.cardBg} rounded-[28px] p-6 sm:p-8 shadow-xl hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 overflow-hidden group`}
               >
                 {/* Background Watermark Illustration */}
                 <div className="absolute -bottom-6 -right-6 pointer-events-none group-hover:scale-110 transition-transform duration-500 ease-out">
@@ -177,7 +168,7 @@ export function FacilitiesGallery() {
                     <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
                   </Link>
                 </div>
-              </motion.article>
+              </article>
             );
           })}
         </div>

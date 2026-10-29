@@ -1,8 +1,5 @@
-"use client";
-
 import React from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { siteContent } from "@/data/content";
 import { CourseCard } from "@/components/CourseCard";
@@ -54,16 +51,12 @@ export function ProgramsGrid() {
         {/* 3 Featured Courses Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
           {featuredPrograms.map((program, index) => (
-            <motion.div
+            <div
               key={program.id}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.45, delay: index * 0.1 }}
               className="h-full flex flex-col"
             >
               <CourseCard course={program} index={index} />
-            </motion.div>
+            </div>
           ))}
         </div>
 

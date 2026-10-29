@@ -1,12 +1,8 @@
-"use client";
-
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Course } from "@/data/content";
-import { cardLiftProps } from "@/lib/motion";
 
 interface CourseCardProps {
   course: Course;
@@ -80,13 +76,8 @@ export function CourseCard({ course, index = 0 }: CourseCardProps) {
   const styles = getCardStyle(course.accentColor);
 
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
-      {...cardLiftProps}
-      className={`h-full flex flex-col ${styles.cardBg} rounded-[24px] p-5 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 justify-between group`}
+    <article
+      className={`h-full flex flex-col ${styles.cardBg} rounded-[24px] p-5 sm:p-6 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 justify-between group`}
     >
       <div className="flex-1 flex flex-col">
         {/* Inner Rounded Image Container */}
@@ -131,6 +122,6 @@ export function CourseCard({ course, index = 0 }: CourseCardProps) {
           <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-0.5" />
         </Link>
       </div>
-    </motion.article>
+    </article>
   );
 }

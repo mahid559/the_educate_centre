@@ -6,8 +6,13 @@ import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Maximize2, ImageOff } from "lucide-react";
 import { siteContent, homeGalleryCaptions, GalleryCategory } from "@/data/content";
+import dynamic from "next/dynamic";
 import { getGalleryData, FeaturedItem } from "@/lib/gallery";
-import { Lightbox, LightboxImage } from "@/components/Lightbox";
+import type { LightboxImage } from "@/components/Lightbox";
+
+const Lightbox = dynamic(() => import("@/components/Lightbox").then((mod) => mod.Lightbox), {
+  ssr: false,
+});
 
 export function EventsPreview() {
   const { gallery } = siteContent;
