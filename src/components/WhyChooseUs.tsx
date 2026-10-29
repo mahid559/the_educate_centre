@@ -18,7 +18,7 @@ export function WhyChooseUs() {
           pillBg: "bg-white/20 text-white border-white/20",
           dotColor: "bg-white",
           icon: (
-            <svg className="w-7 h-7 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 sm:w-6 sm:h-6 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
               <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
             </svg>
           ),
@@ -32,7 +32,7 @@ export function WhyChooseUs() {
           pillBg: "bg-white/20 text-white border-white/20",
           dotColor: "bg-white",
           icon: (
-            <svg className="w-7 h-7 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 sm:w-6 sm:h-6 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
               <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
               <circle cx="12" cy="7" r="4" />
             </svg>
@@ -47,7 +47,7 @@ export function WhyChooseUs() {
           pillBg: "bg-black/10 text-[#3B3B3D] border-black/10",
           dotColor: "bg-[#3B3B3D]",
           icon: (
-            <svg className="w-7 h-7 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 sm:w-6 sm:h-6 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
               <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
             </svg>
           ),
@@ -62,7 +62,7 @@ export function WhyChooseUs() {
           pillBg: "bg-white/20 text-white border-white/20",
           dotColor: "bg-white",
           icon: (
-            <svg className="w-7 h-7 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 sm:w-6 sm:h-6 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
               <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
               <polyline points="22 4 12 14.01 9 11.01" />
             </svg>
@@ -88,8 +88,8 @@ export function WhyChooseUs() {
           </p>
         </div>
 
-        {/* Feature Cards Grid (Matching Padora Signature Colors of Upper Cards) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        {/* Feature Cards Grid (Compact & Refined) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
           {whyChooseUs.map((card, idx) => {
             const style = getCardStyle(card.accent);
 
@@ -99,34 +99,25 @@ export function WhyChooseUs() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: idx * 0.1 }}
-                className={`rounded-[28px] p-7 sm:p-8 ${style.cardBg} shadow-xl hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between`}
+                transition={{ duration: 0.45, delay: idx * 0.08 }}
+                className={`rounded-2xl p-5 sm:p-6 ${style.cardBg} shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-start`}
               >
-                <div>
-                  {/* Icon Badge */}
-                  <div
-                    className={`w-14 h-14 rounded-2xl ${style.iconBg} flex items-center justify-center mb-6 shadow-md`}
-                  >
-                    {style.icon}
-                  </div>
-
-                  {/* Title */}
-                  <h3 className={`text-xl sm:text-2xl font-extrabold mb-3 font-[var(--font-ubuntu)] leading-tight ${style.titleColor}`}>
-                    {card.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className={`text-sm ${style.descColor} leading-relaxed`}>
-                    {card.description}
-                  </p>
+                {/* Icon Badge */}
+                <div
+                  className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl ${style.iconBg} flex items-center justify-center mb-4 shadow-xs`}
+                >
+                  {style.icon}
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-white/20 flex items-center gap-2">
-                  <span className={`w-2 h-2 rounded-full ${style.dotColor}`} />
-                  <span className={`text-[11px] font-bold uppercase tracking-wider ${style.descColor}`}>
-                    Educatee Standard
-                  </span>
-                </div>
+                {/* Title */}
+                <h3 className={`text-lg sm:text-xl font-extrabold mb-2 font-[var(--font-ubuntu)] leading-tight ${style.titleColor}`}>
+                  {card.title}
+                </h3>
+
+                {/* Description */}
+                <p className={`text-xs sm:text-sm ${style.descColor} leading-relaxed`}>
+                  {card.description}
+                </p>
               </motion.div>
             );
           })}

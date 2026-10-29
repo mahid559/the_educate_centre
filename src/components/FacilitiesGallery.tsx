@@ -142,23 +142,11 @@ export function FacilitiesGallery() {
 
                     {/* Footer Action Bar */}
                     <div
-                      className={`pt-5 border-t ${style.dividerColor} flex flex-col sm:flex-row sm:items-center justify-between gap-4`}
+                      className={`pt-5 border-t ${style.dividerColor} flex items-center justify-end`}
                     >
-                      <div className="flex flex-col">
-                        <span
-                          className={`text-[10px] uppercase font-bold tracking-wider ${style.footerLabel}`}
-                        >
-                          Campus Level
-                        </span>
-                        <span
-                          className={`text-xs font-extrabold ${style.footerValue}`}
-                        >
-                          5th Floor • Lift Access (Press 4th Floor Button)
-                        </span>
-                      </div>
                       <Link
                         href={style.actionLink}
-                        className={`inline-flex items-center justify-center gap-2 ${style.buttonBg} font-extrabold text-xs sm:text-sm px-6 py-3 rounded-xl transition-all duration-200 shadow-md hover:scale-[1.02] active:scale-[0.98] group/btn self-start sm:self-auto`}
+                        className={`inline-flex items-center justify-center gap-2 ${style.buttonBg} font-extrabold text-xs sm:text-sm px-6 py-3 rounded-xl transition-all duration-200 shadow-md hover:scale-[1.02] active:scale-[0.98] group/btn`}
                       >
                         <span>{style.actionText}</span>
                         <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-0.5" />
@@ -230,23 +218,11 @@ export function FacilitiesGallery() {
 
                 {/* Footer with Padora Action Button */}
                 <div
-                  className={`pt-5 border-t ${style.dividerColor} flex items-center justify-between gap-3`}
+                  className={`pt-5 border-t ${style.dividerColor} flex items-center justify-end`}
                 >
-                  <div className="flex flex-col">
-                    <span
-                      className={`text-[10px] uppercase font-bold tracking-wider ${style.footerLabel}`}
-                    >
-                      Campus Level
-                    </span>
-                    <span
-                      className={`text-xs font-extrabold ${style.footerValue}`}
-                    >
-                      5th Floor • Lift Access
-                    </span>
-                  </div>
                   <Link
                     href={style.actionLink}
-                    className={`inline-flex items-center justify-center gap-2 ${style.buttonBg} font-extrabold text-xs sm:text-sm px-6 py-3 rounded-xl transition-all duration-200 shadow-md hover:scale-[1.02] active:scale-[0.98] group/btn`}
+                    className={`inline-flex items-center justify-center gap-2 ${style.buttonBg} font-extrabold text-xs sm:text-sm px-6 py-3 rounded-xl transition-all duration-200 shadow-md hover:scale-[1.02] active:scale-[0.98] group/btn w-full sm:w-auto`}
                   >
                     <span>{style.actionText}</span>
                     <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-0.5" />

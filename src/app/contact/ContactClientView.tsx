@@ -394,12 +394,12 @@ export default function ContactClientView() {
                   </div>
                 </div>
 
-                {/* PROMINENT LIFT NOTE CALLOUT */}
+                {/* PROMINENT CAMPUS FINDING CALLOUT */}
                 <div className="bg-[#FFF9EB] border border-[#E2E9EB] rounded-2xl p-4 text-xs sm:text-sm text-[#3B3B3D] leading-relaxed">
                   <strong className="text-[#B87C00] block uppercase tracking-wider mb-1 font-extrabold">
-                    Important Campus Finding Tip:
+                    Campus Location:
                   </strong>
-                  The Educatee Centre is on the <strong>5th floor</strong> of Appayan Afroz Tower. When entering the elevator, please <strong>press the 4th floor button</strong> to arrive directly at our front reception.
+                  The Educatee Centre is on the <strong>5th floor</strong> of Appayan Afroz Tower, College Road, Feni, with full elevator access directly to our reception.
                 </div>
 
                 {/* Direct quick buttons */}

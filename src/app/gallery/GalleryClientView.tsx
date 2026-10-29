@@ -149,18 +149,17 @@ export default function GalleryClientView() {
                   tabIndex={isActive ? 0 : -1}
                   type="button"
                   onClick={() => handleTabSelect(tab.id)}
-                  className={`relative shrink-0 px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-colors duration-200 select-none flex items-center focus:outline-none focus:ring-2 focus:ring-[#4F67FF]/50 ${
+                  className={`relative shrink-0 px-5 py-2.5 rounded-full text-xs sm:text-sm font-extrabold transition-all duration-200 select-none flex items-center border focus:outline-none focus:ring-2 focus:ring-[#ED1C24]/40 ${
                     isActive
-                      ? "text-white"
-                      : "text-[#54595F] hover:text-[#3B3B3D] hover:bg-slate-100/80"
+                      ? "bg-[#ED1C24] text-white border-[#ED1C24] shadow-md shadow-red-500/25"
+                      : "bg-white border-[#E2E9EB] text-[#54595F] hover:border-[#ED1C24] hover:text-[#ED1C24] hover:bg-red-50/50"
                   }`}
                 >
                   {/* Sliding Active Indicator via Framer Motion layoutId */}
                   {isActive && (
                     <motion.div
                       layoutId="activeFilterTab"
-                      className="absolute inset-0 bg-[#4F67FF] rounded-full shadow-md"
-                      style={{ zIndex: 1 }}
+                      className="absolute inset-0 bg-[#ED1C24] rounded-full shadow-md shadow-red-500/25"
                       transition={{
                         type: "spring",
                         stiffness: 420,
@@ -168,7 +167,9 @@ export default function GalleryClientView() {
                       }}
                     />
                   )}
-                  <span className="relative z-10">{tab.label}</span>
+                  <span className={`relative z-10 ${isActive ? "text-white" : ""}`}>
+                    {tab.label}
+                  </span>
                 </button>
               );
             })}
@@ -216,7 +217,7 @@ export default function GalleryClientView() {
               <button
                 type="button"
                 onClick={() => handleTabSelect("all")}
-                className="inline-flex items-center gap-2 bg-[#4F67FF] hover:bg-[#3850EB] text-white font-extrabold text-sm px-6 py-3 rounded-full transition-all shadow-md shadow-blue-500/20 active:scale-95"
+                className="inline-flex items-center gap-2 bg-[#ED1C24] hover:bg-[#C81017] text-white font-extrabold text-sm px-6 py-3 rounded-full transition-all shadow-md shadow-red-500/20 active:scale-95"
               >
                 <span>Back to All Photos</span>
                 <ArrowRight className="w-4 h-4" />
@@ -292,7 +293,7 @@ export default function GalleryClientView() {
                   <button
                     type="button"
                     onClick={handleLoadMore}
-                    className="inline-flex items-center gap-2.5 bg-[#4F67FF] hover:bg-[#3850EB] text-white font-extrabold text-sm sm:text-base px-8 py-3.5 rounded-full transition-all duration-200 shadow-md shadow-blue-500/20 hover:scale-[1.02] active:scale-[0.98]"
+                    className="inline-flex items-center gap-2.5 bg-[#ED1C24] hover:bg-[#C81017] text-white font-extrabold text-sm sm:text-base px-8 py-3.5 rounded-full transition-all duration-200 shadow-md shadow-red-500/20 hover:scale-[1.02] active:scale-[0.98]"
                   >
                     <span>Load More Photos</span>
                     <ChevronDown className="w-4 h-4" />

@@ -441,7 +441,7 @@ export const siteContent = {
       image: "/images/hero/hero.jpg",
       imageAlt: "Calm, welcoming study environment at The Educatee Centre",
       features: [
-        "Press 4th floor button in lift for 5th floor access",
+        "Quiet and peaceful study space away from street noise",
         "Noise-isolated classrooms with bright ambient natural light",
         "Safe, welcoming environment with dedicated staff support",
         "Clean, comfortable student lounge and waiting area"
@@ -1340,7 +1340,7 @@ export const siteContent = {
       id: "faq-4",
       category: "location",
       question: "Where is The Educatee Centre located in Feni?",
-      answer: "We are located at Appayan Afroz Tower, near the Pourashava Gate on College Road, Feni. We are on the 5th floor (important note: when taking the lift, please press the 4th floor button)."
+      answer: "We are located at Appayan Afroz Tower, near the Pourashava Gate on College Road, Feni. We are on the 5th floor with dedicated lift access to our reception."
     },
     {
       id: "faq-5",

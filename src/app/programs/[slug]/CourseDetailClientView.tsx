@@ -12,6 +12,7 @@ import {
   Users,
   MessageCircle,
   ChevronDown,
+  MapPin,
 } from "lucide-react";
 import { Course, siteContent } from "@/data/content";
 import { Breadcrumb } from "@/components/Breadcrumb";
@@ -479,8 +480,9 @@ export function CourseDetailClientView({
                     </a>
                   </div>
 
-                  <div className="mt-4 text-[11px] text-[#54595F] text-center">
-                    📍 Appayan Afroz Tower, College Road, Feni (5th Floor)
+                  <div className="mt-4 text-[11px] text-[#54595F] flex items-center justify-center gap-1.5">
+                    <MapPin className="w-3.5 h-3.5 text-[#ED1C24] flex-shrink-0" />
+                    <span>Appayan Afroz Tower, College Road, Feni (5th Floor)</span>
                   </div>
                 </div>
 

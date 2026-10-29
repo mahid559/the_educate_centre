@@ -455,12 +455,6 @@ export default function AboutClientView() {
                       </ul>
                     </div>
                   </div>
-
-                  <div className={`pt-4 border-t ${style.dividerColor} flex items-center justify-between`}>
-                    <span className={`text-[11px] font-bold uppercase tracking-wider ${style.descColor}`}>
-                      5th Floor Campus • Lift Available
-                    </span>
-                  </div>
                 </motion.article>
               );
             })}
