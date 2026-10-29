@@ -94,7 +94,7 @@ export function AdmissionSteps() {
         {/* Bottom CTA Box */}
         <div className="mt-14 text-center">
           <Link
-            href="/admissions#free-demo"
+            href="#free-demo"
             className="inline-flex items-center justify-center bg-[#ED1C24] hover:bg-[#C81017] text-white font-extrabold text-sm sm:text-base px-8 py-4 rounded-full transition-all duration-200 shadow-xl shadow-red-500/25 hover:shadow-2xl hover:scale-[1.02] active:scale-[0.98]"
           >
             Start with Step 1: Book Free Demo Now →

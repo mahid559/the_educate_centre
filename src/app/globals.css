@@ -89,7 +89,7 @@
 
 /* Smooth Scrolling for anchor targets without breaking route navigation scroll */
 @media (prefers-reduced-motion: no-preference) {
-  :root:has(:target) {
+  html {
     scroll-behavior: smooth;
   }
 }

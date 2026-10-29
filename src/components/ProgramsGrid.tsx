@@ -73,7 +73,7 @@ export function ProgramsGrid() {
             href="/programs"
             className="md:hidden inline-flex items-center gap-2 bg-[#ED1C24] hover:bg-[#C81017] text-white font-extrabold text-sm px-8 py-3.5 rounded-full shadow-md shadow-red-500/20"
           >
-            <span>View all courses ({programs.length})</span>
+            <span>View all courses</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
 
@@ -83,7 +83,7 @@ export function ProgramsGrid() {
               href="/programs"
               className="font-bold text-[#ED1C24] hover:underline inline-flex items-center gap-1"
             >
-              <span>Explore all {programs.length} programs</span>
+              <span>Explore all programs</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </p>

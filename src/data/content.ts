@@ -252,10 +252,10 @@ export const siteContent = {
     headlineLine2: "Build Your Global Future.",
     subtext: "Master spoken English with zero hesitation, prepare for your target IELTS band with free mock tests in small groups of 16, and gain hands-on computer skills in a friendly, encouraging environment.",
     primaryCtaText: "Book a Free Demo Class",
-    primaryCtaLink: "/admissions#free-demo",
+    primaryCtaLink: "#free-demo",
     secondaryCtaText: "Explore Programs",
     secondaryCtaLink: "/programs",
-    image: "/images/hero/hero.jpg",
+    image: "/images/hero/caf58086-d66d-4d16-bba5-f4698f7966c4.png",
     imageAlt: "Enthusiastic students practicing English and IT skills at The Educatee Centre",
   },
 

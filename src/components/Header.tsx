@@ -46,12 +46,15 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Ensure landing on home page always scrolls to top (Hero section)
+  // Ensure landing on home page always scrolls to top (Hero section) unless navigating to an anchor
   useEffect(() => {
-    if (pathname === "/") {
+    if (pathname === "/" && !window.location.hash) {
       window.scrollTo({ top: 0, left: 0, behavior: "instant" });
     }
   }, [pathname]);
+
+  const isHomePage = pathname === "/";
+  const demoLink = isHomePage ? "#free-demo" : "/admissions#free-demo";
 
   const handleHomeClick = (e: React.MouseEvent) => {
     setMobileMenuOpen(false);
@@ -249,7 +252,7 @@ export function Header() {
             </a>
 
             <Link
-              href="/admissions#free-demo"
+              href={demoLink}
               className="hidden sm:inline-flex items-center justify-center bg-[#ED1C24] hover:bg-[#C81017] text-white font-bold text-xs sm:text-sm px-5 sm:px-6 py-2.5 rounded-full transition-all duration-200 shadow-md shadow-red-500/20 hover:scale-[1.02] active:scale-[0.98]"
             >
               Book Free Demo
@@ -374,7 +377,7 @@ export function Header() {
                     <span>Call {contact.primaryPhone}</span>
                   </a>
                   <Link
-                    href="/admissions#free-demo"
+                    href={demoLink}
                     className="flex items-center justify-center py-3 rounded-full bg-[#ED1C24] hover:bg-[#C81017] text-white font-bold text-sm shadow-md shadow-red-500/20"
                     onClick={() => setMobileMenuOpen(false)}
                   >

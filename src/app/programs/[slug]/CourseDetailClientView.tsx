@@ -499,7 +499,51 @@ export function CourseDetailClientView({
         </div>
       </section>
 
-      {/* 3. Related Courses */}
+      {/* 3. Free Demo Class Booking Form for this Course */}
+      <section id="demo-form" className="py-20 md:py-24 bg-white relative scroll-mt-24 border-t border-[#E2E9EB]">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
+          <div className="bg-[#4F67FF] rounded-3xl md:rounded-[3rem] p-8 sm:p-12 lg:p-16 text-white relative overflow-hidden shadow-2xl">
+            {/* Subtle Decorative Curves */}
+            <div className="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-white/10 blur-2xl pointer-events-none" />
+            <div className="absolute -left-20 -top-20 w-72 h-72 rounded-full bg-[#FFC73B]/20 blur-2xl pointer-events-none" />
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center relative z-10">
+              <div className="lg:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left">
+                <span className="text-[#ED1C24] bg-white px-3.5 py-1 rounded-full text-xs font-extrabold uppercase tracking-widest mb-3 inline-block shadow-sm">
+                  RESERVE YOUR SEAT
+                </span>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight font-[var(--font-ubuntu)] mb-4">
+                  Experience a Free Demo Class
+                </h2>
+                <p className="text-base sm:text-lg text-white/90 leading-relaxed mb-6 max-w-lg">
+                  Sit in an actual class for <strong className="text-white font-bold">{course.title}</strong>, meet the instructor, and test our methodology before paying any admission fee.
+                </p>
+
+                <div className="flex flex-col gap-3 text-sm text-white/85">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-[#00CDC4]" />
+                    <span>100% Free — No hidden registration fee</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-[#00CDC4]" />
+                    <span>Interactive practice in friendly small batches</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-[#00CDC4]" />
+                    <span>Morning, afternoon &amp; evening batch slots available</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="lg:col-span-6 w-full">
+                <DemoForm defaultCourse={course.title} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Related Courses */}
       <section className="py-20 md:py-24 bg-[#EFF1FB]/50 relative border-t border-[#E2E9EB]">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           <SectionHeading

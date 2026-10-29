@@ -562,7 +562,7 @@ export default function AboutClientView() {
               href="/gallery"
               className="inline-flex items-center gap-2 bg-[#ED1C24] hover:bg-[#C81017] text-white font-extrabold text-sm px-7 py-3.5 rounded-full transition-all duration-200 shadow-md shadow-red-500/20 hover:scale-[1.02] active:scale-[0.98] group"
             >
-              <span>Explore All {cultureGallery.length} Gallery Photos</span>
+              <span>Explore Full Photo Gallery</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>

@@ -32,8 +32,10 @@ export function FilterTabs({
             aria-selected={isActive}
             type="button"
             onClick={() => onChange(category)}
-            className={`relative px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ED1C24] ${
-              isActive ? "text-white" : "text-[#54595F] hover:text-[#3B3B3D]"
+            className={`relative px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ED1C24] ${
+              isActive
+                ? "bg-[#ED1C24] text-white shadow-md shadow-red-500/25"
+                : "text-[#54595F] hover:text-[#ED1C24] hover:bg-white/60"
             }`}
           >
             {isActive && (

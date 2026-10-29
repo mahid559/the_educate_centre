@@ -98,18 +98,6 @@ export function CourseCard({ course, index = 0 }: CourseCardProps) {
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 380px"
             className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
           />
-          {/* Category Pill Floating on Image */}
-          <span className="absolute top-3 left-3 bg-white/95 backdrop-blur-md text-xs font-bold px-3 py-1 rounded-full text-[#3B3B3D] shadow-sm">
-            {course.category}
-          </span>
-          {/* Highlight Badge Floating on Image */}
-          {course.badge && (
-            <span
-              className={`absolute top-3 right-3 text-xs font-black px-3 py-1 rounded-full shadow-md ${styles.badgeBg}`}
-            >
-              {course.badge}
-            </span>
-          )}
         </div>
 
         {/* Card Content */}
