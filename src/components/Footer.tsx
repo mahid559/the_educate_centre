@@ -53,7 +53,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook Page"
-                className="w-10 h-10 rounded-full bg-white/10 border border-white/10 text-white flex items-center justify-center hover:bg-[#4F67FF] hover:border-[#4F67FF] transition-all duration-200"
+                className="w-10 h-10 rounded-full bg-white/10 border border-white/10 text-white flex items-center justify-center hover:bg-[#1877F2] hover:border-[#1877F2] transition-all duration-200"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                   <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
@@ -64,7 +64,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Chat on WhatsApp"
-                className="w-10 h-10 rounded-full bg-white/10 border border-white/10 text-[#00CDC4] flex items-center justify-center hover:bg-[#00CDC4] hover:text-[#0F172A] hover:border-[#00CDC4] transition-all duration-200"
+                className="w-10 h-10 rounded-full bg-white/10 border border-white/10 text-white flex items-center justify-center hover:bg-[#25D366] hover:border-[#25D366] transition-all duration-200"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                   <path d="M12.031 2C6.495 2 2 6.495 2 12.031c0 1.908.536 3.69 1.468 5.215L2.094 22l4.908-1.342a9.99 9.99 0 005.029 1.373c5.536 0 10.031-4.495 10.031-10.031S17.567 2 12.031 2zm5.727 14.195c-.242.682-1.22 1.306-1.722 1.38-.475.07-1.077.103-3.414-.85-2.616-1.066-4.321-3.722-4.452-3.896-.13-.174-1.055-1.402-1.055-2.673 0-1.272.668-1.898.906-2.155.238-.256.52-.32.693-.32.174 0 .347.002.498.01.163.007.38-.062.593.45.22.528.749 1.828.815 1.96.065.132.109.288.022.463-.087.174-.13.282-.26.434-.13.152-.272.34-.389.456-.13.13-.265.27-.114.53.152.26.674 1.109 1.445 1.796.994.885 1.832 1.16 2.092 1.29.26.13.412.115.564-.06.152-.174.65-0.757.824-1.017.174-.26.347-.217.585-.13.238.087 1.517.715 1.777.845.26.13.434.195.498.304.065.108.065.628-.177 1.31z" />
@@ -118,7 +118,7 @@ export function Footer() {
           <div className="lg:col-span-3 flex flex-col gap-3">
             <h3 className="font-bold text-white text-base mb-1">Campus Location</h3>
             <div className="flex items-start gap-2.5 text-sm">
-              <span className="text-[#F73775] mt-0.5 flex-shrink-0">
+              <span className="text-[#EF4444] mt-0.5 flex-shrink-0">
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                   <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                 </svg>
@@ -155,13 +155,30 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-3">
-          <p>
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
+          <p className="text-center sm:text-left">
             © 2026 {brand.name}. All rights reserved.
           </p>
-          <p className="text-center sm:text-right">
-            Designed for Feni&apos;s Next Generation of English Speakers &amp; Digital Leaders.
-          </p>
+          <div className="flex items-center gap-2 text-slate-400">
+            <span>Developed By</span>
+            <a
+              href="https://www.stellarworm.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center opacity-80 hover:opacity-100 transition-opacity focus:outline-none focus:ring-1 focus:ring-white/30 rounded"
+              aria-label="Stellar Worm website (opens in a new tab)"
+            >
+              <div className="relative w-[118px] h-[14px] flex items-center">
+                <Image
+                  src="/stellar-worm-logo.png"
+                  alt="Stellar Worm"
+                  fill
+                  className="object-contain object-left"
+                  unoptimized
+                />
+              </div>
+            </a>
+          </div>
         </div>
       </div>
     </footer>
